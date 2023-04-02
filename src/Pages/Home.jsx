@@ -2,10 +2,9 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Coins from '../components/Coins'
 
-export default function Home() {
-	const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en"
+export default function Home(props) {
+	const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${props.currency}&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en`
 	const [coins, setCoins] = useState([])
-
 	// Fetch the API and set the data to the coins state.
 	useEffect(() => {
 		fetch(url)
@@ -17,7 +16,7 @@ export default function Home() {
 			.catch((error) => {
 				console.log(error)
 			})
-	}, [])
+	}, [props.currency])
 
 	return (
 		<Coins coins={coins}/>

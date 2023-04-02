@@ -6,17 +6,19 @@ import NavBar from './components/NavBar'
 import ShowCoin from './Pages/ShowCoin'
 
 function App() {
+	const [currency, setCurrency] = useState("USD")
+	console.log(currency)
 
-  return (
-    <div className='App'>
-      <NavBar />
-      <Routes>
-        <Route index element={<Home />}/>
-        <Route path='/:id' element={<ShowCoin />}/>
-      </Routes>
+	return (
+		<div className='App'>
+			<NavBar currency={currency} setCurrency={setCurrency}/>
+			<Routes>
+				<Route index element={<Home currency={currency} />} />
+				<Route path='/:id' element={<ShowCoin />} />
+			</Routes>
 
-    </div>
-  )
+		</div>
+	)
 }
 
 export default App

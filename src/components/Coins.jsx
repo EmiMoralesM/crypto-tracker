@@ -15,7 +15,7 @@ export default function Coins(props) {
     return (
         <div className='coinsContainer'>
             <div>
-                <p>Cryptocurrencies</p>
+                <p style={{margin: "0"}}>Cryptocurrencies</p>
                 <div>
                     <form>
                         <label htmlFor="searchCoin">Serach</label>

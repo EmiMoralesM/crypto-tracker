@@ -1,0 +1,204 @@
+.navbar {
+    background-color: rgb(22, 22, 22);
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100vw;
+}
+
+.navLeftSide, .navRightSide {
+    display: flex;
+}
+
+/* NavBar - Left Side  */
+.logo {
+    margin: 0;
+    background-image: url(../resourses/logo-test.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 140px;
+    height: 55px;
+    width: 150px;
+    overflow: hidden;
+    padding: 5px 15px;
+}
+.logo a{
+    padding: 20px 0 20px 300px;
+}
+
+.mainMenu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    margin: 0;
+}
+.mainMenu > li{
+    list-style-type: none;
+    margin: 0 10px;
+
+}
+
+/* Here we applyths styles to the normal items. And also to the login button from the right side */
+.mainMenu > li a, .loginButton{
+    text-decoration: none;
+    color: rgb(202, 202, 202);
+    font-size: 15px;
+    position: relative;
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+.mainMenu > li a:hover, .loginButton:hover{
+    transition: all 0.3s ease-in-out;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    position: relative;
+    display: block;
+}
+.normalHoverItems::before, .loginButton::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -23px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    /* background-color: rgb(208, 129, 1); */
+    background-color: rgb(7, 185, 170);
+    transform: scaleX(0);
+    
+    transform-origin: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.normalHoverItems:hover::before, .loginButton:hover::before{
+    transform: scaleX(1);
+}
+
+.navCryptocurrencies{
+    background-color: #282828;
+    padding: 7px 12px;
+    border-radius: 15px;
+}
+.navCryptocurrencies:hover{
+    /* background-color: rgb(226, 140, 1); */
+    background-color: #07b9aa;
+    
+}
+
+
+/* NavBar - Right Side */
+
+.selectedCurrency{
+    align-items: center;
+    display: flex;
+    height: 65px;
+}
+.currencyDiv{
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    background-color: rgb(29, 29, 29); 
+    transition: all ease-in .1s;
+}
+.currencyDiv:hover{
+    transition: all ease-in .1s;
+    background-color: rgb(54, 54, 54); 
+}
+.currencyDiv img{
+    width: 20px;
+    height: 20px;
+    padding: 0 6px 0 0;
+}
+.currencyDiv p{
+    margin: 0;
+    color: white;
+    font-weight: 500;
+}
+
+.currencyOptions{
+    margin-left: -10px;
+    position: absolute;
+    border-radius: 0 0 10px 10px;
+    background-color: rgb(29, 29, 29);
+    padding: 10px;
+    z-index: 501;
+}
+
+
+.divition{
+    content: "";
+    background-color: rgb(34, 34, 34);
+    height: 45px;
+    border-radius: 2px;
+    margin: auto 30px;
+    width: 2px;
+
+}
+.loginButtons{
+    display: flex;
+    gap: 23px;
+    align-items: center;
+
+}
+.signupButton{
+    text-decoration: none;
+    color: rgb(220, 220, 220);
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(40, 40, 40);
+    padding: 7px 12px;
+    border-radius: 15px;
+}
+.signupButton:hover{
+    color: white;
+    transition: all 0.3s ease-in-out;
+    /* background-color: rgb(226, 140, 1); */
+    background-color: rgb(7, 185, 170);
+}
+
+.settings{
+    display: flex;
+    align-items: center;
+    margin: 0px 40px 0 25px;
+    
+}
+
+.settingsButton{
+    background-image: url(../resourses/dots-menu.png);
+    background-position: center center;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: all ease-in .2s;
+    opacity: 0.7;
+}
+.settingsButton:hover{
+    transition: all ease-in .2s;
+    /* background-image: url(../resourses/dots-menu-hover.png); */
+    opacity: 1;
+}
+.settingsButton a{
+    padding: 20px 0 20px 200px;
+}
+.backgroundMenuSettings{
+    background-color: rgba(0, 0, 0, 0.515);
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 100vw;
+}
+.menuSettings{
+    margin-left: calc(100vw - 400px);
+    z-index: 500;
+    background-color: rgb(38, 38, 38);
+    color: white;
+    width: 400px;
+    height: 100vh;
+    font-size: 20px;
+    padding-top: 30px;
+}
