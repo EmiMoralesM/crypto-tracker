@@ -24,7 +24,6 @@ export default function Home(props) {
 		<main>
 			<div className='mainTitle'>
 				<h1>Cryptocurrency Tracker</h1>
-
 			</div>
 			<Coins coins={coins}/>
 		</main>

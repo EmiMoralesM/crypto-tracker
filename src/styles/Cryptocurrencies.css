@@ -3,11 +3,48 @@ main{
     color: white;
 }
 .mainTitle{
-    width: 70%;
-    margin: auto;
     padding: 8vh 0;
     text-align: center;
 }
 .mainTitle > h1{
     font-size: 40px;
+}
+.coinsContainer{
+    width: 70%;
+    margin: auto;
+}
+.coinsTabs{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+}
+.coinsDiv{
+    /* background-color: rgb(13, 13, 13); */
+    border: 2px solid rgb(13, 13, 13);
+    border-radius: 20px;
+    padding: 5px 30px;
+    margin-top: 15px;
+}
+.coinsLabels {
+    display: flex;
+    gap: 40px;
+}
+.searchIcon{
+    position: absolute;
+    width: 30px;
+}
+.searchCoinLabel{
+    background-color: transparent;
+    /* position: absolute; */
+    color: white;
+    font-size: 18px;
+}
+#searchCoin{
+    background-color: transparent;
+    border: 0px;
+    font-size: 18px;
+    border-bottom: 1px white solid;
+    color: white;
+    outline: 0px;
 }

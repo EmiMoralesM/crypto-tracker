@@ -27,18 +27,18 @@ export default function NavBar(props) {
 
 	
 	return (
-		<section className='navbar'>
+		<section className='navbar animate__animated animate__fadeInDown' >
 			<div className='navLeftSide'>
-				<h1 className=' logo'><Link to={"/"}>Logo</Link></h1>
+				<h1 className='logo animate__animated animate__fadeIn' style={{animationDelay: ".4s"}}><Link to={"/"}>Logo</Link></h1>
 				<ul className='mainMenu'>
-					<li><Link to={"/"} className='navCryptocurrencies'>Cryptocurrencies</Link></li>
+					<li><Link to={"/"} className='navCryptocurrencies animate__animated animate__fadeIn' style={{animationDelay: ".5s"}}>Cryptocurrencies</Link></li>
 					{/* <li><Link to={"/"} className='normalHoverItems'>Home</Link></li> */}
-					<li><Link to={"/contact"} className='normalHoverItems'>Contact</Link></li>
+					<li><Link to={"/contact"} className='normalHoverItems animate__animated animate__fadeIn' style={{animationDelay: ".7s"}}>Contact</Link></li>
 				</ul>
 			</div>
 			<div className='navRightSide '>
 				<div className='currenciesDiv'>
-					<div className='selectedCurrency '>
+					<div className='selectedCurrency animate__animated animate__fadeIn' style={{animationDelay: ".9s"}}>
 						<div className='currencyDiv currencyDivActive' onClick={() => setMenuCurrencies(prevMenuCurrencies => !prevMenuCurrencies)}>
 							<img src={`src/resourses/${props.currency}.png`} alt="Currency Image" />
 							<p>{props.currency}</p>
@@ -64,13 +64,13 @@ export default function NavBar(props) {
 						</div>
 					</div>}
 				</div>
-				<div className='divition'></div>
+				<div className='divition animate__animated animate__fadeIn' style={{animationDelay: "1.1                                                            s"}}></div>
 				<div className='loginButtons'>
-					<Link className='loginButton'>Login</Link>
-					<Link className='signupButton'>Sign Up</Link>
+					<Link className='loginButton animate__animated animate__fadeIn' style={{animationDelay: "1.2s"}}>Login</Link>
+					<Link className='signupButton animate__animated animate__fadeIn' style={{animationDelay: "1.4s"}}>Sign Up</Link>
 				</div>
 				<div className='settings' >
-					<p className='settingsButton' onClick={toggleSettings} ></p>
+					<p className='settingsButton animate__animated animate__fadeIn' style={{animationDelay: "1.6s"}} onClick={toggleSettings} ></p>
 					{settings && <div className='backgroundMenuSettings' onClick={toggleSettings}></div>}
 					{settings && <aside className='menuSettings animate__animated animate__fadeInRight animate__faster'>
 						<div className='settingsTitleDiv'>

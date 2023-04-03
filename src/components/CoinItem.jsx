@@ -1,8 +1,10 @@
 import React from 'react'
+import "../styles/Cryptocurrencies.css"
+
 
 export default function CoinItem(props) {
   return (
-    <div className='coinRow'>
+    <div className='coinRow animate__animated animate__fadeIn wow' >
         <p>{props.coin.market_cap_rank}</p>
         <div className='coinName'>
             <img src={props.coin.image} alt='Coin Image' />
