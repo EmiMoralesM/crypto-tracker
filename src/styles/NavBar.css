@@ -1,12 +1,42 @@
+[data-theme="dark"]{
+    --menu-image: url(../resourses/dots-menu.svg);
+    --white: white;
+    --cyan: rgb(7, 185, 170);
+    --navBar-background: rgb(22, 22, 22);
+    --navBar-settings-background: rgb(29, 29, 29);
+    --menu-item: rgb(202, 202, 202);
+    --items-background: rgb(40, 40, 40);
+    --language-div-background: rgb(47, 47, 47);
+    --language-item-background-hover: rgb(71, 71, 71);
+    --currency-item-background-hover: rgb(37, 37, 37);
+    --active-currency-background: rgb(30, 30, 30) ;
+}
+
+[data-theme="light"]{
+    --menu-image: url(../resourses/dots-menu-black.svg);
+    --white: rgb(0, 0, 0);
+    --cyan: rgb(255, 147, 50);
+    --navBar-background: rgb(233, 233, 233);
+    --navBar-settings-background: rgb(226, 226, 226);
+    --menu-item: rgb(53, 53, 53);
+    --items-background: rgb(215, 215, 215);
+    --language-div-background: rgb(208, 208, 208);
+    --language-item-background-hover: rgb(184, 184, 184);
+    --currency-item-background-hover: rgb(218, 218, 218);
+    --active-currency-background: rgb(225, 225, 225) ;
+    
+}
+
 .navbar {
-    background-color: rgb(22, 22, 22);
+    background-color: var(--navBar-background);
     display: flex;
     justify-content: space-between;
     position: fixed;
     width: 100vw;
 }
 
-.navLeftSide, .navRightSide {
+.navLeftSide,
+.navRightSide {
     display: flex;
 }
 
@@ -22,40 +52,48 @@
     overflow: hidden;
     padding: 5px 15px;
 }
-.logo a{
+
+.logo a {
     padding: 20px 0 20px 300px;
 }
 
-.mainMenu{
+.mainMenu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
     margin: 0;
 }
-.mainMenu > li{
+
+.mainMenu>li {
     list-style-type: none;
     margin: 0 10px;
 
 }
 
 /* Here we applyths styles to the normal items. And also to the login button from the right side */
-.mainMenu > li a, .loginButton{
+.mainMenu>li a,
+.loginButton {
     text-decoration: none;
-    color: rgb(202, 202, 202);
+    color: var(--menu-item);
+    font-weight: 500;
     font-size: 15px;
     position: relative;
     display: block;
     transition: all 0.3s ease-in-out;
 }
-.mainMenu > li a:hover, .loginButton:hover{
+
+.mainMenu>li a:hover,
+.loginButton:hover {
     transition: all 0.3s ease-in-out;
-    color: rgb(255, 255, 255);
+    color: var(--white);
     font-size: 15px;
     position: relative;
     display: block;
 }
-.normalHoverItems::before, .loginButton::before{
+
+.normalHoverItems::before,
+.loginButton::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -64,111 +102,125 @@
     width: 100%;
     height: 3px;
     /* background-color: rgb(208, 129, 1); */
-    background-color: rgb(7, 185, 170);
+    background-color: var(--cyan);
     transform: scaleX(0);
-    
+
     transform-origin: center;
     transition: all 0.3s ease-in-out;
 }
 
-.normalHoverItems:hover::before, .loginButton:hover::before{
+.normalHoverItems:hover::before,
+.loginButton:hover::before {
     transform: scaleX(1);
 }
 
-.navCryptocurrencies{
-    background-color: #282828;
+.navCryptocurrencies {
+    background-color: var(--items-background);
     padding: 7px 12px;
     border-radius: 15px;
 }
-.navCryptocurrencies:hover{
+
+.navCryptocurrencies:hover {
     /* background-color: rgb(226, 140, 1); */
-    background-color: #07b9aa;
-    
+    background-color: var(--cyan);
+
 }
 
 
 /* NavBar - Right Side */
 
-.selectedCurrency{
+.selectedCurrency {
     align-items: center;
     display: flex;
     height: 65px;
 }
-.currencyDiv{
+
+
+.currencyDiv {
     padding: 10px;
     cursor: pointer;
     border-radius: 10px;
     align-items: center;
     display: flex;
-    background-color: rgb(29, 29, 29); 
+    background-color: var(--navBar-background);
     transition: all ease-in .1s;
 }
-.currencyDiv:hover{
-    transition: all ease-in .1s;
-    background-color: rgb(54, 54, 54); 
+
+.currencyDivActive {
+    background-color: var(--active-currency-background);
 }
-.currencyDiv img{
+
+.currencyDiv:hover {
+    transition: all ease-in .1s;
+    background-color: var(--currency-item-background-hover);
+}
+
+.currencyDiv img {
     width: 20px;
     height: 20px;
     padding: 0 6px 0 0;
 }
-.currencyDiv p{
+
+.currencyDiv p {
     margin: 0;
-    color: white;
+    color: var(--white);
     font-weight: 500;
 }
 
-.currencyOptions{
+.currencyOptions {
     margin-left: -10px;
     position: absolute;
     border-radius: 0 0 10px 10px;
-    background-color: rgb(29, 29, 29);
+    background-color: var(--navBar-background);
     padding: 10px;
     z-index: 501;
 }
 
 
-.divition{
+.divition {
     content: "";
-    background-color: rgb(34, 34, 34);
+    background-color: var(--currency-item-background-hover);
     height: 45px;
     border-radius: 2px;
     margin: auto 30px;
     width: 2px;
 
 }
-.loginButtons{
+
+.loginButtons {
     display: flex;
     gap: 23px;
     align-items: center;
 
 }
-.signupButton{
+
+.signupButton {
     text-decoration: none;
-    color: rgb(220, 220, 220);
+    color: var(--menu-item);
     transition: all 0.3s ease-in-out;
-    background-color: rgb(40, 40, 40);
+    background-color: var(--items-background);
     padding: 7px 12px;
     border-radius: 15px;
 }
-.signupButton:hover{
-    color: white;
+
+.signupButton:hover {
+    color: var(--white);
     transition: all 0.3s ease-in-out;
     /* background-color: rgb(226, 140, 1); */
-    background-color: rgb(7, 185, 170);
+    background-color: var(--cyan);
 }
 
-.settings{
+.settings {
     display: flex;
     align-items: center;
     margin: 0px 40px 0 25px;
-    
 }
 
-.settingsButton{
-    background-image: url(../resourses/dots-menu.png);
+.settingsButton {
+    background-image: var(--menu-image);
     background-position: center center;
-    background-size: 20px;
+    background-size: 22px;
+    color: rebeccapurple;
     background-repeat: no-repeat;
     overflow: hidden;
     width: 20px;
@@ -177,28 +229,277 @@
     transition: all ease-in .2s;
     opacity: 0.7;
 }
-.settingsButton:hover{
+
+.settingsButton:hover {
     transition: all ease-in .2s;
     /* background-image: url(../resourses/dots-menu-hover.png); */
     opacity: 1;
 }
-.settingsButton a{
+
+.settingsButton a {
     padding: 20px 0 20px 200px;
 }
-.backgroundMenuSettings{
-    background-color: rgba(0, 0, 0, 0.515);
+
+/* Menu settings */
+.backgroundMenuSettings {
+    background-color: rgba(0, 0, 0, 0.318);
     position: absolute;
+    height: 100vh;
     top: 65px;
-    right: 0;
-    width: 100vw;
+    left: 0;
+    width: calc(100vw);
 }
-.menuSettings{
-    margin-left: calc(100vw - 400px);
+
+.menuSettings {
+    position: absolute;
+    /* margin-left: calc(100vw - 400px); */
     z-index: 500;
-    background-color: rgb(38, 38, 38);
-    color: white;
+    background-color: var(--navBar-settings-background);
+    /* background-color: rgb(255, 255, 255); */
+    color: var(--white);
     width: 400px;
     height: 100vh;
+    right: 0;
+    top: 65px;
     font-size: 20px;
     padding-top: 30px;
+}
+
+
+.themeDiv,
+.languageDiv,
+.whatchlistDiv,
+.signoutDiv,
+.profileDiv {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+}
+
+.themeDiv,
+.languageDiv,
+.whatchlistDiv{
+    margin: 20px 0;
+
+}
+
+.languageDiv,
+.settingsTitleDiv,
+.themeDiv,
+.profileDiv{
+    margin-left: 30px;
+}
+.whatchlistDiv,
+.signoutDiv{
+    margin-left: 18px;
+}
+
+/* Tools */
+.arrow {
+    border: solid var(--white);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transition: all ease .2s;
+}
+
+
+
+/* hr */
+.menuSettings hr {
+    width: 100%;
+    border: 1px solid var(--currency-item-background-hover);
+
+}
+
+/* Settings title div */
+.settingsTitleDiv{
+    /* background-color: #292929; */
+    width: 70%;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.settingsTitleDiv p{
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Profile div */
+
+.profileDiv {
+    opacity: .6;
+    transition: all ease .2s
+}
+.profileDiv:hover {
+    opacity: 1;
+}
+.profileDiv a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+
+/* Theme div */
+.themeDiv>div {
+    align-items: center;
+    display: flex;
+}
+
+.checkboxTheme {
+    opacity: 0;
+    position: absolute;
+}
+
+.labelTheme {
+    width: 45px;
+    height: 20px;
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    background-color: var(--language-div-background);
+    position: relative;
+    cursor: pointer;
+}
+
+.ballTheme {
+    width: 22px;
+    height: 22px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: -1px;
+    transition: transform .2s linear;
+    
+    background-size: 40px;
+    background-image: url(../resourses/moon.svg);
+    transform: translateX(25px) rotate(180deg);
+}
+
+
+.checkboxTheme:checked+.labelTheme .ballTheme {
+    background-image: url(../resourses/sun.svg);
+    background-size: 43px;
+    transform: none;
+
+}
+
+/* Language div */
+.actualLanguageDiv {
+    display: flex;
+    gap: 10px;
+    background-color: var(--language-div-background);
+    padding: 10px 10px;
+    margin: 0;
+    border-radius: 10px;
+    width: 105px;
+    cursor: pointer;
+}
+
+.actualLanguageDivOpen {
+    border-radius: 10px 10px 0 0;
+
+}
+
+.actualLanguageDiv i {
+    color: var(--white);
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+}
+
+.actualLanguage {
+    margin: 0;
+}
+
+.changeLanguageDiv {
+    background-color: var(--language-div-background);
+    padding: 10px 10px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    width: 105px;
+    z-index: 502;
+}
+
+.changeLanguageDiv>div {
+    padding: 8px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all ease .2s;
+    display: flex;
+    color: var(--menu-item);
+}
+
+.changeLanguageDiv>div:hover {
+    color: var(--white);
+    background-color: var(--language-item-background-hover);
+}
+
+.changeLanguageDiv>div p {
+    margin: 0;
+}
+
+
+/* Watchlist div */
+
+.whatchlistDiv > i, .profileDiv i {
+    color: var(--white);
+    width: 8px;
+    height: 8px;
+    margin-left: 15px;
+}
+
+.whatchlistDiv {
+    justify-content: space-between;
+    opacity: .6;
+    transition: all ease .2s;
+}
+
+.whatchlistDiv:hover {
+    opacity: 1;
+}
+
+.whatchlistDiv div {
+    display: flex;
+    align-items: center;
+}
+.whatchlistDiv a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.whatchlistDiv > div> i {
+    width: 25px;
+    margin: 0 12px 0 10px;
+    color: var(--white);
+}
+
+
+/* Sign out div */
+.signoutDiv {
+    opacity: .8;
+    justify-content: start;
+    font-weight: 500;
+    color: var(--menu-item);
+    transition: all ease .3s;
+    cursor: pointer;
+}
+
+.signoutDiv:hover {
+    opacity: 1;
+}
+
+.signoutDiv i {
+    width: 35px;
+    margin: 0 3px 0 10px;
 }

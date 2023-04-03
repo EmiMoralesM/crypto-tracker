@@ -1,0 +1,13 @@
+main{
+    background-color: rgb(2, 2, 2);
+    color: white;
+}
+.mainTitle{
+    width: 70%;
+    margin: auto;
+    padding: 8vh 0;
+    text-align: center;
+}
+.mainTitle > h1{
+    font-size: 40px;
+}
