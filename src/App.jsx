@@ -6,9 +6,10 @@ import NavBar from './components/NavBar'
 import ShowCoin from './Pages/ShowCoin'
 
 function App() {
+	const localCurrency = localStorage.getItem('currency') != null ? JSON.parse(localStorage.getItem('currency')) : {name: "USD", symbol: "$"}
 	const localTheme = localStorage.getItem('theme') != null ? localStorage.getItem('theme') : "dark"
 	const [theme, setTheme] = useState(localTheme)
-	const [currency, setCurrency] = useState("USD")
+	const [currency, setCurrency] = useState(localCurrency)
 	const [language, setLanguage] = useState("English")
 
 	useEffect(() => {

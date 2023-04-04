@@ -1,50 +1,277 @@
-main{
+main {
     background-color: rgb(2, 2, 2);
     color: white;
 }
-.mainTitle{
+
+.mainTitle {
     padding: 8vh 0;
     text-align: center;
 }
-.mainTitle > h1{
+
+.mainTitle>h1 {
     font-size: 40px;
 }
-.coinsContainer{
-    width: 70%;
+
+.coinsContainer {
+    width: 65%;
     margin: auto;
 }
-.coinsTabs{
+
+.coinsTabs {
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 94%;
     margin: auto;
+    margin-bottom: 25 px;
 }
-.coinsDiv{
-    /* background-color: rgb(13, 13, 13); */
-    border: 2px solid rgb(13, 13, 13);
-    border-radius: 20px;
-    padding: 5px 30px;
-    margin-top: 15px;
-}
-.coinsLabels {
+
+.coinsMenu {
     display: flex;
-    gap: 40px;
+    gap: 25px;
 }
-.searchIcon{
+
+.coinsMenuItem {
+    color: rgb(207, 207, 207);
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: all ease .2s;
+    font-weight: 500;
+    margin: 10px 15px;
+}
+
+.coinsMenu :not(.active)::before {
+    content: '';
     position: absolute;
-    width: 30px;
+    bottom: 0;
+    margin-bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(193, 193, 193);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: all 0.3s ease-in-out;
 }
-.searchCoinLabel{
-    background-color: transparent;
-    /* position: absolute; */
+
+.coinsMenu :not(.active):hover::before {
+    background-color: var(--cyan);
+    transform: scaleX(1.1);
+}
+
+.coinsMenuItem:hover {
     color: white;
-    font-size: 18px;
 }
-#searchCoin{
+
+.active {
+    margin: 0px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    background-color: rgb(17, 17, 17);
+}
+
+
+.searchDiv {
+    display: flex;
+    align-items: center;
+    /* width: 20%; */
+
+}
+
+.searchDiv form {
+    position: relative;
+}
+
+
+#searchCoin {
     background-color: transparent;
     border: 0px;
-    font-size: 18px;
-    border-bottom: 1px white solid;
-    color: white;
+    font-size: 17px;
+    color: rgb(212, 212, 212);
     outline: 0px;
+    /* margin-top: -100px; */
+    position: absolute;
+    width: 205px;
+    height: 20px;
+
 }
+
+.searchCoinLabel {
+    display: block;
+    background-color: transparent;
+    color: rgb(207, 207, 207);
+    font-size: 17px;
+    transition: all ease .2s;
+    /* font-weight: 500; */
+    width: 240px;
+    height: 20px;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.searchCoinLabel::after {
+    content: 'Search';
+    position: absolute;
+    transition: all 0.3s ease-out;
+    transform-origin: left;
+}
+
+.searchCoinLabel::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 15px;
+    background-color: rgb(168, 168, 168);
+    transform-origin: center;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.searchIcon {
+    position: absolute;
+    width: 27px;
+    right: 0;
+    top: 0;
+    margin-top: -5px;
+    margin-right: 8px;
+    opacity: 0.5;
+    transition: all ease .4s;
+}
+
+
+
+#searchCoin:hover+.searchDecoration .searchCoinLabel,
+#searchCoin:focus+.searchDecoration .searchCoinLabel {
+    color: rgb(255, 255, 255);
+}
+
+#searchCoin:hover+.searchDecoration .searchCoinLabel::before,
+#searchCoin:focus+.searchDecoration .searchCoinLabel::before {
+    background-color: rgb(240, 240, 240);
+    transform: scaleX(1.02);
+
+}
+
+#searchCoin:hover+.searchDecoration .searchCoinLabel::after {
+    font-weight: 500;
+
+}
+
+#searchCoin:focus+.searchDecoration .searchCoinLabel::after {
+    opacity: 0;
+
+}
+
+#searchCoin:hover+.searchDecoration .searchIcon,
+#searchCoin:focus+.searchDecoration .searchIcon {
+    opacity: 1;
+    transform: scale(1.06);
+}
+
+/* Coins */
+.coinsDiv {
+    border: 2px solid rgb(5, 5, 5);
+    background-color: rgb(5, 5, 5);
+    box-shadow: 0px 0px 30px 0px rgba(90, 90, 90, 0.2);
+    border-radius: 20px;
+    padding: 5px 0px;
+    margin-top: 35px;
+    width: 100%;
+}
+
+.coinsLabels {
+    display: flex;
+    /* gap: 40px; */
+    text-align: left;
+    justify-content: start!important;
+
+}
+tr{
+    padding: 8px 0
+}
+thead th p{
+    color: rgb(146, 146, 146)!important;
+    font-weight: normal!important;
+    font-size: 14px;
+    margin: 5px 0 0 0;
+}
+thead tr{
+    margin: 7px 0 9px 0;
+    transform: scale(1.004);
+}
+tbody tr{
+    transform: scale(1.004);
+    transition: all ease .3s;
+}
+tbody tr:hover{
+    background-color: rgb(15, 15, 15);
+}
+.coinRow{
+    display: flex;
+    /* gap: 20px; */
+    /* justify-content: space-between; */
+}
+.coinNameDiv{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.coinNumberDiv{
+    width: 10%;
+}
+.coinNumberDiv p{
+    text-align: center;
+    color: rgb(200, 200, 200);
+    padding-left: 15px;
+}
+.coinNameDiv{
+    width: 24%;
+}
+.coinNameDiv p{
+    font-weight: bold;
+}
+.coinNameDiv img{
+    width: 33px;
+    height: 33px;
+}
+.change24Div{
+    width: 15%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.change24Div p{
+    padding: 5px 10px 5px 10px;
+    margin: 0;
+    border-radius: 10px;
+    display: inline-block;
+    /* font-size: 16px; */
+}
+
+.red{
+    color: #f62626;
+    background-color: #e9434b57;
+}
+.green{
+    color: #13e269;
+    background-color: #16c78344;
+}
+
+.priceDiv{
+    text-align: right;
+    width: 15%;
+}
+.marketCapDiv{
+    padding-left: 40px;
+    width: 15%;
+}
+.volume24Div{
+    width: 15%;
+}
+
