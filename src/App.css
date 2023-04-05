@@ -8,29 +8,57 @@ body {
     --menu-image: url(resourses/dots-menu.svg);
     --white: white;
     --cyan: rgb(7, 185, 170);
-    --navBar-background: rgb(22, 22, 22);
+    --navBar-background: rgb(15, 15, 15);
     --navBar-settings-background: rgb(29, 29, 29);
-    --menu-item: rgb(202, 202, 202);
+    --menu-item: rgb(211, 211, 211);
     --items-background: rgb(40, 40, 40);
     --language-div-background: rgb(47, 47, 47);
     --language-item-background-hover: rgb(71, 71, 71);
     --currency-item-background-hover: rgb(37, 37, 37);
     --active-currency-background: rgb(30, 30, 30);
+    
+    --h1-color: white;
+    
+    --search-icon-src: url(resourses/search-icon.svg);
+    --main-background: rgb(0, 0, 0);
+    --coins-div-background: rgb(4, 4, 4);
+    --box-shadow-coins: rgba(80, 80, 80, 0.2);
+    --labels-coins: rgb(146, 146, 146);
+    --hover-coin: rgb(15, 15, 15);
+    --red-color: rgb(255, 77, 77);
+    --red-background-color: rgba(254, 38, 38, 0.216);
+    --green-color: rgb(92, 228, 65);
+    --green-background-color: rgba(52, 199, 89, 0.102);
+    
 }
 
 [data-theme="light"] {
     --menu-image: url(resourses/dots-menu-black.svg);
+    --order-arrows: url(resourses/orderArrows.svg);
     --white: rgb(0, 0, 0);
     --cyan: rgb(255, 147, 50);
-    --navBar-background: rgb(233, 233, 233);
-    --navBar-settings-background: rgb(226, 226, 226);
+    --navBar-background: rgb(236, 236, 236);
+    --navBar-settings-background: rgb(222, 222, 222);
     --menu-item: rgb(53, 53, 53);
-    --items-background: rgb(215, 215, 215);
+    --items-background: rgb(220, 220, 220);
     --language-div-background: rgb(208, 208, 208);
     --language-item-background-hover: rgb(184, 184, 184);
     --currency-item-background-hover: rgb(218, 218, 218);
     --active-currency-background: rgb(225, 225, 225);
+    
+    --h1-color: rgb(46, 46, 46);
 
+    --search-icon-src: url(resourses/search-icon-black.svg);
+    --order-arrows: url(resourses/orderArrows-black.svg);
+    --main-background: rgb(218, 218, 218);
+    --coins-div-background: rgb(225, 225, 225);
+    --box-shadow-coins: rgba(122, 122, 122, 0.2);
+    --labels-coins: rgb(135, 135, 135);
+    --hover-coin: rgb(215, 215, 215);
+    --red-color: rgb(250, 29, 29);
+    --red-background-color: rgba(205, 26, 26, 0.216);
+    --green-color: rgb(16, 149, 38);
+    --green-background-color: rgba(37, 204, 79, 0.218);
 }
 
 ::-webkit-scrollbar {
@@ -55,3 +83,21 @@ body {
 
 /* Tools */
 
+.dot {
+    display: inline-block;
+    content: " ";
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: var(--labels-coins);
+    margin: 0 5px 3px 10px;
+}
+  
+.red{
+    color: var(--red-color);
+    background-color: var(--red-background-color);
+}
+.green{
+    color: var(--green-color);
+    background-color: var(--green-background-color);
+}

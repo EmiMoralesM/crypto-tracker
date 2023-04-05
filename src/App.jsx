@@ -32,6 +32,7 @@ function App() {
 		setTheme(newtheme)
 		showTheme(newtheme)
 	}
+	console.log("rendering...")
 	return (
 		<div className='App'>
 			<NavBar currency={currency} setCurrency={setCurrency}

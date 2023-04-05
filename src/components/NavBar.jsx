@@ -47,19 +47,19 @@ export default function NavBar(props) {
 					</div>
 
 					{menuCurrencies && <div className='animate__animated animate__fadeIn animate__faster currencyOptions'>
-						<div className='currencyDiv' onClick={() => changeCurrency({name: "USD", symbol: "$"})}>
+						<div className='currencyDiv' onClick={() => changeCurrency({name: "USD", symbol: "$", format: "en-US"})}>
 							<img src="src/resourses/USD.png" alt="Currency Image" />
 							<p>USD</p>
 						</div>
-						<div className='currencyDiv' onClick={() => changeCurrency({name: "EUR", symbol: "€"})}>
+						<div className='currencyDiv' onClick={() => changeCurrency({name: "EUR", symbol: "€", format: "en-DE"})}>
 							<img src="src/resourses/EUR.png" alt="Currency Image" />
 							<p>EUR</p>
 						</div>
-						<div className='currencyDiv' onClick={() => changeCurrency({name: "CAD", symbol: "$"})}>
+						<div className='currencyDiv' onClick={() => changeCurrency({name: "CAD", symbol: "$", format: "en-US"})}>
 							<img src="src/resourses/CAD.png" alt="Currency Image" />
 							<p>CAD</p>
 						</div>
-						<div className='currencyDiv' onClick={() => changeCurrency({name: "GBP", symbol: "£"})}>
+						<div className='currencyDiv' onClick={() => changeCurrency({name: "GBP", symbol: "£", format: "en-GB"})}>
 							<img src="src/resourses/GBP.png" alt="Currency Image" />
 							<p>GBP</p>
 						</div>

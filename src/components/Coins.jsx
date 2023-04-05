@@ -1,22 +1,51 @@
-import React, { useState } from 'react'
-import "../styles/Cryptocurrencies.css"
+import React, { useEffect, useState } from 'react'
+import "../styles/Home.css"
 import CoinItem from './CoinItem'
 import 'animate.css';
 import { Link } from 'react-router-dom';
 
 export default function Coins(props) {
     const [search, setSearch] = useState("")
+    const [searchHidden, setSearchHidden] = useState(false)
+    const [filteredCoins, setFilteredCoins] = useState([])
+
+    // States to order each column (true = ascendant, false=descendant)
+    const [stateNumber, setStateNumber] = useState(false)
+    const [stateName, setStateName] = useState(false)
+    const [stateChange1, setStateChange1] = useState(false)
+    const [stateChange24, setStateChange24] = useState(false)
+    const [statePrice, setStatePrice] = useState(false)
+    const [stateMarkCap, setStateMarkCap] = useState(false)
+    const [stateVolume, setStateVolume] = useState(false)
 
     // Function to set the search value to the text the user is writting in the input.
     const handleSearch = input => {
         setSearch(input.target.value)
+        input.target.value.length > 0 ? setSearchHidden(true):  setSearchHidden(false)
     }
 
     // Filter the coins based on the value placed in search.
-    const filteredCoins = props.coins.filter(coin => coin.id.toLowerCase().includes(search.toLowerCase()))
-    console.log(filteredCoins)
+    useEffect(() => {
+        setFilteredCoins(props.coins.filter(coin => coin.id.toLowerCase().includes(search.toLowerCase()) && coin.market_cap))
+    }, [props.coins, search])
+    
+    // Function to sort the coins.
+    const sortCoins = (order, state, setState) => {
+        if (state){
+            setFilteredCoins(prevFilteredCoins => prevFilteredCoins.sort(
+                (p1, p2) => (p1[order] > p2[order]) ? 1 : (p1[order] < p2[order]) ? -1 : 0
+            ))
+        } else{
+            setFilteredCoins(prevFilteredCoins => prevFilteredCoins.sort(
+                (p1, p2) => (p1[order] < p2[order]) ? 1 : (p1[order] > p2[order]) ? -1 : 0
+            ))      
+        }
+        setState(prevState => !prevState)
+        // props.setCoins(filteredCoins)
+    }
+
     return (
-        <div className='coinsContainer'>
+        <section className='coinsContainer'>
             <div className='coinsTabs'>
                 <div className='coinsMenu'>
                     <Link className='coinsMenuItem active'>Cryptocurrencies</Link>
@@ -24,10 +53,10 @@ export default function Coins(props) {
                 </div>
                 <div className='searchDiv'>
                     <form>
-                        <input id="searchCoin" type="text" onChange={handleSearch} />
+                        <input id="searchCoin" type="text" className={searchHidden ? 'searchHidden' : ''} onChange={handleSearch} />
                         <div className='searchDecoration'>
                             <label className='searchCoinLabel' htmlFor="searchCoin"></label>
-                            <img src="src/resourses/search-icon.svg" className="searchIcon" alt="Search icon" />
+                            <i className="searchIcon" ></i>
                         </div>
                     </form>
                 </div>
@@ -35,19 +64,34 @@ export default function Coins(props) {
             <table className='coinsDiv'>
                 <thead>
                     <tr className='coinsLabels'>
-                        <th className='coinNumberDiv'><p>#</p></th>
-                        <th className='coinNameDiv'><p>Coin</p></th>
-                        <th className='change24Div'><p>Change (24h)</p></th>
-                        <th className='priceDiv'><p>Price</p></th>
-                        <th className='marketCapDiv'><p>Market Cap</p></th>
-                        <th className='volume24Div'><p>Volume (24h)</p></th>
+                        <th className='coinNumberDiv'>
+                            <p onClick={() => sortCoins("market_cap_rank", stateNumber, setStateNumber)}><span></span> #</p>
+                        </th>
+                        <th className='coinNameDiv'>
+                            <p onClick={() => sortCoins("id", stateName, setStateName)}><span></span> Coin</p>
+                        </th>
+                        <th className='change1Div'>
+                            <p onClick={() => sortCoins("price_change_percentage_1h_in_currency", stateChange1, setStateChange1)}><span></span> Change (1h)</p>
+                        </th>
+                        <th className='change24Div'>
+                            <p onClick={() => sortCoins("price_change_percentage_24h", stateChange24, setStateChange24)}><span></span> Change (24h)</p>
+                        </th>
+                        <th className='priceDiv'>
+                            <p onClick={() => sortCoins("current_price", statePrice, setStatePrice)}><span></span> Price</p>
+                        </th>
+                        <th className='marketCapDiv' >
+                            <p onClick={() => sortCoins("market_cap", stateMarkCap, setStateMarkCap)}><span></span> Market Cap</p>
+                        </th>
+                        <th className='volume24Div'>
+                            <p onClick={() => sortCoins("total_volume", stateVolume, setStateVolume)}><span></span> Volume (24h)</p>
+                        </th>
                     </tr>
                 </thead>
                 <tbody className='coins'>
                     {/* If the seach doesn't match any coin: */}
                     {filteredCoins.length == 0 && 
-                        <tr>
-                            <td> No Search Matches 😢</td>
+                        <tr className='noMatchesDiv'>
+                            <td> <p> No Search Matches 😢</p></td>
                         </tr>}
 
                     {/* We map trough the filtered coins and display them: */}
@@ -58,6 +102,6 @@ export default function Coins(props) {
                     })}
                 </tbody>
             </table>
-        </div>
+        </section>
     )
 }
