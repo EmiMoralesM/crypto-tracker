@@ -149,6 +149,28 @@
     z-index: 501;
 }
 
+.currencyDiv i {
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin: 0 6px 0 0;
+    background-size: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.iUSD{
+    background-image: url(../resourses/USD.png);
+}
+.iCAD{
+    background-image: url(../resourses/CAD.png);
+}
+.iEUR{
+    background-image: url(../resourses/EUR.png);
+}
+.iGBP{
+    background-image: url(../resourses/GBP.png);
+}
+
 
 .divition {
     content: "";
@@ -269,17 +291,7 @@
     margin-left: 18px;
 }
 
-.arrow {
-    border: solid var(--white);
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-}
 
-.right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    transition: all ease .2s;
-}
 
 
 

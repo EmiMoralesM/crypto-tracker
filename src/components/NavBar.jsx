@@ -24,7 +24,6 @@ export default function NavBar(props) {
 	const toggleSettings = () => {
 		setSettings(prevSettings => !prevSettings)
 	}
-	console.log("rerender...")
 
 	
 	return (
@@ -41,26 +40,31 @@ export default function NavBar(props) {
 				<div className='currenciesDiv'>
 					<div className='selectedCurrency animate__animated animate__fadeIn' style={{animationDelay: ".9s"}}>
 						<div className='currencyDiv currencyDivActive' onClick={() => setMenuCurrencies(prevMenuCurrencies => !prevMenuCurrencies)}>
-							<img src={`src/resourses/${props.currency.name}.png`} alt="Currency Image" />
+							{/* <img src={`src/resourses/${props.currency.name}.png`} alt="Currency Image" /> */}
+							<i className={`i${props.currency.name}`}></i>
 							<p>{props.currency.name}</p>
 						</div>
 					</div>
 
 					{menuCurrencies && <div className='animate__animated animate__fadeIn animate__faster currencyOptions'>
 						<div className='currencyDiv' onClick={() => changeCurrency({name: "USD", symbol: "$", format: "en-US"})}>
-							<img src="src/resourses/USD.png" alt="Currency Image" />
+							<i className={'iUSD'}></i>
+							{/* <img src="src/resourses/USD.png" alt="Currency Image" /> */}
 							<p>USD</p>
 						</div>
 						<div className='currencyDiv' onClick={() => changeCurrency({name: "EUR", symbol: "€", format: "en-DE"})}>
-							<img src="src/resourses/EUR.png" alt="Currency Image" />
+							{/* <img src="src/resourses/EUR.png" alt="Currency Image" /> */}
+							<i className='iEUR'></i>
 							<p>EUR</p>
 						</div>
 						<div className='currencyDiv' onClick={() => changeCurrency({name: "CAD", symbol: "$", format: "en-US"})}>
-							<img src="src/resourses/CAD.png" alt="Currency Image" />
+							{/* <img src="src/resourses/CAD.png" alt="Currency Image" /> */}
+							<i className='iCAD'></i>
 							<p>CAD</p>
 						</div>
 						<div className='currencyDiv' onClick={() => changeCurrency({name: "GBP", symbol: "£", format: "en-GB"})}>
-							<img src="src/resourses/GBP.png" alt="Currency Image" />
+							{/* <img src="src/resourses/GBP.png" alt="Currency Image" /> */}
+							<i className='iGBP'></i>
 							<p>GBP</p>
 						</div>
 					</div>}

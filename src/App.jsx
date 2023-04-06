@@ -11,10 +11,16 @@ function App() {
 	const [theme, setTheme] = useState(localTheme)
 	const [currency, setCurrency] = useState(localCurrency)
 	const [language, setLanguage] = useState("English")
-
+	
+	const localPageNumber = localStorage.getItem('theme') != null ? parseInt(localStorage.getItem('pageNumber')) : 1
+	const [pageNumber, setPageNumber] = useState(localPageNumber)
+	// console.log(pageNumber)
 	useEffect(() => {
 		showTheme(theme)
 	}, [])
+	// useEffect(() => {
+	// 	console.log(pageNumber)
+	// }, [pageNumber])
 	
 	const setDarkMode = () => {
 		document.querySelector("body").setAttribute('data-theme', "dark")
@@ -42,8 +48,9 @@ function App() {
 					toggleTheme={toggleTheme}
 			/>
 			<Routes>
-				<Route index element={<Home currency={currency} />} />
-				<Route path='/:id' element={<ShowCoin />} />
+				<Route index element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber} currency={currency} />} />
+				<Route path=':page' element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber} currency={currency} />} />
+				<Route path='/coin/:id' element={<ShowCoin />} />
 			</Routes>
 
 		</div>

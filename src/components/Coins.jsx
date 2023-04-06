@@ -3,6 +3,7 @@ import "../styles/Home.css"
 import CoinItem from './CoinItem'
 import 'animate.css';
 import { Link } from 'react-router-dom';
+import ShowCoin from '../Pages/ShowCoin';
 
 export default function Coins(props) {
     const [search, setSearch] = useState("")
@@ -21,24 +22,24 @@ export default function Coins(props) {
     // Function to set the search value to the text the user is writting in the input.
     const handleSearch = input => {
         setSearch(input.target.value)
-        input.target.value.length > 0 ? setSearchHidden(true):  setSearchHidden(false)
+        input.target.value.length > 0 ? setSearchHidden(true) : setSearchHidden(false)
     }
 
     // Filter the coins based on the value placed in search.
     useEffect(() => {
         setFilteredCoins(props.coins.filter(coin => coin.id.toLowerCase().includes(search.toLowerCase()) && coin.market_cap))
     }, [props.coins, search])
-    
+
     // Function to sort the coins.
     const sortCoins = (order, state, setState) => {
-        if (state){
+        if (state) {
             setFilteredCoins(prevFilteredCoins => prevFilteredCoins.sort(
                 (p1, p2) => (p1[order] > p2[order]) ? 1 : (p1[order] < p2[order]) ? -1 : 0
             ))
-        } else{
+        } else {
             setFilteredCoins(prevFilteredCoins => prevFilteredCoins.sort(
                 (p1, p2) => (p1[order] < p2[order]) ? 1 : (p1[order] > p2[order]) ? -1 : 0
-            ))      
+            ))
         }
         setState(prevState => !prevState)
         // props.setCoins(filteredCoins)
@@ -89,7 +90,7 @@ export default function Coins(props) {
                 </thead>
                 <tbody className='coins'>
                     {/* If the seach doesn't match any coin: */}
-                    {filteredCoins.length == 0 && 
+                    {filteredCoins.length == 0 &&
                         <tr className='noMatchesDiv'>
                             <td> <p> No Search Matches 😢</p></td>
                         </tr>}
@@ -97,9 +98,14 @@ export default function Coins(props) {
                     {/* We map trough the filtered coins and display them: */}
                     {filteredCoins.map(coin => {
                         return (
-                            <CoinItem key={coin.id} coin={coin} currency={props.currency}/>
+                            <Link key={coin.id} to={`/coin/${coin.id}`} style={{textDecoration: "none"}} element={<ShowCoin />}>
+                                <CoinItem key={coin.id} coin={coin} currency={props.currency} currencyFormatter={props.currencyFormatter} />
+                            </Link>
                         )
                     })}
+                    {props.loading && <div className='loadingIconDiv'>
+                        <p>Loading...</p>
+                    </div>}
                 </tbody>
             </table>
         </section>

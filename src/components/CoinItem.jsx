@@ -4,10 +4,7 @@ import "../styles/Home.css"
 
 export default function CoinItem(props) {
 
-	const currencyFormatter = new Intl.NumberFormat(props.currency.format, {
-		style: 'currency',
-		currency: props.currency.name == "CAD" ? "USD" : props.currency.name
-	});
+	
 
 	function formatNumber(number) {
 		if (number < 1000) {
@@ -23,7 +20,11 @@ export default function CoinItem(props) {
 		}
 	}
 
-
+	const currencyFormatter = new Intl.NumberFormat(props.currency.format, {
+		style: 'currency',
+		currency: props.currency.name == "CAD" ? "USD" : props.currency.name
+	});
+	
 	return (
 		<tr className='coinRow animate__animated animate__fadeIn' >
 			<td className='coinNumberDiv'>
@@ -44,7 +45,7 @@ export default function CoinItem(props) {
 				>{props.coin.price_change_percentage_24h != null ? props.coin.price_change_percentage_24h.toFixed(2) : "0"}%</p>
 			</td>
 			<td className='priceDiv'>
-				<p>{currencyFormatter.format(props.coin.current_price)}</p>
+				<p>{props.currencyFormatter.format(props.coin.current_price)}</p>
 			</td>
 			<td className='marketCapDiv'>
 				<p>{props.currency.symbol}{formatNumber(props.coin.market_cap)}</p>
