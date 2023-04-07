@@ -34,13 +34,15 @@ body {
     --lightgreen-background-color: rgba(50,215,75,0.1);
     --grey-background-color: rgba(47, 47, 47, 0.269);
     
-    
+    --chart-background: rgb(5,5,5);
+    --chart-boxshadow: rgba(23, 23, 23, 0.825) ;
 }
 
 [data-theme="light"] {
     --menu-image: url(resourses/dots-menu-black.svg);
     --order-arrows: url(resourses/orderArrows.svg);
     --white: rgb(0, 0, 0);
+    --cyan: rgba(255, 146, 50, 0.777);
     --cyan: rgb(255, 147, 50);
     --navBar-background: rgb(236, 236, 236);
     --navBar-settings-background: rgb(222, 222, 222);
@@ -56,8 +58,8 @@ body {
     --marketData-background: rgb(236, 236, 236);
     --search-icon-src: url(resourses/search-icon-black.svg);
     --order-arrows: url(resourses/orderArrows-black.svg);
-    --main-background: rgb(218, 218, 218);
-    --coins-div-background: rgb(225, 225, 225);
+    --main-background: rgb(233, 233, 233);
+    --coins-div-background: rgb(240, 240, 240);
     --box-shadow-coins: rgba(122, 122, 122, 0.2);
     --labels-coins: rgb(135, 135, 135);
     --hover-coin: rgb(215, 215, 215);
@@ -68,6 +70,8 @@ body {
     --lightgreen-background-color: rgba(71, 251, 116, 0.361);
     --grey-background-color: rgba(155, 155, 155, 0.245);
     
+    --chart-background: rgb(235, 235, 235);
+    --chart-boxshadow: rgba(185, 185, 185, 0.518);
     
 
 }

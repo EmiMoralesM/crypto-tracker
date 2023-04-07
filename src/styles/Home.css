@@ -24,7 +24,6 @@ main {
     justify-content: space-between;
     border-radius: 20px;
     padding: 30px 0px;
-    
 }
 .marketData > div:nth-child(1){
     margin-left: 2%;
@@ -313,20 +312,20 @@ tbody tr:hover{
     text-align: center;
     color: var(--menu-item);
 }
-.coinNameDiv{
+.coinsNameDiv{
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.coinNameDiv{
+.coinsNameDiv{
     width: 30%;
 }
-.coinNameDiv p{
+.coinsNameDiv p{
     font-weight: bold;
     color: var(--white);
 }
-.coinNameDiv img{
+.coinsNameDiv img{
     width: 33px;
     height: 33px;
 }

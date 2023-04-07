@@ -103,9 +103,9 @@ export default function Coins(props) {
                             </Link>
                         )
                     })}
-                    {props.loading && <div className='loadingIconDiv'>
+                    {/* {props.loading && <div className='loadingIconDiv'>
                         <p>Loading...</p>
-                    </div>}
+                    </div>} */}
                 </tbody>
             </table>
         </section>

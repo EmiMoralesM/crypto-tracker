@@ -10,7 +10,7 @@ export default function MarketData(props) {
     const [totalBtcDom, setTotalBtcDom] = useState()
     useEffect( () => {
         async function fetchData() {
-            // You can await here
+            
             const response = await axios.get(urlGlobalData);
             setMarketCap(props.currencyFormatter.format(response.data.data.total_market_cap[props.currency.name.toLowerCase()]))
             setTotalVolume(props.currencyFormatter.format(response.data.data.total_volume[props.currency.name.toLowerCase()]))

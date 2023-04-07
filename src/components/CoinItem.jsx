@@ -30,7 +30,7 @@ export default function CoinItem(props) {
 			<td className='coinNumberDiv'>
 				<p>{props.coin.market_cap_rank}</p>
 			</td>
-			<td className='coinNameDiv'>
+			<td className='coinsNameDiv'>
 				<img src={props.coin.image} alt='Coin Image' />
 				<p>{props.coin.id.charAt(0).toUpperCase() + props.coin.id.slice(1)} <span className='symbolCoin'> <i className='dot'></i> {props.coin.symbol.toUpperCase()}</span></p>
 			</td>

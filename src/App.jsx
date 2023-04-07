@@ -38,6 +38,11 @@ function App() {
 		setTheme(newtheme)
 		showTheme(newtheme)
 	}
+
+	const currencyFormatter = new Intl.NumberFormat(currency.format, {
+		style: 'currency',
+		currency: currency.name == "CAD" ? "USD" : currency.name
+	});
 	console.log("rendering...")
 	return (
 		<div className='App'>
@@ -48,9 +53,9 @@ function App() {
 					toggleTheme={toggleTheme}
 			/>
 			<Routes>
-				<Route index element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber} currency={currency} />} />
-				<Route path=':page' element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber} currency={currency} />} />
-				<Route path='/coin/:id' element={<ShowCoin />} />
+				<Route index element={<Home pageNumber={pageNumber} currencyFormatter={currencyFormatter} setPageNumber={setPageNumber} currency={currency} />} />
+				<Route path=':page' element={<Home pageNumber={pageNumber} currencyFormatter={currencyFormatter} setPageNumber={setPageNumber} currency={currency} />} />
+				<Route path='/coin/:id' element={<ShowCoin currency={currency} theme={theme} currencyFormatter={currencyFormatter}/>} />
 			</Routes>
 
 		</div>

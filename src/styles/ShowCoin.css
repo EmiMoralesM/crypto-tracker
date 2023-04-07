@@ -1,0 +1,255 @@
+main {
+    background-color: var(--main-background);
+    color: var(--white);
+}
+/* Main Info Section */
+.mainInfoSection{
+    padding-top: 100px;
+    display: flex;
+    max-width: 76rem;
+    margin: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+.rank{
+    background-color: rgba(179, 179, 179, 0.569);
+    box-shadow: 0 0 15px -3px rgba(161, 161, 161, 0.418);
+    /* background-color: var(--cyan); */
+    display: inline-block;
+    padding: 3px 8px;
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.coinInfoDiv{
+    display: flex;
+    flex-direction: column;
+}
+.coinNameDiv{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.coinNameDiv img{
+    width: 50px;
+    height: 50px;
+}
+.coinPriceDiv{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.price{ 
+    font-size: 33px;
+    margin: 0;
+    font-weight: bold;
+}
+.coinBtcPriceDiv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.priceBTC{
+    color: rgb(171, 171, 171);
+}
+.pricePercentage{ 
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 10px;
+}
+.coinNameDiv .dot{
+    margin: 0 12px 4px 10px ;
+}
+.coinNameDiv .symbol{
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(169, 169, 169);
+}
+
+
+.fa-regular{
+    color: rgb(149, 149, 149);
+}
+.fa-solid{
+    color: var(--cyan);
+}
+.coinActionsDiv div{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.watchlistCheckDiv{
+    margin-top: 55px;
+}
+.watchlistCheckDiv input:checked+label{
+    color: white;
+}
+.watchlistCheckDiv label{
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgb(205, 205, 205);
+    transition: all ease .6s;
+    background-color: rgba(53, 53, 53, 0.156);
+}
+.watchlistCheckDiv label:hover{
+    background-color: rgba(116, 116, 116, 0.233);
+}
+
+#starInput{
+    visibility: hidden;
+}
+#watchlistStar{
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+
+
+/* Chart Section */
+
+.chartSection {
+    display: flex;
+    flex-direction: column;
+    max-width: 76rem;
+    width: 100%;
+    margin: 0px auto;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 20px 0px;
+}
+/* Chart options */
+.chartOptionsDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.formatChartDiv{
+    display: flex;
+    align-items: center;
+}
+.formatChartItem {
+    color: var(--menu-item);
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: all ease .4s;
+    font-weight: 600;
+    margin: 10px 15px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+.activeFormat {
+    background-color: var(--navBar-background);
+}
+.formatChartDiv :not(.activeFormat)::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: var(--menu-item);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.formatChartDiv :not(.activeFormat):hover::before {
+    background-color: var(--cyan);
+    transform: scaleX(1.1);
+}
+
+.formatChartDiv :not(.activeFormat):hover {
+    color: var(--white);
+}
+
+
+.chartOptionsDiv h2{
+    font-size: 30px;
+}
+.chartOptionsDiv h2 span{
+    font-size: 28px;
+    font-weight: 500;
+    color: rgb(161, 161, 161);
+}
+.chartOptionsDiv h2 span .dot{
+    background-color: rgb(220, 220, 220);
+    margin-bottom: 6px;
+    width: 7px;
+    height: 7px;
+    margin-right: 14px;
+}
+
+/* Chart */
+
+.chartDiv{
+    box-shadow: 0px 0px 20px 0px var(--chart-boxshadow) ;
+    border-radius: 20px;
+    min-height: 30rem;
+    background-color: var(--chart-background);
+    margin-top: 35px;
+    width: 100%;
+}
+.chartDiv canvas{
+    width: 100%;
+}
+.chart {
+    width: 90%;
+}
+
+
+/* Chart days */
+
+.daysButtonsDiv{
+    border-radius: 0 0 20px 20px;
+    margin: 10px auto;
+    /* background-color: rgb(10, 10, 10); */
+    width: 100%;
+    /* text-align: center; */
+}
+.daysButtonsDiv button{
+    background-color: transparent;
+    outline: none;
+    border: 0px;
+    font-size: 17px;
+    color: rgb(174, 174, 174);
+    font-weight: 600;
+    padding: 8px 10px;
+    margin: 8px 10px;
+    transition: all ease .4s;
+    border-radius: 15px;
+
+}
+.daysButtonsDiv button:hover{
+    background-color: transparent;
+    outline: none;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+}
+.dayActive{
+    background-color: rgb(39, 39, 39)!important;
+    color: var(--white)!important;
+}
+
+
+/* Loading page */
+
+
+.loadingPageDiv{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+.loadingPage{
+    margin: 0;
+}
