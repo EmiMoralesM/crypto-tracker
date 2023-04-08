@@ -3,7 +3,11 @@ body {
     padding: 0;
     font-family: 'Inter', sans-serif;
 }
-
+main {
+    background-color: var(--main-background);
+    color: var(--white);
+    min-height: 100vh;
+}
 [data-theme="dark"] {
     --menu-image: url(resourses/dots-menu.svg);
     --white: white;
@@ -16,9 +20,9 @@ body {
     --language-item-background-hover: rgb(71, 71, 71);
     --currency-item-background-hover: rgb(37, 37, 37);
     --active-currency-background: rgb(30, 30, 30);
-    
+
     --h1-color: white;
-    
+
     --marketData-background: rgb(3, 3, 3);
     --order-arrows: url(resourses/orderArrows.svg);
     --search-icon-src: url(resourses/search-icon.svg);
@@ -31,11 +35,25 @@ body {
     --red-background-color: rgba(254, 38, 38, 0.216);
     --green-color: rgb(92, 228, 65);
     --green-background-color: rgba(52, 199, 89, 0.102);
-    --lightgreen-background-color: rgba(50,215,75,0.1);
+    --lightgreen-background-color: rgba(50, 215, 75, 0.1);
     --grey-background-color: rgba(47, 47, 47, 0.269);
-    
-    --chart-background: rgb(5,5,5);
-    --chart-boxshadow: rgba(23, 23, 23, 0.825) ;
+
+    /* ShowCoin */
+    --black: rgb(0, 0, 0);
+    --rank-background: rgba(179, 179, 179, 0.569);
+    --chart-background: rgb(5, 5, 5);
+
+    --info-boxshadow: rgba(23, 23, 23, 0);
+    --chart-boxshadow: rgba(23, 23, 23, 0.825);
+    --less-important-text: rgb(171, 171, 171);
+    --watchlist-text: rgb(148, 148, 148);
+    --watchlist-background: rgba(53, 53, 53, 0.156);
+    --chart-format-background: rgb(15, 15, 15);
+    --day-text-not-active: rgb(146, 146, 146);
+
+    /* Footer */
+    --signature-background: rgb(7, 7, 7);
+    --signature-color: rgb(199, 199, 199);
 }
 
 [data-theme="light"] {
@@ -52,7 +70,7 @@ body {
     --language-item-background-hover: rgb(184, 184, 184);
     --currency-item-background-hover: rgb(218, 218, 218);
     --active-currency-background: rgb(225, 225, 225);
-    
+
     --h1-color: rgb(46, 46, 46);
 
     --marketData-background: rgb(236, 236, 236);
@@ -69,11 +87,24 @@ body {
     --green-background-color: rgba(37, 204, 79, 0.218);
     --lightgreen-background-color: rgba(71, 251, 116, 0.361);
     --grey-background-color: rgba(155, 155, 155, 0.245);
-    
-    --chart-background: rgb(235, 235, 235);
-    --chart-boxshadow: rgba(185, 185, 185, 0.518);
-    
 
+
+    /* ShowCoin */
+    --balck: rgb(255, 255, 255);
+    --rank-background: rgba(76, 76, 76, 0.227);
+    --chart-background: rgb(236, 236, 236);
+    --info-boxshadow: rgba(185, 185, 185, 0.39);
+    --chart-boxshadow: rgba(185, 185, 185, 0.518);
+    --less-important-text: rgb(81, 81, 81);
+    --watchlist-text: rgb(41, 41, 41);
+    --watchlist-background: rgba(155, 155, 155, 0.156);
+    --chart-format-background: rgba(155, 155, 155, 0.194);
+    --day-text-not-active: rgb(75, 75, 75);
+
+    
+    /* Footer */
+    --signature-background: rgb(210, 210, 210);
+    --signature-color: rgb(41, 41, 41);
 }
 
 ::-webkit-scrollbar {
@@ -107,16 +138,18 @@ body {
     background-color: var(--labels-coins);
     margin: 0 5px 3px 10px;
 }
-  
-.red{
+
+.red {
     color: var(--red-color);
     background-color: var(--red-background-color);
 }
-.green{
+
+.green {
     color: var(--green-color);
     background-color: var(--green-background-color);
 }
-.lightgreen{
+
+.lightgreen {
     background-color: var(--lightgreen-background-color);
 }
 
@@ -131,6 +164,7 @@ body {
     -webkit-transform: rotate(-45deg);
     transition: all ease .2s;
 }
+
 .left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);

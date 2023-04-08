@@ -447,6 +447,7 @@
     justify-content: space-between;
     opacity: .6;
     transition: all ease .2s;
+    cursor: pointer;
 }
 
 .whatchlistDiv:hover {

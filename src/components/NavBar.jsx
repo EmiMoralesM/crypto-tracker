@@ -98,7 +98,7 @@ export default function NavBar(props) {
 								</label>
 							</div>
 						</div>
-						<div className='languageDiv'>
+						{/* <div className='languageDiv'>
 							<p>{props.language == "English" ? "Language": "Lenguaje"}</p>
 							<div>
 								<div className={`actualLanguageDiv ${languagesMenu ? "actualLanguageDivOpen": undefined}`} onClick={toggleLanguageMenu}>
@@ -116,12 +116,15 @@ export default function NavBar(props) {
 									</div>
 								</div>}
 							</div>
-						</div>
+						</div> */}
 						<div className='whatchlistDiv'>
 							<div>
 								{/* <img src="src/resourses/star.svg" alt="" /> */}
-								<i className="fa-solid fa-star"></i>
-								<Link to={"/"}>Whatchlist</Link>
+								<i className="fa-regular fa-star"></i>
+								<p onClick={() => {
+									props.setActiveWatchlist(true)
+									toggleSettings()
+								}}>Whatchlist</p>
 							</div>
 							<i className={'arrow right'}></i>
 

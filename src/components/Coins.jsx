@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import "../styles/Home.css"
 import CoinItem from './CoinItem'
 import 'animate.css';
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
 import ShowCoin from '../Pages/ShowCoin';
 
 export default function Coins(props) {
-    const [search, setSearch] = useState("")
-    const [searchHidden, setSearchHidden] = useState(false)
     const [filteredCoins, setFilteredCoins] = useState([])
 
     // States to order each column (true = ascendant, false=descendant)
@@ -20,15 +18,21 @@ export default function Coins(props) {
     const [stateVolume, setStateVolume] = useState(false)
 
     // Function to set the search value to the text the user is writting in the input.
-    const handleSearch = input => {
-        setSearch(input.target.value)
-        input.target.value.length > 0 ? setSearchHidden(true) : setSearchHidden(false)
-    }
+    
 
     // Filter the coins based on the value placed in search.
     useEffect(() => {
-        setFilteredCoins(props.coins.filter(coin => coin.id.toLowerCase().includes(search.toLowerCase()) && coin.market_cap))
-    }, [props.coins, search])
+        if (props.activeWatchlist){
+            console.log("Watchlist...")
+            
+            // setFilteredCoins([...JSON.parse(localStorage.getItem('objectWatchlist')),
+                            //   ...props.coins.filter((coin) => {localStorage.getItem('watchlist').includes(coin.id)})])
+
+            setFilteredCoins(props.coins.filter(coin => coin.id.toLowerCase().includes(props.search.toLowerCase()) && coin.market_cap && props.watchlist.includes(coin.id.toLowerCase().replaceAll("-", " "))))
+        } else{
+            setFilteredCoins(props.coins.filter(coin => coin.id.includes(props.search.toLowerCase()) && coin.market_cap))
+        }
+    }, [props.coins, props.search, props.activeWatchlist])
 
     // Function to sort the coins.
     const sortCoins = (order, state, setState) => {
@@ -44,31 +48,16 @@ export default function Coins(props) {
         setState(prevState => !prevState)
         // props.setCoins(filteredCoins)
     }
-
     return (
         <section className='coinsContainer'>
-            <div className='coinsTabs'>
-                <div className='coinsMenu'>
-                    <Link className='coinsMenuItem active'>Cryptocurrencies</Link>
-                    <Link className='coinsMenuItem'>Whatchlist</Link>
-                </div>
-                <div className='searchDiv'>
-                    <form>
-                        <input id="searchCoin" type="text" className={searchHidden ? 'searchHidden' : ''} onChange={handleSearch} />
-                        <div className='searchDecoration'>
-                            <label className='searchCoinLabel' htmlFor="searchCoin"></label>
-                            <i className="searchIcon" ></i>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            
             <table className='coinsDiv'>
                 <thead>
                     <tr className='coinsLabels'>
                         <th className='coinNumberDiv'>
                             <p onClick={() => sortCoins("market_cap_rank", stateNumber, setStateNumber)}><span></span> #</p>
                         </th>
-                        <th className='coinNameDiv'>
+                        <th className='coinsNameDiv'>
                             <p onClick={() => sortCoins("id", stateName, setStateName)}><span></span> Coin</p>
                         </th>
                         <th className='change1Div'>

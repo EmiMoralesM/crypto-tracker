@@ -3,9 +3,6 @@ import "../styles/Home.css"
 
 
 export default function CoinItem(props) {
-
-	
-
 	function formatNumber(number) {
 		if (number < 1000) {
 			return number;
@@ -19,7 +16,6 @@ export default function CoinItem(props) {
 			return (number / 1_000_000_000_000).toFixed(1) + "T";
 		}
 	}
-
 	const currencyFormatter = new Intl.NumberFormat(props.currency.format, {
 		style: 'currency',
 		currency: props.currency.name == "CAD" ? "USD" : props.currency.name

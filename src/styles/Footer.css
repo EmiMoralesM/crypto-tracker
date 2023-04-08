@@ -1,0 +1,30 @@
+.signatureDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--signature-background);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+.signatureDiv p{
+    color: var(--signature-color);
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    padding: 7px;
+}
+.signatureDiv a{
+    color: var(--labels-coins);
+    text-decoration: none;
+    transition: all ease .3s;
+    
+}
+
+.signatureDiv a:hover{
+    color: var(--cyan);
+}
+.signatureDiv i{
+    margin: 0 2px;
+}

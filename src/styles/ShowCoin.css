@@ -12,12 +12,11 @@ main {
     justify-content: space-between;
 }
 .rank{
-    background-color: rgba(179, 179, 179, 0.569);
-    box-shadow: 0 0 15px -3px rgba(161, 161, 161, 0.418);
-    /* background-color: var(--cyan); */
+    background-color: var(--rank-background);
+    box-shadow: 0 0 20px 2px var(--chart-boxshadow);
     display: inline-block;
     padding: 3px 8px;
-    color: black;
+    color: var(--black);
     font-size: 13px;
     font-weight: bold;
     border-radius: 5px;
@@ -52,7 +51,7 @@ main {
     gap: 10px;
 }
 .priceBTC{
-    color: rgb(171, 171, 171);
+    color: var(--less-important-text);
 }
 .pricePercentage{ 
     display: inline-block;
@@ -65,12 +64,12 @@ main {
 .coinNameDiv .symbol{
     font-size: 20px;
     font-weight: 500;
-    color: rgb(169, 169, 169);
+    color: var(--less-important-text);
 }
 
 
 .fa-regular{
-    color: rgb(149, 149, 149);
+    color: var(--watchlist-text);
 }
 .fa-solid{
     color: var(--cyan);
@@ -83,20 +82,20 @@ main {
 .watchlistCheckDiv{
     margin-top: 55px;
 }
-.watchlistCheckDiv input:checked+label{
-    color: white;
+.watchlistCheckDiv>input:checked+label{
+    color: var(--watchlist-text);
 }
 .watchlistCheckDiv label{
     padding: 12px;
     border-radius: 25px;
     font-weight: 600;
+    color: var(--white);
     font-size: 18px;
-    color: rgb(205, 205, 205);
     transition: all ease .6s;
-    background-color: rgba(53, 53, 53, 0.156);
+    background-color: var(--watchlist-background);
 }
 .watchlistCheckDiv label:hover{
-    background-color: rgba(116, 116, 116, 0.233);
+    background-color: var(--active-currency-background);
 }
 
 #starInput{
@@ -145,7 +144,8 @@ main {
     border-radius: 15px;
 }
 .activeFormat {
-    background-color: var(--navBar-background);
+    background-color: var(--chart-format-background);
+    color: var(--white);
 }
 .formatChartDiv :not(.activeFormat)::before {
     content: '';
@@ -177,10 +177,10 @@ main {
 .chartOptionsDiv h2 span{
     font-size: 28px;
     font-weight: 500;
-    color: rgb(161, 161, 161);
+    color: var(--less-important-text);
 }
 .chartOptionsDiv h2 span .dot{
-    background-color: rgb(220, 220, 220);
+    background-color: var(--menu-item);
     margin-bottom: 6px;
     width: 7px;
     height: 7px;
@@ -219,23 +219,23 @@ main {
     outline: none;
     border: 0px;
     font-size: 17px;
-    color: rgb(174, 174, 174);
+    color: var(--day-text-not-active);
     font-weight: 600;
     padding: 8px 10px;
     margin: 8px 10px;
     transition: all ease .4s;
     border-radius: 15px;
-
+    
 }
 .daysButtonsDiv button:hover{
     background-color: transparent;
     outline: none;
     border: 0px;
-    color: white;
+    color: var(--white);
     font-weight: bold;
 }
 .dayActive{
-    background-color: rgb(39, 39, 39)!important;
+    background-color: var(--items-background)!important;
     color: var(--white)!important;
 }
 
@@ -252,4 +252,58 @@ main {
 }
 .loadingPage{
     margin: 0;
+}
+
+/* Extra Info Section */
+
+.extraInfoSection{
+    display: flex;
+    max-width: 76rem;
+    width: 100%;
+    margin: 0px auto;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 20px 0px;
+    gap: 25px;
+}
+.extraInfoSection div{
+    display: flex;
+    width: 100%;
+    background-color: var(--chart-background);
+    box-shadow: 0px 0px 20px 0px var(--info-boxshadow) ;
+    padding: 5px 20px;
+    font-weight: 600;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.aboutSection{
+    padding-bottom: 80px;
+    max-width: 76rem;
+    width: 100%;
+    margin: 40px auto 0 auto;
+}
+.aboutDiv{
+    border-radius: 20px;
+    gap: 25px;
+    background-color: var(--chart-background);
+    box-shadow: 0px 0px 20px 0px var(--info-boxshadow) ;
+    border-radius: 20px;
+    padding: 40px 40px 10px 40px;
+}
+.aboutSection h3{
+    font-size: 23px;
+    margin: 0 0 35px 0;
+}
+.aboutDiv div{
+    padding-bottom: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    color: var(--day-text-not-active);
+}
+.aboutDiv div a{
+    text-decoration: none;
+    color: var(--day-text-not-active);
 }

@@ -1,7 +1,4 @@
-main {
-    background-color: var(--main-background);
-    color: var(--white);
-}
+
 
 .mainTitle {
     padding: 8vh 0 0 0;
@@ -10,7 +7,7 @@ main {
 }
 
 .mainTitle>h1 {
-    font-size: 40px;
+    font-size: 45px;
 }
 
 
@@ -62,14 +59,11 @@ main {
 }
 
 
-
-/* Coins */
-
-.coinsContainer {
+/* Coins Tabs Section */
+.coinsTabsSection {
     max-width: 78rem;
     width: 100%;
     margin: auto;
-    padding-bottom: 20px;
 }
 
 .coinsTabs {
@@ -93,6 +87,7 @@ main {
     transition: all ease .4s;
     font-weight: 600;
     margin: 10px 15px;
+    cursor: pointer;
 }
 
 .coinsMenu :not(.active)::before {
@@ -183,7 +178,6 @@ main {
     transition: all 0.3s ease-in-out;
 }
 
-
 .searchIcon {
     position: absolute;
     background-image: var(--search-icon-src);
@@ -199,8 +193,6 @@ main {
     opacity: 0.8;
     transition: all ease .4s;
 }
-
-
 
 #searchCoin:hover+.searchDecoration .searchCoinLabel,
 #searchCoin:focus+.searchDecoration .searchCoinLabel,
@@ -232,9 +224,18 @@ main {
     transform: scale(1.06);
 }
 
+
 /* Coins */
+
+.coinsContainer {
+    max-width: 78rem;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
 .coinsDiv {
-    min-height: 30rem;
+    min-height: 10rem;
     background-color: var(--coins-div-background);
     box-shadow: 0px 0px 30px 0px var(--box-shadow-coins);
     border-radius: 20px;
