@@ -6,7 +6,7 @@ import "../styles/ShowCoin.css"
 import 'animate.css';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, layouts, plugins } from 'chart.js/auto'
-import { chartDays } from '../config/chartDays';
+import { chartDays } from '../tools/chartDays';
 
 // Page for the individual coins.
 export default function ShowCoin(props) {

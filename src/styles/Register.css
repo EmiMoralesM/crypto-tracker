@@ -1,0 +1,9 @@
+.signUpSection, .profileSection{
+    width: 100%;
+    display: flex;
+    max-width: 70rem;
+    padding-top: 20vh;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}

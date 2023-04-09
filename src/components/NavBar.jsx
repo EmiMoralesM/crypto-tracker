@@ -32,7 +32,7 @@ export default function NavBar(props) {
 				<h1 className='logo animate__animated animate__fadeIn' style={{animationDelay: ".4s"}}><Link to={"/"}>Logo</Link></h1>
 				<ul className='mainMenu'>
 					<li><Link to={"/"} className='navCryptocurrencies animate__animated animate__fadeIn' style={{animationDelay: ".5s"}}>Cryptocurrencies</Link></li>
-					{/* <li><Link to={"/"} className='normalHoverItems'>Home</Link></li> */}
+					<li><Link to={"/"} className='normalHoverItems'>Home</Link></li>
 					<li><Link to={"/contact"} className='normalHoverItems animate__animated animate__fadeIn' style={{animationDelay: ".7s"}}>Contact</Link></li>
 				</ul>
 			</div>
@@ -40,7 +40,6 @@ export default function NavBar(props) {
 				<div className='currenciesDiv'>
 					<div className='selectedCurrency animate__animated animate__fadeIn' style={{animationDelay: ".9s"}}>
 						<div className='currencyDiv currencyDivActive' onClick={() => setMenuCurrencies(prevMenuCurrencies => !prevMenuCurrencies)}>
-							{/* <img src={`src/resourses/${props.currency.name}.png`} alt="Currency Image" /> */}
 							<i className={`i${props.currency.name}`}></i>
 							<p>{props.currency.name}</p>
 						</div>
@@ -49,21 +48,17 @@ export default function NavBar(props) {
 					{menuCurrencies && <div className='animate__animated animate__fadeIn animate__faster currencyOptions'>
 						<div className='currencyDiv' onClick={() => changeCurrency({name: "USD", symbol: "$", format: "en-US"})}>
 							<i className={'iUSD'}></i>
-							{/* <img src="src/resourses/USD.png" alt="Currency Image" /> */}
 							<p>USD</p>
 						</div>
 						<div className='currencyDiv' onClick={() => changeCurrency({name: "EUR", symbol: "€", format: "en-DE"})}>
-							{/* <img src="src/resourses/EUR.png" alt="Currency Image" /> */}
 							<i className='iEUR'></i>
 							<p>EUR</p>
 						</div>
 						<div className='currencyDiv' onClick={() => changeCurrency({name: "CAD", symbol: "$", format: "en-US"})}>
-							{/* <img src="src/resourses/CAD.png" alt="Currency Image" /> */}
 							<i className='iCAD'></i>
 							<p>CAD</p>
 						</div>
 						<div className='currencyDiv' onClick={() => changeCurrency({name: "GBP", symbol: "£", format: "en-GB"})}>
-							{/* <img src="src/resourses/GBP.png" alt="Currency Image" /> */}
 							<i className='iGBP'></i>
 							<p>GBP</p>
 						</div>
@@ -71,8 +66,8 @@ export default function NavBar(props) {
 				</div>
 				<div className='divition animate__animated animate__fadeIn' style={{animationDelay: "1.1                                                            s"}}></div>
 				<div className='loginButtons'>
-					<Link className='loginButton animate__animated animate__fadeIn' style={{animationDelay: "1.2s"}}>Login</Link>
-					<Link className='signupButton animate__animated animate__fadeIn' style={{animationDelay: "1.4s"}}>Sign Up</Link>
+					<Link to={'/login'} className='loginButton animate__animated animate__fadeIn' style={{animationDelay: "1.2s"}}>Login</Link>
+					<Link to={'/signup'} className='signupButton animate__animated animate__fadeIn' style={{animationDelay: "1.4s"}}>Sign Up</Link>
 				</div>
 				<div className='settings' >
 					<p className='settingsButton animate__animated animate__fadeIn' style={{animationDelay: "1.6s"}} onClick={toggleSettings} ></p>
