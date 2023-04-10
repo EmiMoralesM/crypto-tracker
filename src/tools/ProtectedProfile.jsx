@@ -2,15 +2,16 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 import { UserAuth } from './AuthContext'
 
-function ProtectedRoute({children}) {
+function ProtectedProfile({children}) {
     const { user } = UserAuth()
     console.log(user)
     if (!user) {
         return <Navigate to={'/login'}/>
     } else{
+        // return <Navigate to={'/profile'}/>
         return children
     }
 }
 
 
-export default ProtectedRoute 
+export default ProtectedProfile 

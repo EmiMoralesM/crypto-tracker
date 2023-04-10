@@ -11,7 +11,9 @@ import Signup from './Pages/Signup'
 import { AuthContextProvider } from './tools/AuthContext'
 import Login from './Pages/Login'
 import Profile from './Pages/Profile'
-import ProtectedRoute from './tools/ProtectedRoute'
+import ForgotPassword from './Pages/ForgotPassword'
+import ProtectedProfile from './tools/ProtectedProfile'
+import ProtectedRegister from './tools/ProtectedRegister'
 
 function App() {
 	const localCurrency = localStorage.getItem('currency') != null ? JSON.parse(localStorage.getItem('currency')) : { name: "USD", symbol: "$" }
@@ -76,13 +78,13 @@ function App() {
 
 	return (
 		<div className='App'>
-			<NavBar activeWatchlist={activeWatchlist} setActiveWatchlist={setActiveWatchlist}
-				currency={currency} setCurrency={setCurrency}
-				language={language} setLanguage={setLanguage}
-				theme={theme}
-				showTheme={showTheme} toggleTheme={toggleTheme}
-			/>
 			<AuthContextProvider>
+				<NavBar activeWatchlist={activeWatchlist} setActiveWatchlist={setActiveWatchlist}
+					currency={currency} setCurrency={setCurrency}
+					language={language} setLanguage={setLanguage}
+					theme={theme}
+					showTheme={showTheme} toggleTheme={toggleTheme}
+				/>
 				<Routes>
 					<Route index element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber}
 						activeWatchlist={activeWatchlist} setActiveWatchlist={setActiveWatchlist}
@@ -103,15 +105,13 @@ function App() {
 						theme={theme}
 						coins={coins}
 					/>} />
+					
+					
+					<Route path='/signup' element={<ProtectedRegister><Signup /></ProtectedRegister>} />
+					<Route path='/login' element={<ProtectedRegister><Login /></ProtectedRegister>} />
+					<Route path='/forgot-password' element={<ProtectedRegister><ForgotPassword /></ProtectedRegister>} />
 
-					<Route path='/signup' element={<Signup />} />
-					<Route path='/login' element={<Login />} />
-
-					<Route path='/profile' element={
-						<ProtectedRoute >
-							<Profile />
-						</ProtectedRoute>
-					} />
+					<Route path='/profile' element={<ProtectedProfile ><Profile /></ProtectedProfile>} />
 
 					{/* <Route path='/profile' element={<Profile />} /> */}
 

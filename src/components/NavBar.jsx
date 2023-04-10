@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import "../styles/NavBar.css"
 import { Routes, Route, Link } from 'react-router-dom'
 import 'animate.css';
+import { UserAuth } from '../tools/AuthContext'
 
 export default function NavBar(props) {
 	const [menuCurrencies, setMenuCurrencies] = useState(false)
 	const [languagesMenu, setLanguagesMenu] = useState(false)
 	const [settings, setSettings] = useState(false)
-
+	const { user, handleLogout } = UserAuth()
 
 	const changeCurrency = (curr) => {
 		setMenuCurrencies(prevMenuCurrencies => !prevMenuCurrencies)
@@ -65,10 +66,15 @@ export default function NavBar(props) {
 					</div>}
 				</div>
 				<div className='divition animate__animated animate__fadeIn' style={{animationDelay: "1.1                                                            s"}}></div>
-				<div className='loginButtons'>
+				{!user && <div className='loginButtons'>
 					<Link to={'/login'} className='loginButton animate__animated animate__fadeIn' style={{animationDelay: "1.2s"}}>Login</Link>
 					<Link to={'/signup'} className='signupButton animate__animated animate__fadeIn' style={{animationDelay: "1.4s"}}>Sign Up</Link>
-				</div>
+				</div>}
+				{user && <div className='loginButtons'>
+					<Link to={'/profile'} className='imgProfile animate__animated animate__fadeIn' style={{animationDelay: "1.2s"}}>
+						<i class="fa-solid fa-user"></i> 
+					</Link>
+				</div>}
 				<div className='settings' >
 					<p className='settingsButton animate__animated animate__fadeIn' style={{animationDelay: "1.6s"}} onClick={toggleSettings} ></p>
 					{settings && <div className='backgroundMenuSettings' onClick={toggleSettings}></div>}
@@ -78,8 +84,10 @@ export default function NavBar(props) {
 						</div>
 						<hr />
 						<div className='profileDiv'>
-							<Link to={"/"}>Profile</Link>
-							<i className={'arrow right'}></i>
+							<Link to={"/profile"} onClick={toggleSettings} className='profile'>Profile
+								<i className={'arrow right'}></i>
+							</Link>
+
 						</div>
 						<hr />
 						<div className='themeDiv'>
@@ -112,7 +120,7 @@ export default function NavBar(props) {
 								</div>}
 							</div>
 						</div> */}
-						<div className='whatchlistDiv'>
+						<Link to={'/'} className='whatchlistDiv'>
 							<div>
 								{/* <img src="src/resourses/star.svg" alt="" /> */}
 								<i className="fa-regular fa-star"></i>
@@ -123,13 +131,16 @@ export default function NavBar(props) {
 							</div>
 							<i className={'arrow right'}></i>
 
-						</div>
+						</Link>
 						<hr />
-						<div className='signoutDiv'>
+						{user && <div onClick={() => {
+								handleLogout()
+								toggleSettings()
+							}} className='signoutDiv'>
 							{/* <img src="src/resourses/sign-out.svg" alt="" /> */}
 							<i className="fa-solid fa-arrow-right-from-bracket"></i>
-							<p>Sign Out</p>
-						</div>
+							<p>Log Out</p>
+						</div>}
 					</aside>}
 				</div>
 			</div>

@@ -158,16 +158,20 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
-.iUSD{
+
+.iUSD {
     background-image: url(../resourses/USD.png);
 }
-.iCAD{
+
+.iCAD {
     background-image: url(../resourses/CAD.png);
 }
-.iEUR{
+
+.iEUR {
     background-image: url(../resourses/EUR.png);
 }
-.iGBP{
+
+.iGBP {
     background-image: url(../resourses/GBP.png);
 }
 
@@ -273,9 +277,16 @@
     min-height: 70px;
 }
 
+.profile {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .themeDiv,
 .languageDiv,
-.whatchlistDiv{
+.whatchlistDiv {
     margin: 20px 0;
 
 }
@@ -283,12 +294,13 @@
 .languageDiv,
 .settingsTitleDiv,
 .themeDiv,
-.profileDiv{
+.profileDiv,
+.whatchlistDiv{
     margin-left: 30px;
 }
-.whatchlistDiv,
-.signoutDiv{
-    margin-left: 18px;
+
+.signoutDiv {
+margin-left: 20px;
 }
 
 
@@ -303,14 +315,15 @@
 }
 
 /* Settings title div */
-.settingsTitleDiv{
+.settingsTitleDiv {
     /* background-color: #292929; */
     width: 70%;
     border-radius: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.settingsTitleDiv p{
+
+.settingsTitleDiv p {
     margin: 0;
     font-size: 24px;
 }
@@ -321,9 +334,11 @@
     opacity: .6;
     transition: all ease .2s
 }
+
 .profileDiv:hover {
     opacity: 1;
 }
+
 .profileDiv a {
     text-decoration: none;
     color: var(--white);
@@ -361,7 +376,7 @@
     background-repeat: no-repeat;
     margin-top: -1px;
     transition: transform .2s linear;
-    
+
     background-size: 40px;
     background-image: url(../resourses/moon.svg);
     transform: translateX(25px) rotate(180deg);
@@ -436,7 +451,8 @@
 
 /* Watchlist div */
 
-.whatchlistDiv > i, .profileDiv i {
+.whatchlistDiv>i,
+.profileDiv i {
     color: var(--white);
     width: 8px;
     height: 8px;
@@ -448,6 +464,8 @@
     opacity: .6;
     transition: all ease .2s;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--white)
 }
 
 .whatchlistDiv:hover {
@@ -457,13 +475,15 @@
 .whatchlistDiv div {
     display: flex;
     align-items: center;
+    margin-left: -10px;
 }
+
 .whatchlistDiv a {
     text-decoration: none;
     color: var(--white);
 }
 
-.whatchlistDiv > div> i {
+.whatchlistDiv>div>i {
     width: 25px;
     margin: 0 12px 0 10px;
     color: var(--white);
@@ -475,7 +495,6 @@
     opacity: .8;
     justify-content: start;
     font-weight: 500;
-    color: var(--menu-item);
     transition: all ease .3s;
     cursor: pointer;
 }
@@ -487,4 +506,20 @@
 .signoutDiv i {
     width: 35px;
     margin: 0 3px 0 10px;
+}
+
+.imgProfile{
+    border: 2px solid var(--cyan);
+    color: var(--cyan);
+    cursor: pointer;
+    font-size: 17px;
+    background-color: var(--items-background);
+    padding: 10px;
+    margin-right: 8px;
+    border-radius: 50%;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
 }

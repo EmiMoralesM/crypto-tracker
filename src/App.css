@@ -54,13 +54,16 @@ main {
     /* Footer */
     --signature-background: rgb(7, 7, 7);
     --signature-color: rgb(199, 199, 199);
+
+    /* Register */
+    --input-background: rgb(15, 15, 15);
+    --hover-chage-register: rgb(130, 199, 200);
 }
 
 [data-theme="light"] {
     --menu-image: url(resourses/dots-menu-black.svg);
     --order-arrows: url(resourses/orderArrows.svg);
     --white: rgb(0, 0, 0);
-    --cyan: rgba(255, 146, 50, 0.777);
     --cyan: rgb(255, 147, 50);
     --navBar-background: rgb(236, 236, 236);
     --navBar-settings-background: rgb(222, 222, 222);
@@ -105,6 +108,11 @@ main {
     /* Footer */
     --signature-background: rgb(210, 210, 210);
     --signature-color: rgb(41, 41, 41);
+
+    /* Register */
+    --input-background: rgb(215, 215, 215);
+    --hover-chage-register: rgb(255, 129, 19);
+
 }
 
 ::-webkit-scrollbar {

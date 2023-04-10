@@ -1,4 +1,5 @@
-.signUpSection, .profileSection{
+.signUpSection,
+.profileSection {
     width: 100%;
     display: flex;
     max-width: 70rem;
@@ -6,4 +7,200 @@
     flex-direction: column;
     justify-content: center;
     margin: auto;
+}
+
+.titleFormDiv{
+    width: 100%;
+    max-width: 40rem;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;    
+}
+
+.titleForm {
+    margin: 0;
+    font-size: 32px;
+}
+
+.formRegister {
+    width: 100%;
+    max-width: 40rem;
+    margin: auto;
+    background-color: var(--chart-background);
+    box-shadow: 0px 0px 20px 0px var(--box-shadow-coins);
+    border-radius: 15px;
+    display: flex;
+    padding: 20px 0 40px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.formRegister>div {
+    display: block;
+    color: var(--signature-color);
+    width: 80%;
+
+}
+
+.formRegister>div>input {
+    display: block;
+    background-color: var(--input-background);
+    border: 2px solid var(--input-background);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 15px;
+    color: var(--signature-color);
+    width: 100%;
+    transition: all ease .3s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 2px solid var(--input-background);
+  -webkit-text-fill-color: var(--signature-color);
+  -webkit-back: var(--signature-color);
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-background) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.wrongData{
+    border: 2px solid rgba(249, 0, 0, 0.758)!important;
+}
+.formRegister>div>input:focus-visible {
+    border: 2px solid var(--cyan);
+    outline: none;
+}
+
+.formRegister>div>label {
+    display: block;
+    margin: 30px 0 10px 0;
+    padding: 0 20px;
+    color: var(--signature-color);
+    width: 100%;
+    font-weight: 600;
+
+}
+
+.submitButton {
+    background-color: var(--language-div-background);
+    color: var(--menu-item)!important;
+    transition: all ease .3s;
+    padding: 10px 0px;
+    border: 0px;
+    width: 40%;
+    margin-top: 50px;
+    border-radius: 17px;
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    color: var(--white)!important;
+    background-color: var(--cyan);
+}
+
+.resetPasswordButton {
+    background-color: var(--language-div-background);
+    color: var(--menu-item)!important;
+    transition: all ease .3s;
+    padding: 12px 0px;
+    border: 0px;
+    width: 80%;
+    margin-top: 25px;
+    border-radius: 15px;
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.resetPasswordButton:hover {
+    color: var(--white)!important;
+    background-color: var(--cyan);
+}
+
+.changeLogin,
+.changeSignIn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: var(--day-text-not-active);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.changeLogin a,
+.changeSignIn a {
+    color: var(--cyan);
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all ease 0.3s;
+}
+
+.changeLogin a:hover,
+.changeSignIn a:hover {
+    opacity: 1;
+    color: var(--hover-chage-register);
+}
+
+.forgotPasswordDiv {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.forgotPasswordDiv a {
+    color: var(--less-important-text);
+    text-decoration: none;
+    transition: all ease .3s;
+    font-weight: 500;
+}
+
+.forgotPasswordDiv a:hover {
+    color: var(--white);
+}
+
+.resetPasswordLogIn {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.resetPasswordLogIn a {
+    color: var(--cyan);
+    border: 2px solid var(--cyan);
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all ease .3s;
+    font-weight: 600;
+}
+
+.resetPasswordLogIn a:hover {
+    border: 2px solid var(--hover-chage-register);
+    color: var(--hover-chage-register);
+}
+.errorMessage{
+    margin-bottom: 0px;
+    color: #ff4f4f;
+    margin-bottom: -25px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+}
+.successMessage{
+    margin-bottom: 0px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    font-weight: 600;
 }

@@ -6,23 +6,40 @@ import { UserAuth } from '../tools/AuthContext'
 export default function Signup() {
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
+   const [confirmPassword, setConfirmPassword] = useState('')
    const [error, setError] = useState('')
-   const {createUser} = UserAuth()
+   const [loading, setLoading] = useState(false)
+   const {createUser, setWrongInput, resetWrong } = UserAuth()
    const navigate = useNavigate()
    
    // console.log(createUser)
    const handleSubmit = async (e) => {
       e.preventDefault()
       setError('')
-
+      
+      if (password !== confirmPassword){
+         // console.log('Passwords do not match!')
+         setWrongInput('passwordConfirm')
+         return setError('Passwords do not match')
+      }
       try {
+         setLoading(true)
          await createUser(email, password)
          navigate('/profile')
          // setLoading(true)
       } catch (e) {
-         setError(e.message)
+         if (e.message == 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
+            setError('Short password')
+            setWrongInput('password')
+         } else if (e.message == 'Firebase: Error (auth/email-already-in-use).'){
+            setError('Email already in use')
+            setWrongInput('email')
+         } else{
+            setError('Failed to create an account')
+         }
          console.log(e.message)
       }
+      setLoading(false)
 
    }
 
@@ -30,26 +47,30 @@ export default function Signup() {
       <main>
          <section className='signUpSection'>
             <div >
-               <h2>Sign Up</h2>
-               <form onSubmit={handleSubmit}>
+               <div className='titleFormDiv'>
+                  <h2 className='titleForm'>Sign Up</h2>
+
+               </div>
+               <form onSubmit={handleSubmit} className='formSignUp formRegister'>
+                  {error && <p className='errorMessage'>{error}</p>}
                   <div className='emailDiv'>
                      <label htmlFor="email">Email</label>
-                     <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" required />
+                     <input onClick={() => resetWrong('email')} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" required />
                   </div>
 
                   <div className='passwordDiv'>
                      <label htmlFor="password">Password</label>
-                     <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password"required />
+                     <input onClick={() => resetWrong('password')} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" required />
                   </div>
 
-                  {/* <div className='passwordConfirmDiv'>
+                  <div className='passwordConfirmDiv'>
                      <label htmlFor="passwordConfirm">Password Confirmation</label>
-                     <input type="password" name="passwordConfirm" id="passwordConfirm" required />
-                  </div> */}
-                  <button type='submit'>Sign Up</button>
+                     <input onClick={() => resetWrong('passwordConfirm')} onChange={(e) => setConfirmPassword(e.target.value)} type="password" name="passwordConfirm" id="passwordConfirm" required />
+                  </div>
+                  {!loading && <button type='submit' className='submitButton'>Sign Up</button>}
                </form>
             </div>
-            <div>
+            <div className='changeLogin'>
                <p>Already have an account? <Link to={'/login'}> Login </Link></p>
             </div>
 

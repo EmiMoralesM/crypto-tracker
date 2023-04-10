@@ -3,14 +3,34 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    sendPasswordResetEmail
 } from 'firebase/auth'
 import { auth } from './firebase'
+import { useNavigate } from 'react-router-dom'
 
 const UserContext = createContext()
 
 export const AuthContextProvider = (props) => {
     const [user, setUser] = useState({})
+    const navigate = useNavigate()
+
+    const setWrongInput = (id) => {
+        document.getElementById(id).classList.add('wrongData')
+    }
+    const resetWrong = (id) => {
+        document.getElementById(id).classList.remove('wrongData')
+    }
+
+    const handleLogout = async () => {
+        try {
+          await signOut(auth)
+          navigate('/')
+          console.log('You are logged out!')
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -19,10 +39,11 @@ export const AuthContextProvider = (props) => {
     const login = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
-    
-    const logout = () => {
-        return signOut(auth)
+
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
     }
+
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -35,7 +56,7 @@ export const AuthContextProvider = (props) => {
     }, [])
 
     return (
-        <UserContext.Provider value={{createUser, user, logout, login}}>
+        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout}}>
             {props.children}
         </UserContext.Provider>
     )
@@ -43,7 +64,7 @@ export const AuthContextProvider = (props) => {
 
 export const UserAuth = () => {
     return useContext(UserContext);
-} 
+}
 
 
 
