@@ -1,5 +1,4 @@
-.signUpSection,
-.profileSection {
+.signUpSection {
     width: 100%;
     display: flex;
     max-width: 70rem;
@@ -9,12 +8,12 @@
     margin: auto;
 }
 
-.titleFormDiv{
+.titleFormDiv {
     width: 100%;
     max-width: 40rem;
     margin: auto;
     text-align: center;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
 }
 
 .titleForm {
@@ -57,7 +56,7 @@
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -65,16 +64,17 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border: 2px solid var(--input-background);
-  -webkit-text-fill-color: var(--signature-color);
-  -webkit-back: var(--signature-color);
-  -webkit-box-shadow: 0 0 0px 1000px var(--input-background) inset;
-  transition: background-color 5000s ease-in-out 0s;
+    border: 2px solid var(--input-background);
+    -webkit-text-fill-color: var(--signature-color);
+    -webkit-back: var(--signature-color);
+    -webkit-box-shadow: 0 0 0px 1000px var(--input-background) inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
-.wrongData{
-    border: 2px solid rgba(249, 0, 0, 0.758)!important;
+.wrongData {
+    border: 2px solid rgba(249, 0, 0, 0.758) !important;
 }
+
 .formRegister>div>input:focus-visible {
     border: 2px solid var(--cyan);
     outline: none;
@@ -92,7 +92,7 @@ select:-webkit-autofill:focus {
 
 .submitButton {
     background-color: var(--language-div-background);
-    color: var(--menu-item)!important;
+    color: var(--menu-item) !important;
     transition: all ease .3s;
     padding: 10px 0px;
     border: 0px;
@@ -106,13 +106,13 @@ select:-webkit-autofill:focus {
 }
 
 .submitButton:hover {
-    color: var(--white)!important;
+    color: var(--white) !important;
     background-color: var(--cyan);
 }
 
 .resetPasswordButton {
     background-color: var(--language-div-background);
-    color: var(--menu-item)!important;
+    color: var(--menu-item) !important;
     transition: all ease .3s;
     padding: 12px 0px;
     border: 0px;
@@ -126,7 +126,7 @@ select:-webkit-autofill:focus {
 }
 
 .resetPasswordButton:hover {
-    color: var(--white)!important;
+    color: var(--white) !important;
     background-color: var(--cyan);
 }
 
@@ -190,7 +190,8 @@ select:-webkit-autofill:focus {
     border: 2px solid var(--hover-chage-register);
     color: var(--hover-chage-register);
 }
-.errorMessage{
+
+.errorMessage {
     margin-bottom: 0px;
     color: #ff4f4f;
     margin-bottom: -25px;
@@ -198,9 +199,107 @@ select:-webkit-autofill:focus {
     font-weight: 600;
     padding: 5px 10px;
 }
-.successMessage{
+
+.successMessage {
     margin-bottom: 0px;
     margin-bottom: 0px;
     font-size: 15px;
     font-weight: 600;
+}
+
+
+/* Profile */
+
+.profileSection {
+    width: 100%;
+    display: flex;
+    max-width: 70rem;
+    padding-top: 10vh;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+.profilePageDiv{
+    display: flex;
+}
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding-right: 50px;
+}
+.leftSide h1 {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+.leftSide a {
+    color: rgb(200, 200, 200);
+    text-decoration: none;
+    padding: 15px 20px;
+    margin: 8px 0;
+    font-size: 18px;
+    border-radius: 15px;
+    transition: all ease .3s;
+}
+.leftSide a:hover {
+    background-color: rgba(51, 51, 51, 0.156);
+    color: rgb(242, 242, 242);
+    
+}
+.leftSide a i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    height: 20px;
+}
+.leftSide .activePageProfile {
+    background-color: rgba(51, 51, 51, 0.629);
+    color: rgb(255, 255, 255);
+}
+.leftSide .activePageProfile:hover {
+    background-color: rgba(51, 51, 51, 0.629);
+    color: rgb(255, 255, 255);
+}
+
+
+.profileInfoDiv{
+    display: flex;
+    margin-top: 40px;
+    gap: 30px;
+}
+.profileInfoDiv img{
+    width: 100px;
+}
+.changePic{
+    position: absolute;
+    margin-left: 71px;
+    margin-top: -38px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: var(--cyan);
+    color: var(--white);
+    border: 3px solid black;
+}
+
+#changePic{
+    visibility: hidden;
+    display: none;
+}
+
+.photoProfile{
+    border: 3px solid var(--cyan);
+    color: var(--cyan);
+    cursor: pointer;
+    font-size: 34px;
+    background-color: var(--items-background);
+    /* padding: 10px; */
+    margin-right: 8px;
+    border-radius: 50%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
 }

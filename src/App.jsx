@@ -111,7 +111,7 @@ function App() {
 					<Route path='/login' element={<ProtectedRegister><Login /></ProtectedRegister>} />
 					<Route path='/forgot-password' element={<ProtectedRegister><ForgotPassword /></ProtectedRegister>} />
 
-					<Route path='/profile' element={<ProtectedProfile ><Profile /></ProtectedProfile>} />
+					<Route path='/profile/:page/*' element={<ProtectedProfile ><Profile setActiveWatchlist={setActiveWatchlist} /></ProtectedProfile>} />
 
 					{/* <Route path='/profile' element={<Profile />} /> */}
 

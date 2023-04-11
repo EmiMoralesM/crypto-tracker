@@ -71,8 +71,9 @@ export default function NavBar(props) {
 					<Link to={'/signup'} className='signupButton animate__animated animate__fadeIn' style={{animationDelay: "1.4s"}}>Sign Up</Link>
 				</div>}
 				{user && <div className='loginButtons'>
-					<Link to={'/profile'} className='imgProfile animate__animated animate__fadeIn' style={{animationDelay: "1.2s"}}>
-						<i class="fa-solid fa-user"></i> 
+					<Link to={'/profile/user-info'} className='imgProfile animate__animated animate__fadeIn' style={{animationDelay: "1.2s"}}>
+						{!user.photoURL && <i class="fa-solid fa-user"></i> }
+						{user.photoURL && <img src={user.photoURL} alt="" /> }
 					</Link>
 				</div>}
 				<div className='settings' >
@@ -84,7 +85,7 @@ export default function NavBar(props) {
 						</div>
 						<hr />
 						<div className='profileDiv'>
-							<Link to={"/profile"} onClick={toggleSettings} className='profile'>Profile
+							<Link to={"/profile/user-info"} onClick={toggleSettings} className='profile'>Profile
 								<i className={'arrow right'}></i>
 							</Link>
 
