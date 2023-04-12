@@ -9,12 +9,13 @@ import {
 } from 'firebase/auth'
 import { auth } from './firebase'
 import { useNavigate } from 'react-router-dom'
-import { ref, uploadBytes, getDownloadURL, getStorage } from 'firebase/storage'
+import { ref, uploadBytes, getDownloadURL, getStorage, deleteObject } from 'firebase/storage'
 
 const UserContext = createContext()
 
 export const AuthContextProvider = (props) => {
     const [user, setUser] = useState({})
+    const [image, setImage] = useState()
     const [ignore, forceUpdate] = useReducer(x => x + 1, 0)
     const navigate = useNavigate()
 
@@ -36,14 +37,35 @@ export const AuthContextProvider = (props) => {
         document.getElementById(id).classList.remove('wrongData')
     }
 
+    const deleteProfilePicture = async () => {
+        const storage = getStorage()
+        const desertRef = ref(storage, user.photoURL);
+        // Delete the file
+        await deleteObject(desertRef).then(() => {
+            console.log('Picture deleted')
+            updateProfile(auth.currentUser, {
+                photoURL: ''
+            }).then(() => {
+                forceUpdate()
+            }).catch((error) => {
+                console.log(error.message)
+            });
+        }).catch((error) => {
+            console.log(error.message)
+        });
+
+        
+        console.log('User Pic: ', user.photoURL)
+    }
+
     const handleChangeImage = (e) => {
         const storage = getStorage()
-        // Creatign the image ref with the file the user uploaded. 
+        // Creating the image ref with the file the user uploaded. 
         const imageRef = ref(storage, 'e.target.files[0]')
-
+        setImage(e.target.files[0])
         // Uploading the image to the firebase cloud.
         uploadBytes(imageRef, e.target.files[0]).then(() => {
-            // Now we download the iage we just updated
+            // Now we download the image we just updated
             getDownloadURL(imageRef).then((url) => {
                 // We set the profile to have that image
                 updateProfile(auth.currentUser, {
@@ -56,6 +78,19 @@ export const AuthContextProvider = (props) => {
                 });
             })
         })
+    }
+
+    const handleChangeUsername = async (e) => {
+        e.preventDefault()
+        const newUsername = e.target.username.value;
+        await updateProfile(auth.currentUser, {
+            displayName: newUsername
+        }).then(() => {
+            console.log('Username updated')
+            forceUpdate()
+        }).catch((error) => {
+            console.log(error.message)
+        });
     }
 
     const handleLogout = async () => {
@@ -84,7 +119,7 @@ export const AuthContextProvider = (props) => {
 
 
     return (
-        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout, handleChangeImage }}>
+        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture }}>
             {props.children}
         </UserContext.Provider>
     )

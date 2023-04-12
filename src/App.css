@@ -8,6 +8,7 @@ main {
     color: var(--white);
     min-height: 100vh;
 }
+
 [data-theme="dark"] {
     --menu-image: url(resourses/dots-menu.svg);
     --white: white;

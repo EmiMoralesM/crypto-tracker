@@ -262,13 +262,23 @@ select:-webkit-autofill:focus {
 }
 
 
+
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
 .profileInfoDiv{
     display: flex;
     margin-top: 40px;
     gap: 30px;
 }
 .profileInfoDiv img{
-    width: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .changePic{
     position: absolute;
@@ -289,6 +299,7 @@ select:-webkit-autofill:focus {
 }
 
 .photoProfile{
+    overflow: hidden;
     border: 3px solid var(--cyan);
     color: var(--cyan);
     cursor: pointer;
@@ -303,3 +314,112 @@ select:-webkit-autofill:focus {
     justify-content: center;
     height: 100px;
 }
+
+.changeUsernameForm{
+    display: flex;
+    margin-top: 50px;
+    align-items: flex-end;
+}
+.changeEmailForm{
+    display: flex;
+    margin-top: 40px;
+    align-items: flex-end;
+}
+.changeUsernameForm div, .changeEmailForm div{
+    width: 70%;
+}
+
+.changeUsernameForm input, .changeEmailForm input{
+    display: block;
+    background-color: var(--input-background);
+    border: 2px solid var(--input-background);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    color: var(--signature-color);
+    width: 100%;
+    transition: all ease .3s;
+}
+.changeUsernameForm label, .changeEmailForm label{
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 5px;
+    margin-bottom: 5px;
+    
+}
+.changeUsernameForm button, .changeEmailForm button{
+    height: max-content;
+    padding: 14px 20px;
+    margin-left: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.518);
+    border: 0px;
+    transition: all ease .2s ;
+    border-radius: 12px;
+}
+.changeUsernameForm button:hover, .changeEmailForm button:hover{
+    background-color: rgba(191, 191, 191, 0.518);
+    
+}
+
+.usernameP{
+    font-weight: 600;
+    color: var(--white);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.emailP{
+    font-weight: 500;
+    color: var(--less-important-text);
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.deletePictureDiv{
+    margin-top: 50px;
+}
+.deletePictureDiv button{
+    border: 0px;
+    font-weight: 600;
+    background-color: transparent;
+    font-size: 14px;
+    color: var(--white)!important;
+    opacity: 0.6;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.deletePictureDiv i{
+    font-size: 12px;
+    background-color: rgba(222, 0, 0, 0.88);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 8px;
+    margin-right: 5px;
+    color: var(--white)!important;
+    transition: all ease .3s;
+}
+.deletePictureDiv button:hover{
+    opacity: 1;
+}
+/* .deletePictureDiv button{
+    background-color: rgba(222, 0, 0, 0.509);
+    border: 0px;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--white)!important;
+    border-radius: 20px;
+    padding: 5px 12px;
+    transition: all ease .3s;
+}
+.deletePictureDiv button i{
+    margin-right: 5px;
+    color: var(--white)!important;
+}
+.deletePictureDiv button:hover{
+    background-color: rgba(222, 0, 0, 0.88);
+} */
