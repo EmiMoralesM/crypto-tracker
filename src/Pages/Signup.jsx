@@ -25,15 +25,15 @@ export default function Signup() {
       try {
          setLoading(true)
          await createUser(email, password)
-         navigate('/profile')
+         navigate('/profile/user-info')
          // setLoading(true)
       } catch (e) {
-         if (e.message == 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
-            setError('Short password')
-            setWrongInput('password')
-         } else if (e.message == 'Firebase: Error (auth/email-already-in-use).'){
+         if (e.message == 'Firebase: Error (auth/email-already-in-use).'){
             setError('Email already in use')
             setWrongInput('email')
+         } else if (e.message == 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
+            setError('Short password')
+            setWrongInput('password')
          } else{
             setError('Failed to create an account')
          }

@@ -219,46 +219,54 @@ select:-webkit-autofill:focus {
     justify-content: center;
     margin: auto;
 }
-.profilePageDiv{
+
+.profilePageDiv {
     display: flex;
 }
+
 .leftSide {
     display: flex;
     flex-direction: column;
     width: 30%;
     padding-right: 50px;
 }
+
 .leftSide h1 {
     font-size: 35px;
     margin-bottom: 30px;
 }
+
 .leftSide a {
-    color: rgb(200, 200, 200);
+    color: var(--signature-color);
     text-decoration: none;
     padding: 15px 20px;
     margin: 8px 0;
     font-size: 18px;
     border-radius: 15px;
     transition: all ease .3s;
+    font-weight: 600;
 }
+
 .leftSide a:hover {
-    background-color: rgba(51, 51, 51, 0.156);
-    color: rgb(242, 242, 242);
-    
+    background-color: var(--menu-profile-background-hover);
+
 }
+
 .leftSide a i {
     margin-right: 15px;
     width: 20px;
     text-align: center;
     height: 20px;
 }
+
 .leftSide .activePageProfile {
-    background-color: rgba(51, 51, 51, 0.629);
-    color: rgb(255, 255, 255);
+    background-color: var(--menu-profile-background);
+    color: var(--white);
 }
+
 .leftSide .activePageProfile:hover {
-    background-color: rgba(51, 51, 51, 0.629);
-    color: rgb(255, 255, 255);
+    background-color: var(--menu-profile-background);
+    color: var(--white);
 }
 
 
@@ -270,17 +278,19 @@ select:-webkit-autofill:focus {
     width: 60%;
 }
 
-.profileInfoDiv{
+.profileInfoDiv {
     display: flex;
     margin-top: 40px;
     gap: 30px;
 }
-.profileInfoDiv img{
+
+.profileImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.changePic{
+
+.changePic {
     position: absolute;
     margin-left: 71px;
     margin-top: -38px;
@@ -290,22 +300,21 @@ select:-webkit-autofill:focus {
     border-radius: 50%;
     background-color: var(--cyan);
     color: var(--white);
-    border: 3px solid black;
+    border: 3px solid var(--main-background);
 }
 
-#changePic{
+#changePic {
     visibility: hidden;
     display: none;
 }
 
-.photoProfile{
+.photoProfileDiv {
     overflow: hidden;
     border: 3px solid var(--cyan);
     color: var(--cyan);
     cursor: pointer;
     font-size: 34px;
     background-color: var(--items-background);
-    /* padding: 10px; */
     margin-right: 8px;
     border-radius: 50%;
     width: 100px;
@@ -315,21 +324,25 @@ select:-webkit-autofill:focus {
     height: 100px;
 }
 
-.changeUsernameForm{
+.changeUsernameForm {
     display: flex;
     margin-top: 50px;
     align-items: flex-end;
 }
-.changeEmailForm{
+
+.changeEmailForm {
     display: flex;
     margin-top: 40px;
     align-items: flex-end;
 }
-.changeUsernameForm div, .changeEmailForm div{
+
+.changeUsernameForm div,
+.changeEmailForm div {
     width: 70%;
 }
 
-.changeUsernameForm input, .changeEmailForm input{
+.changeUsernameForm input,
+.changeEmailForm input {
     display: block;
     background-color: var(--input-background);
     border: 2px solid var(--input-background);
@@ -340,15 +353,19 @@ select:-webkit-autofill:focus {
     width: 100%;
     transition: all ease .3s;
 }
-.changeUsernameForm label, .changeEmailForm label{
+
+.changeUsernameForm label,
+.changeEmailForm label {
     display: block;
     font-size: 18px;
     font-weight: 600;
     padding: 10px 5px;
     margin-bottom: 5px;
-    
+
 }
-.changeUsernameForm button, .changeEmailForm button{
+
+.changeUsernameForm button,
+.changeEmailForm button {
     height: max-content;
     padding: 14px 20px;
     margin-left: 20px;
@@ -358,68 +375,227 @@ select:-webkit-autofill:focus {
     color: white;
     background-color: rgba(128, 128, 128, 0.518);
     border: 0px;
-    transition: all ease .2s ;
+    transition: all ease .2s;
     border-radius: 12px;
 }
-.changeUsernameForm button:hover, .changeEmailForm button:hover{
+
+.changeUsernameForm button:hover,
+.changeEmailForm button:hover {
     background-color: rgba(191, 191, 191, 0.518);
-    
+
 }
 
-.usernameP{
+.usernameP {
     font-weight: 600;
     color: var(--white);
     font-size: 20px;
     margin-bottom: 5px;
 }
-.emailP{
+
+.emailP {
     font-weight: 500;
     color: var(--less-important-text);
     font-size: 17px;
     margin-top: 10px;
 }
 
-.deletePictureDiv{
+/* Delete profile pic */
+.deletePictureDiv {
     margin-top: 50px;
 }
-.deletePictureDiv button{
+
+.deletePictureDiv button {
     border: 0px;
     font-weight: 600;
     background-color: transparent;
     font-size: 14px;
-    color: var(--white)!important;
+    color: var(--white) !important;
     opacity: 0.6;
     padding: 5px 12px;
     cursor: pointer;
     transition: all ease .3s;
 }
-.deletePictureDiv i{
+
+.deletePictureDiv i {
     font-size: 12px;
     background-color: rgba(222, 0, 0, 0.88);
     font-weight: 600;
     border-radius: 50px;
     padding: 8px;
     margin-right: 5px;
-    color: var(--white)!important;
+    color: white!important;
     transition: all ease .3s;
 }
-.deletePictureDiv button:hover{
+
+.deletePictureDiv button:hover {
     opacity: 1;
 }
-/* .deletePictureDiv button{
-    background-color: rgba(222, 0, 0, 0.509);
-    border: 0px;
+
+
+/* Loading */
+
+.imageSkeleton {
+    animation: skeleton-loading .7s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: var(--skeleton-loading-0);
+    }
+
+    100% {
+        background-color: var(--skeleton-loading-100);
+    }
+}
+
+/* Errors */
+.bigFileError {
+    /* padding: 5px; */
+    font-size: 14px;
     font-weight: 600;
-    font-size: 12px;
-    color: var(--white)!important;
-    border-radius: 20px;
-    padding: 5px 12px;
+    height: 50px;
+    margin-top: 15px;
+    margin-bottom: -65px;
+    color: rgb(178, 16, 16);
+}
+
+/* Settings */
+
+.settingDelete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+.settingDelete > p{
+    font-weight: 600;
+    color: var(--signature-color);
+}
+.settingDelete > button{
+    font-size: 14px;
+    color: var(--white);
+    background-color: var(--active-currency-background);
+    border-radius: 15px;
+    height: max-content;
+    padding: 12px 20px;
+    font-weight: bold;
+    border: 0px;
+    cursor: pointer;
     transition: all ease .3s;
 }
-.deletePictureDiv button i{
-    margin-right: 5px;
-    color: var(--white)!important;
+
+.settingDelete > button:hover{
+    background-color: var(--language-div-background);
 }
-.deletePictureDiv button:hover{
-    background-color: rgba(222, 0, 0, 0.88);
-} */
+
+.deleteConfirmation, .requireResentLogin{
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    background-color: var(--delete-alert-background);
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    height: 100vh;
+
+}
+.deleteConfirmation, .requireResentLogin{
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    background-color: var(--delete-alert-background);
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    height: 100vh;
+
+}
+
+.deleteConfirmation>div{
+    background-color: var(--navBar-settings-background);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: -2vh;
+    /* height: 30vh; */
+    width: 15vw;
+    border-radius: 20px;
+    padding: 15px;
+}
+.requireResentLogin> div {
+    background-color: var(--hover-coin);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: -2vh;
+    /* height: 30vh; */
+    width: 15vw;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.deleteConfirmation > div i, .requireResentLogin > div i{
+    font-size: 40px;
+    margin-top: 5px;
+}
+
+.desctitleDeleteConfirm {
+    font-size: 16px;
+    margin-top: 5px;
+    color: var(--signature-color);
+}
+
+.titleDeleteConfirm {
+    color: var(--white);
+    font-size: 20px !important;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+.deleteConfirmation >div > div, .requireResentLogin > div > div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.cancelButton{
+    padding: 12px 22px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 0px;
+    background-color: var(--cyan);
+    font-weight: bold;
+    box-shadow: 0 0 10px -5px var(--cyan);
+    cursor: pointer;
+    transition: all ease .3s;
+    color: var(--white);
+}
+.cancelButton:hover{
+    background-color: var(--light-cyan);
+}
+.deleteButton, .resentLoginButton{
+    padding: 12px 22px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 0px;
+    background-color: var(--language-div-background);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.deleteButton:hover, .resentLoginButton:hover{
+    background-color: var(--delete-button-hover);
+    color: var(--white);
+}

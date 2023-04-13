@@ -6,6 +6,7 @@ import {
     onAuthStateChanged,
     sendPasswordResetEmail,
     updateProfile,
+    deleteUser,
 } from 'firebase/auth'
 import { auth } from './firebase'
 import { useNavigate } from 'react-router-dom'
@@ -15,19 +16,38 @@ const UserContext = createContext()
 
 export const AuthContextProvider = (props) => {
     const [user, setUser] = useState({})
-    const [image, setImage] = useState()
+    const [loadingImage, setLoadingImage] = useState(false)
+    const [bigFile, setBigFile] = useState(false)
+    const [resentLogin, setResentLogin] = useState(true)
     const [ignore, forceUpdate] = useReducer(x => x + 1, 0)
     const navigate = useNavigate()
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser)
             setUser(currentUser)
         })
         return () => {
             unsubscribe()
         }
+
     }, [])
+
+    // If there is no username, set a default one (the email). 
+    useEffect(() => {
+        if (user) {
+            if (user.email) {
+                if (!user.displayName) {
+                    updateProfile(auth.currentUser, {
+                        displayName: user.email.split("@")[0]
+                    }).then(() => {
+                        forceUpdate()
+                    }).catch((error) => {
+                        console.log(error.message)
+                    });
+                }
+            }
+        }
+    }, [user])
 
     const setWrongInput = (id) => {
         document.getElementById(id).classList.add('wrongData')
@@ -38,6 +58,7 @@ export const AuthContextProvider = (props) => {
     }
 
     const deleteProfilePicture = async () => {
+        setLoadingImage(true)
         const storage = getStorage()
         const desertRef = ref(storage, user.photoURL);
         // Delete the file
@@ -47,37 +68,59 @@ export const AuthContextProvider = (props) => {
                 photoURL: ''
             }).then(() => {
                 forceUpdate()
+                setLoadingImage(false)
             }).catch((error) => {
                 console.log(error.message)
             });
         }).catch((error) => {
             console.log(error.message)
         });
+        setLoadingImage(false)
 
-        
+
         console.log('User Pic: ', user.photoURL)
     }
 
+    const deleteAccount = () => {
+        const user = auth.currentUser;
+        deleteUser(user).then(() => {
+            console.log('User Deleted!')
+            forceUpdate()
+        }).catch((error) => {
+            console.log(error.message)
+            setResentLogin(false)
+        });
+    }
+
     const handleChangeImage = (e) => {
-        const storage = getStorage()
-        // Creating the image ref with the file the user uploaded. 
-        const imageRef = ref(storage, 'e.target.files[0]')
-        setImage(e.target.files[0])
-        // Uploading the image to the firebase cloud.
-        uploadBytes(imageRef, e.target.files[0]).then(() => {
-            // Now we download the image we just updated
-            getDownloadURL(imageRef).then((url) => {
-                // We set the profile to have that image
-                updateProfile(auth.currentUser, {
-                    photoURL: url
-                }).then(() => {
-                    console.log('Profile picture updated')
-                    forceUpdate()
-                }).catch((error) => {
-                    console.log(error.message)
-                });
+        if (e.target.files[0].size > 2097152) {
+            setBigFile(true);
+            console.log('File too big')
+            setTimeout(() => setBigFile(false), 5000)
+        } else {
+            setBigFile(false);
+            setLoadingImage(true)
+            const storage = getStorage()
+            // Creating the image ref with the file the user uploaded. 
+            const imageRef = ref(storage, 'e.target.files[0]')
+            // Uploading the image to the firebase cloud.
+            uploadBytes(imageRef, e.target.files[0]).then(() => {
+                // Now we download the image we just updated
+                getDownloadURL(imageRef).then((url) => {
+                    // We set the profile to have that image
+                    updateProfile(auth.currentUser, {
+                        photoURL: url
+                    }).then(() => {
+                        console.log('Profile picture updated')
+                        forceUpdate()
+                        setLoadingImage(false)
+                    }).catch((error) => {
+                        console.log(error.message)
+                        setLoadingImage(false)
+                    });
+                })
             })
-        })
+        }
     }
 
     const handleChangeUsername = async (e) => {
@@ -96,10 +139,12 @@ export const AuthContextProvider = (props) => {
     const handleLogout = async () => {
         try {
             await signOut(auth)
-            navigate('/')
+            
+            navigate('/login')
             console.log('You are logged out!')
         } catch (error) {
             console.log(error.message)
+
         }
     }
 
@@ -108,7 +153,7 @@ export const AuthContextProvider = (props) => {
     }
 
     const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password)               
     }
 
     const resetPassword = (email) => {
@@ -119,7 +164,7 @@ export const AuthContextProvider = (props) => {
 
 
     return (
-        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture }}>
+        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, bigFile, deleteAccount, setResentLogin, resentLogin }}>
             {props.children}
         </UserContext.Provider>
     )

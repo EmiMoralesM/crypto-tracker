@@ -25,7 +25,7 @@ export default function Home(props) {
 		props.activeWatchlist ? toggleActive("whatchlist"): toggleActive("cryptocurrencies")
 	}, [props.activeWatchlist])
 
-	// Function to change from the main coins to the watchlist and bice
+	// Function to change from the main coins to the watchlist and bice (buttons styles)
 	const toggleActive = (format) => {
 		let cryptocurrencies = document.getElementById("cryptocurrencies")
 		let whatchlist = document.getElementById("whatchlist")
@@ -72,8 +72,10 @@ export default function Home(props) {
 
 			<Coins 
 				search={search}
+				objectsWatchlist={props.objectsWatchlist}
+				coinsObjects={props.coinsObjects} setCoinsObjects={props.setCoinsObjects}
 				coins={props.coins} setCoins={props.setCoins} 
-				watchlist={props.watchlist} activeWatchlist={props.activeWatchlist} 
+				activeWatchlist={props.activeWatchlist} 
 				currency={props.currency} currencyFormatter={props.currencyFormatter} 
 			/>
 

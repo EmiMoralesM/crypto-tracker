@@ -13,6 +13,7 @@ main {
     --menu-image: url(resourses/dots-menu.svg);
     --white: white;
     --cyan: rgb(7, 185, 170);
+    --light-cyan: rgba(0, 255, 255, 0.778);
     --navBar-background: rgb(15, 15, 15);
     --navBar-settings-background: rgb(29, 29, 29);
     --menu-item: rgb(211, 211, 211);
@@ -21,9 +22,9 @@ main {
     --language-item-background-hover: rgb(71, 71, 71);
     --currency-item-background-hover: rgb(37, 37, 37);
     --active-currency-background: rgb(30, 30, 30);
-
+    
     --h1-color: white;
-
+    
     --marketData-background: rgb(3, 3, 3);
     --order-arrows: url(resourses/orderArrows.svg);
     --search-icon-src: url(resourses/search-icon.svg);
@@ -38,12 +39,12 @@ main {
     --green-background-color: rgba(52, 199, 89, 0.102);
     --lightgreen-background-color: rgba(50, 215, 75, 0.1);
     --grey-background-color: rgba(47, 47, 47, 0.269);
-
+    
     /* ShowCoin */
     --black: rgb(0, 0, 0);
     --rank-background: rgba(179, 179, 179, 0.569);
     --chart-background: rgb(5, 5, 5);
-
+    
     --info-boxshadow: rgba(23, 23, 23, 0);
     --chart-boxshadow: rgba(23, 23, 23, 0.825);
     --less-important-text: rgb(171, 171, 171);
@@ -51,14 +52,22 @@ main {
     --watchlist-background: rgba(53, 53, 53, 0.156);
     --chart-format-background: rgb(15, 15, 15);
     --day-text-not-active: rgb(146, 146, 146);
-
+    
     /* Footer */
     --signature-background: rgb(7, 7, 7);
     --signature-color: rgb(199, 199, 199);
-
+    
     /* Register */
     --input-background: rgb(15, 15, 15);
     --hover-chage-register: rgb(130, 199, 200);
+    
+    /* Profile */
+    --menu-profile-background: rgba(51, 51, 51, 0.629);
+    --menu-profile-background-hover: rgba(51, 51, 51, 0.156);
+    --skeleton-loading-0: hsl(0, 5%, 15%);
+    --skeleton-loading-100: hsl(0, 5%, 35%);
+    --delete-alert-background: rgba(0, 0, 0, 0.593);
+    --delete-button-hover: rgb(40, 40, 40);
 }
 
 [data-theme="light"] {
@@ -66,6 +75,8 @@ main {
     --order-arrows: url(resourses/orderArrows.svg);
     --white: rgb(0, 0, 0);
     --cyan: rgb(255, 147, 50);
+    --light-cyan: rgba(255, 147, 50, 0.778);
+
     --navBar-background: rgb(236, 236, 236);
     --navBar-settings-background: rgb(222, 222, 222);
     --menu-item: rgb(53, 53, 53);
@@ -94,7 +105,7 @@ main {
 
 
     /* ShowCoin */
-    --balck: rgb(255, 255, 255);
+    --black: rgb(255, 255, 255);
     --rank-background: rgba(76, 76, 76, 0.227);
     --chart-background: rgb(236, 236, 236);
     --info-boxshadow: rgba(185, 185, 185, 0.39);
@@ -113,6 +124,15 @@ main {
     /* Register */
     --input-background: rgb(215, 215, 215);
     --hover-chage-register: rgb(255, 129, 19);
+
+    /* Profile */
+    --menu-profile-background: rgba(197, 197, 197, 0.629);
+    --menu-profile-background-hover: rgba(166, 166, 166, 0.156);
+    --skeleton-loading-0: hsl(0, 0%, 85%);
+    --skeleton-loading-100: hsl(0, 0%, 70%);
+    --delete-alert-background: rgba(255, 255, 255, 0.593);
+    --delete-button-hover: rgb(190, 190, 190);
+
 
 }
 

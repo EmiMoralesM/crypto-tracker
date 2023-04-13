@@ -29,7 +29,7 @@ export default function ShowCoin(props) {
 
          // Sets the onWatchlist to true if the coin is already on the watchlist.
          // If the coin is already on the watchlist, the star turns to filled 
-         if (props.watchlist.includes(response.data.id)) {
+         if (props.objectsWatchlist.filter((coin) => coin.id == params.id.toLowerCase()).length) {
             setOnWatchlist(true)
          } else {
             setOnWatchlist(false)
@@ -38,13 +38,10 @@ export default function ShowCoin(props) {
       fetchData();
    }, [])
 
-   console.log("On watchlist: " + onWatchlist)
-
    useEffect(() => {
       async function fetchData() {
          const response = await axios.get(urlCoinChart);
          setHistoricData(response.data)
-         // console.log(response.data)
       }
       fetchData();
    }, [props.currency, days])
@@ -52,21 +49,21 @@ export default function ShowCoin(props) {
    const toggleStar = () => {
       if (onWatchlist) {
          setOnWatchlist(false)
-         const newWatchlist = props.watchlist.filter((coin) => coin != params.id.toLowerCase())
-         props.setWatchlist(newWatchlist)
 
-         localStorage.setItem('watchlist', JSON.stringify(newWatchlist));
-         // Save the object of the coin to then be able to show it in the watchlist
-         localStorage.setItem('objectWatchlist', [...JSON.stringify(props.coins.filter((coin) => newWatchlist.includes(coin.id)))]);
+         // Delete the coin object from the watchlist.
+         const newObjectWatchlist = props.coinsObjects.filter((coin) => coin.id != params.id.toLowerCase())
+         props.setObjectsWatchlist(newObjectWatchlist)
+         localStorage.setItem('objectsWatchlist', JSON.stringify(newObjectWatchlist));
+         
       } else {
          setOnWatchlist(true)
-         props.setWatchlist(prevWatchlist => [...prevWatchlist, params.id.toLowerCase()])
-
-         localStorage.setItem('watchlist', JSON.stringify([...props.watchlist, params.id.toLowerCase()]));
-         localStorage.setItem('objectWatchlist', JSON.stringify(props.coins.filter((coin) => [...props.watchlist, params.id.toLowerCase()].includes(coin.id))));
+         
+         // Add the coin object to the watchlist.
+         props.setObjectsWatchlist(prevWatchlist => [...prevWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())])
+         localStorage.setItem('objectsWatchlist', JSON.stringify([...props.objectsWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())]));
       }
+      
    }
-   console.log(props.watchlist)
 
    // Chage format style of the chart (market_caps -- prices)
    const toggleActiveFormat = (format) => {
@@ -224,30 +221,36 @@ export default function ShowCoin(props) {
          </section>}
 
          {coinData && <section className='extraInfoSection'>
+            {coinData.market_data.price_change_percentage_1h_in_currency[props.currency.name.toLowerCase()] &&
             <div>
                <p>1H</p>
                <p className={coinData.market_data.price_change_percentage_1h_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_1h_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>
+            </div>}
+            {coinData.market_data.price_change_percentage_24h_in_currency[props.currency.name.toLowerCase()] &&
             <div>
                <p>24H</p>
                <p className={coinData.market_data.price_change_percentage_24h_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_24h_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>
+            </div>}
+            {coinData.market_data.price_change_percentage_7d_in_currency[props.currency.name.toLowerCase()] &&
             <div>
                <p>7D</p>
                <p className={coinData.market_data.price_change_percentage_7d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_7d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>
+            </div>}
+            {coinData.market_data.price_change_percentage_14d_in_currency[props.currency.name.toLowerCase()] &&
             <div>
                <p>14D</p>
                <p className={coinData.market_data.price_change_percentage_14d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_14d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>
+            </div>}
+            {coinData.market_data.price_change_percentage_30d_in_currency[props.currency.name.toLowerCase()] &&
             <div>
                <p>30D</p>
                <p className={coinData.market_data.price_change_percentage_30d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_30d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>
-            <div>
+            </div>}
+            {coinData.market_data.price_change_percentage_1y_in_currency[props.currency.name.toLowerCase()] &&
+             <div>
                <p>1Y</p>
                <p className={coinData.market_data.price_change_percentage_1y_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_1y_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>
+            </div>}
          </section>}
          {coinData && <section className='aboutSection'>
             {coinData.description.en.split(". ")[0] && <div className='aboutDiv'>

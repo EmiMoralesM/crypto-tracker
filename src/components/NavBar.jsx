@@ -46,7 +46,7 @@ export default function NavBar(props) {
 						</div>
 					</div>
 
-					{menuCurrencies && <div className='animate__animated animate__fadeIn animate__faster currencyOptions'>
+					{menuCurrencies && !props.activeWatchlist && <div className='animate__animated animate__fadeIn animate__faster currencyOptions'>
 						<div className='currencyDiv' onClick={() => changeCurrency({ name: "USD", symbol: "$", format: "en-US" })}>
 							<i className={'iUSD'}></i>
 							<p>USD</p>
