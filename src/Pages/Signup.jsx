@@ -12,13 +12,11 @@ export default function Signup() {
    const {createUser, setWrongInput, resetWrong } = UserAuth()
    const navigate = useNavigate()
    
-   // console.log(createUser)
    const handleSubmit = async (e) => {
       e.preventDefault()
       setError('')
       
       if (password !== confirmPassword){
-         // console.log('Passwords do not match!')
          setWrongInput('passwordConfirm')
          return setError('Passwords do not match')
       }
@@ -37,7 +35,6 @@ export default function Signup() {
          } else{
             setError('Failed to create an account')
          }
-         console.log(e.message)
       }
       setLoading(false)
 
@@ -78,13 +75,3 @@ export default function Signup() {
       </main>
    )
 }
-
-
-// const emailRef = useRef()
-   // const passwordRef = useRef()
-   // const passwordConfirmRef = useRef()
-   // const [loading, setLoading] = useState(false)
-   
-      // if (passwordRef.current.value !== passwordConfirmRef.current.value){
-      //   return setError('Passwords do not match!')
-      // }

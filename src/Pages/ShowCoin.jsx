@@ -51,7 +51,7 @@ export default function ShowCoin(props) {
          setOnWatchlist(false)
 
          // Delete the coin object from the watchlist.
-         const newObjectWatchlist = props.coinsObjects.filter((coin) => coin.id != params.id.toLowerCase())
+         const newObjectWatchlist = props.objectsWatchlist.filter((coin) => coin.id != params.id.toLowerCase())
          props.setObjectsWatchlist(newObjectWatchlist)
          localStorage.setItem('objectsWatchlist', JSON.stringify(newObjectWatchlist));
          
@@ -95,7 +95,7 @@ export default function ShowCoin(props) {
    }
 
    return (
-      <main >
+      <main key={coin.id}>
          {!coinData ? (
             <div className='loadingPageDiv'>
                {/* <h1 className='loadingPage'>Loading...</h1> */}

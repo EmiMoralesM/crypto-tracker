@@ -23,14 +23,22 @@ export default function NavBar(props) {
 		toggleLanguageMenu()
 	}
 	const toggleSettings = () => {
-		setSettings(prevSettings => !prevSettings)
+		if(settings){
+			document.getElementById('menuSettings').classList.add('animate__fadeOutRight');
+			document.getElementById('menuSettings').classList.remove('animate__fadeInRight')
+			setTimeout(() => setSettings(prevSettings => !prevSettings), 150)
+		} else{
+			setSettings(prevSettings => !prevSettings)
+		}
 	}
 
 
 	return (
 		<section className='navbar animate__animated animate__fadeInDown' >
 			<div className='navLeftSide'>
-				<h1 className='logo animate__animated animate__fadeIn' style={{ animationDelay: ".4s" }}><Link to={"/"}>Logo</Link></h1>
+				<div className='logoDiv'>
+					<h1 className='logo animate__animated animate__fadeIn' style={{ animationDelay: ".4s" }}><Link to={"/"}>Logo</Link></h1>
+				</div>
 				<ul className='mainMenu'>
 					<li><Link to={"/"} className='navCryptocurrencies animate__animated animate__fadeIn' style={{ animationDelay: ".5s" }}>Cryptocurrencies</Link></li>
 					<li><Link to={"/"} className='normalHoverItems'>Home</Link></li>
@@ -79,7 +87,7 @@ export default function NavBar(props) {
 				<div className='settings' >
 					<p className='settingsButton animate__animated animate__fadeIn' style={{ animationDelay: "1.6s" }} onClick={toggleSettings} ></p>
 					{settings && <div className='backgroundMenuSettings' onClick={toggleSettings}></div>}
-					{settings && <aside className='menuSettings animate__animated animate__fadeInRight animate__faster'>
+					{settings && <aside id='menuSettings' className='menuSettings animate__animated animate__fadeInRight animate__faster'>
 						<div className='settingsTitleDiv'>
 							<p><strong>Settigns</strong></p>
 						</div>

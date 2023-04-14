@@ -2,6 +2,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
+    
+    width: 100vw;
+    overflow: hidden;
 }
 main {
     background-color: var(--main-background);
@@ -10,6 +13,7 @@ main {
 }
 
 [data-theme="dark"] {
+    --menu-logo: url(resourses/logo.svg);
     --menu-image: url(resourses/dots-menu.svg);
     --white: white;
     --cyan: rgb(7, 185, 170);
@@ -37,8 +41,8 @@ main {
     --red-background-color: rgba(254, 38, 38, 0.216);
     --green-color: rgb(92, 228, 65);
     --green-background-color: rgba(52, 199, 89, 0.102);
-    --lightgreen-background-color: rgba(50, 215, 75, 0.1);
-    --grey-background-color: rgba(47, 47, 47, 0.269);
+    --lightgreen-background-color: rgba(50, 215, 75, 0.218);
+    --grey-background-color: rgba(47, 47, 47, 0.405);
     
     /* ShowCoin */
     --black: rgb(0, 0, 0);
@@ -71,6 +75,7 @@ main {
 }
 
 [data-theme="light"] {
+    --menu-logo: url(resourses/logo-light.svg);
     --menu-image: url(resourses/dots-menu-black.svg);
     --order-arrows: url(resourses/orderArrows.svg);
     --white: rgb(0, 0, 0);

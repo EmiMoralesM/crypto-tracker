@@ -49,6 +49,7 @@ export default function Home(props) {
 		<main>
 			<section className='mainTitle'>
 				<h1>Cryptocurrency Tracker</h1>
+				{/* <p>With CryptoTracker, Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sapiente error velit fuga amet! Minima dolor, error sint similique quas quidem. Ea laboriosam tenetur recusandae. Dolor nisi quis odit ex.</p> */}
 			</section>
 
 			<MarketData currency={props.currency} currencyFormatter={props.currencyFormatter} />

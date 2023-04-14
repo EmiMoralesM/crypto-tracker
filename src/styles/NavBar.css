@@ -14,14 +14,24 @@
 }
 
 /* NavBar - Left Side  */
+
+.logoDiv {
+    opacity: 0.9;
+    transition: all ease .2s;
+}
+
+.logoDiv:hover {
+    opacity: 2;
+}
+
 .logo {
-    margin: 0;
-    background-image: url(../resourses/logo-test.svg);
+    margin: 0 0 0 25px;
+    background-image: var(--menu-logo);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 140px;
+    background-size: 220px;
     height: 55px;
-    width: 150px;
+    width: 190px;
     overflow: hidden;
     padding: 5px 15px;
 }
@@ -34,7 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 0 30px 0 5px;
     margin: 0;
 }
 
@@ -49,7 +59,7 @@
 .loginButton {
     text-decoration: none;
     color: var(--menu-item);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 15px;
     position: relative;
     display: block;
@@ -200,6 +210,7 @@
     background-color: var(--items-background);
     padding: 7px 12px;
     border-radius: 15px;
+    font-weight: 600;
 }
 
 .signupButton:hover {
@@ -238,6 +249,8 @@
 .settingsButton a {
     padding: 20px 0 20px 200px;
 }
+
+
 
 /* Menu settings */
 .backgroundMenuSettings {
@@ -295,12 +308,12 @@
 .settingsTitleDiv,
 .themeDiv,
 .profileDiv,
-.whatchlistDiv{
+.whatchlistDiv {
     margin-left: 30px;
 }
 
 .signoutDiv {
-margin-left: 20px;
+    margin-left: 20px;
 }
 
 
@@ -509,7 +522,7 @@ margin-left: 20px;
 }
 
 
-.imgProfileLink{
+.imgProfileLink {
     overflow: hidden;
     border: 3px solid var(--cyan);
     color: var(--cyan);
@@ -526,12 +539,12 @@ margin-left: 20px;
     height: 40px;
 }
 
-.imgProfileLink i{
+.imgProfileLink i {
     font-size: 17px;
 }
 
-.imgProfileDiv{
-    display: flex; 
+.imgProfileDiv {
+    display: flex;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -539,7 +552,7 @@ margin-left: 20px;
     border-radius: 50%;
 }
 
-.imgProfileLink  img{
+.imgProfileLink img {
     width: 100%;
     border-radius: 50%;
     height: 100%;

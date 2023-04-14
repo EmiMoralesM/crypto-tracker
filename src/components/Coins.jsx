@@ -23,7 +23,6 @@ export default function Coins(props) {
     // Filter the coins based on the value placed in search.
     useEffect(() => {
         if (props.activeWatchlist){
-            console.log("Watchlist...")
             setFilteredCoins(props.objectsWatchlist.filter(coin => coin.id.toLowerCase().includes(props.search.toLowerCase()) && coin.market_cap))
         } else{
             setFilteredCoins(props.coins.filter(coin => coin.id.includes(props.search.toLowerCase()) && coin.market_cap))
@@ -83,16 +82,21 @@ export default function Coins(props) {
                     {/* We map trough the filtered coins and display them: */}
                     {filteredCoins.map(coin => {
                         return (
-                            <Link key={coin.id}
-                                  onClick={() => {
-                                    if (!props.coinsObjects.filter(coinOb => coinOb.id == coin.id ).length){
-                                        props.setCoinsObjects(prevCoinsObjects => [...prevCoinsObjects, coin])
-                                    }
-                                  }}
-                                  to={`/coin/${coin.id}`} 
-                                  style={{textDecoration: "none"}}>
-                                <CoinItem key={coin.id} coin={coin} currency={props.currency} currencyFormatter={props.currencyFormatter} />
-                            </Link>
+                            // <Link key={coin.id}
+                            //       onClick={() => {
+                            //         if (!props.coinsObjects.filter(coinOb => coinOb.id == coin.id ).length){
+                            //             props.setCoinsObjects(prevCoinsObjects => [...prevCoinsObjects, coin])
+                            //         }
+                            //       }}
+                            //       to={`/coin/${coin.id}`} 
+                            //       style={{textDecoration: "none"}}>
+                                <CoinItem key={coin.id}
+                                          coin={coin} 
+                                          currency={props.currency} 
+                                          currencyFormatter={props.currencyFormatter}
+                                          coinsObjects={props.coinsObjects} setCoinsObjects={props.setCoinsObjects}
+                                />
+                            // </Link>
                         )
                     })}
                     {/* {props.loading && <div className='loadingIconDiv'>

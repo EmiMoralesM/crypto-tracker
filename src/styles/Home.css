@@ -1,5 +1,3 @@
-
-
 .mainTitle {
     padding: 8vh 0 0 0;
     text-align: center;
@@ -13,7 +11,7 @@
 
 /* Market Data */
 
-.marketData{
+.marketData {
     display: flex;
     max-width: 76rem;
     width: 100%;
@@ -22,34 +20,41 @@
     border-radius: 20px;
     padding: 30px 0px;
 }
-.marketData > div:nth-child(1){
+
+.marketData>div:nth-child(1) {
     margin-left: 2%;
 }
-.marketData > div:nth-child(3){
+
+.marketData>div:nth-child(3) {
     margin-right: 2%;
 }
-    .marketData > div{
+
+.marketData>div {
     width: 21rem;
     padding: 5px 20px;
     border-radius: 20px;
 }
+
 .dataMarketData {
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin: 15px 0;
     color: var(--h1-color);
 }
-.labelMaketData{
-    color: var(--h1-color);
-    font-weight: 600;
-    font-size: .8rem!important;
+
+.labelMaketData {
+    color: var(--labels-coins);
+    font-weight: 500;
+    font-size: 1rem !important;
     margin: 15px 0 0 0;
 }
-.dataMarketDataDiv{
+
+.dataMarketDataDiv {
     display: flex;
     align-items: center;
 }
-.percentageMarketData{
+
+.percentageMarketData {
     padding: 5px 10px 5px 10px;
     margin: 0;
     margin-left: 15px;
@@ -58,6 +63,26 @@
     font-size: 16px;
 }
 
+/* Lading market cap */
+.loadingMarketData>div {
+    width: 21rem;
+    padding: 5px 20px;  
+    border-radius: 20px;
+    animation: skeleton-loading-marketdata .7s linear infinite alternate;
+}
+.loadingMarketData>div p {
+    visibility: hidden;
+}
+
+@keyframes skeleton-loading-marketdata {
+    0% {
+        background-color: hsl(0, 5%, 5%);
+    }
+    
+    100% {
+        background-color: hsl(0, 5%, 15%);
+    }
+}
 
 /* Coins Tabs Section */
 .coinsTabsSection {
@@ -212,7 +237,7 @@
 
 }
 
-.searchHidden+.searchDecoration .searchCoinLabel::after{
+.searchHidden+.searchDecoration .searchCoinLabel::after {
     opacity: 0;
 
 }
@@ -247,26 +272,30 @@
 .coinsLabels {
     display: flex;
     text-align: left;
-    justify-content: start!important;
+    justify-content: start !important;
 
 }
-tr{
+
+tr {
     padding: 8px 0
 }
-thead th p{
-    color: var(--labels-coins)!important;
-    font-weight: normal!important;
+
+thead th p {
+    color: var(--labels-coins) !important;
+    font-weight: normal !important;
     font-size: 14px;
     margin: 5px 0 0 0;
-    padding: 0!important;
+    padding: 0 !important;
     cursor: pointer;
     transition: all ease .6s;
-    
+
 }
-thead th p:hover{
-    color: var(--white)!important;
+
+thead th p:hover {
+    color: var(--white) !important;
 }
-thead th span{
+
+thead th span {
     width: 12px;
     height: 16px;
     opacity: 0;
@@ -279,68 +308,84 @@ thead th span{
     margin-top: 0px;
     transition: all ease .3s;
 }
-thead th p:hover>span{
+
+thead th p:hover>span {
     opacity: 0.5;
 }
-.symbolCoin{
+
+.symbolCoin {
     color: var(--labels-coins);
     font-weight: 500;
 }
-thead tr{
+
+thead tr {
     margin: 0px 0 5px 0;
     transform: scale(1.004);
 }
-tbody tr{
+
+tbody tr {
     transform: scale(1.004);
     transition: all ease .3s;
 }
-tbody tr:hover{
+
+tbody tr:hover {
     background-color: var(--hover-coin);
 }
-.coinRow{
+
+.coinRow {
     display: flex;
     cursor: pointer;
 }
-.coinNumberDiv{
+
+.coinNumberDiv {
     display: flex;
     justify-content: center;
     width: 10%;
     padding-left: 15px;
 }
-.coinNumberDiv p{
+
+.coinNumberDiv p {
     display: flex;
     align-items: center;
     text-align: center;
     color: var(--menu-item);
 }
-.coinsNameDiv{
+
+.coinsNameDiv {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.coinsNameDiv{
+.coinsNameDiv {
     width: 30%;
 }
-.coinsNameDiv p{
+
+.coinsNameDiv p {
     font-weight: bold;
     color: var(--white);
 }
-.coinsNameDiv img{
+
+.coinsNameDiv img {
     width: 33px;
     height: 33px;
 }
-.change24Div,.change1Div{
+
+.change24Div,
+.change1Div {
     width: 15%;
     text-align: right;
     display: flex;
     align-items: center;
     justify-content: end;
 }
-.change1Div{
+
+.change1Div {
     width: 12%;
 }
-.change24Div p, .change1Div p{
+
+.change24Div p,
+.change1Div p {
     padding: 5px 10px 5px 10px;
     margin: 0;
     border-radius: 10px;
@@ -349,21 +394,24 @@ tbody tr:hover{
 }
 
 
-.priceDiv{
+.priceDiv {
     text-align: right;
     width: 20%;
 }
-.priceDiv p{
+
+.priceDiv p {
     color: var(--white);
     font-weight: 600;
 }
-.marketCapDiv{
+
+.marketCapDiv {
     padding-left: 30px;
     width: 15%;
     text-align: center;
     color: var(--menu-item);
 }
-.volume24Div{
+
+.volume24Div {
     padding-right: 50px;
     width: 13%;
     text-align: right;
@@ -371,14 +419,15 @@ tbody tr:hover{
 }
 
 
-.noMatchesDiv{
+.noMatchesDiv {
     margin: 8rem;
     display: flex;
     justify-content: center;
-    font-size: 20px;    
+    font-size: 20px;
 }
-.noMatchesDiv:hover{
-    background-color: var(--coins-div-background)!important;    
+
+.noMatchesDiv:hover {
+    background-color: var(--coins-div-background) !important;
 }
 
 
@@ -393,7 +442,7 @@ tbody tr:hover{
 
 /* Change Page */
 
-.changePageDiv{
+.changePageDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -403,14 +452,15 @@ tbody tr:hover{
     max-width: 70rem;
     margin: auto;
 }
-.changePageNumbers{
+
+.changePageNumbers {
     display: flex;
     justify-content: center;
     gap: 15px;
     align-items: center;
 }
 
-.actualPage{
+.actualPage {
     color: var(--white);
     background-color: var(--cyan);
     padding: 10px;
@@ -420,7 +470,8 @@ tbody tr:hover{
     text-align: center;
     font-weight: 600;
 }
-.changePage{
+
+.changePage {
     color: var(--labels-coins);
     font-weight: 600;
     text-decoration: none;
@@ -431,29 +482,37 @@ tbody tr:hover{
     text-align: center;
     transition: all ease .3s;
 }
-.changePage:hover{
+
+.changePage:hover {
     color: var(--white);
     background-color: rgba(108, 108, 108, 0.105);
 }
 
-.nextPageDiv, .prevPageDiv{
+.nextPageDiv,
+.prevPageDiv {
     opacity: 0.6;
     transition: all ease .3s;
 }
-.nextPageDiv a, .prevPageDiv a{
+
+.nextPageDiv a,
+.prevPageDiv a {
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
 }
-.nextPageDiv:hover, .prevPageDiv:hover{
+
+.nextPageDiv:hover,
+.prevPageDiv:hover {
     opacity: 1;
 }
 
-.nextPageDiv i, .prevPageDiv i{
+.nextPageDiv i,
+.prevPageDiv i {
     width: 5px;
     margin: 0px 10px 2px 10px;
-    height: 5px;    
+    height: 5px;
 }
-.treeDots{
+
+.treeDots {
     color: var(--labels-coins);
 }

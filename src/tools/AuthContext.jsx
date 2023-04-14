@@ -17,7 +17,9 @@ const UserContext = createContext()
 export const AuthContextProvider = (props) => {
     const [user, setUser] = useState({})
     const [loadingImage, setLoadingImage] = useState(false)
-    const [bigFile, setBigFile] = useState(false)
+    const [loadingUsername, setLoadingUsername] = useState(false)
+    const [accountError, setAccountError] = useState('')
+
     const [resentLogin, setResentLogin] = useState(true)
     const [ignore, forceUpdate] = useReducer(x => x + 1, 0)
     const navigate = useNavigate()
@@ -58,27 +60,30 @@ export const AuthContextProvider = (props) => {
     }
 
     const deleteProfilePicture = async () => {
-        setLoadingImage(true)
-        const storage = getStorage()
-        const desertRef = ref(storage, user.photoURL);
-        // Delete the file
-        await deleteObject(desertRef).then(() => {
-            console.log('Picture deleted')
-            updateProfile(auth.currentUser, {
-                photoURL: ''
-            }).then(() => {
-                forceUpdate()
-                setLoadingImage(false)
+        if (user.photoURL) {
+            setLoadingImage(true)
+            const storage = getStorage()
+            const desertRef = ref(storage, user.photoURL);
+            // Delete the file
+            await deleteObject(desertRef).then(() => {
+                updateProfile(auth.currentUser, {
+                    photoURL: ''
+                }).then(() => {
+                    console.log('Picture deleted')
+                    forceUpdate()
+                    setLoadingImage(false)
+                }).catch((error) => {
+                    console.log(error.message)
+                    setAccountError("Couldn't delete the profile picture.");
+                    setTimeout(() => setAccountError(''), 5000)
+                });
             }).catch((error) => {
                 console.log(error.message)
+                setAccountError("Couldn't delete the profile picture.");
+                setTimeout(() => setAccountError(''), 5000)
             });
-        }).catch((error) => {
-            console.log(error.message)
-        });
-        setLoadingImage(false)
-
-
-        console.log('User Pic: ', user.photoURL)
+            setLoadingImage(false)
+        }
     }
 
     const deleteAccount = () => {
@@ -87,18 +92,23 @@ export const AuthContextProvider = (props) => {
             console.log('User Deleted!')
             forceUpdate()
         }).catch((error) => {
-            console.log(error.message)
-            setResentLogin(false)
+            if(error.message == 'Firebase: Error (auth/requires-recent-login).'){
+                console.log(error.message)
+                setResentLogin(false)
+            } else{
+                setAccountError("Couldn't delete the account Please, try again later")
+                setTimeout(() => setAccountError(''), 5000)
+            }
+
         });
     }
 
     const handleChangeImage = (e) => {
         if (e.target.files[0].size > 2097152) {
-            setBigFile(true);
             console.log('File too big')
-            setTimeout(() => setBigFile(false), 5000)
+            setAccountError('File too big! (max. 2MB)');
+            setTimeout(() => setAccountError(''), 5000)
         } else {
-            setBigFile(false);
             setLoadingImage(true)
             const storage = getStorage()
             // Creating the image ref with the file the user uploaded. 
@@ -117,6 +127,9 @@ export const AuthContextProvider = (props) => {
                     }).catch((error) => {
                         console.log(error.message)
                         setLoadingImage(false)
+                        setAccountError("Couldn't change the profile picture.");
+                        setTimeout(() => setAccountError(''), 5000)
+
                     });
                 })
             })
@@ -125,6 +138,7 @@ export const AuthContextProvider = (props) => {
 
     const handleChangeUsername = async (e) => {
         e.preventDefault()
+        setLoadingUsername(true)
         const newUsername = e.target.username.value;
         await updateProfile(auth.currentUser, {
             displayName: newUsername
@@ -133,13 +147,16 @@ export const AuthContextProvider = (props) => {
             forceUpdate()
         }).catch((error) => {
             console.log(error.message)
+            setAccountError("Couldn't change the username.");
+            setTimeout(() => setAccountError(''), 5000)
         });
+        setLoadingUsername(false)
+        e.target.username.value = ''
     }
 
     const handleLogout = async () => {
         try {
             await signOut(auth)
-            
             navigate('/login')
             console.log('You are logged out!')
         } catch (error) {
@@ -153,7 +170,7 @@ export const AuthContextProvider = (props) => {
     }
 
     const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)               
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
     const resetPassword = (email) => {
@@ -161,10 +178,8 @@ export const AuthContextProvider = (props) => {
     }
 
 
-
-
     return (
-        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, bigFile, deleteAccount, setResentLogin, resentLogin }}>
+        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, deleteAccount, setResentLogin, resentLogin, loadingUsername, accountError }}>
             {props.children}
         </UserContext.Provider>
     )

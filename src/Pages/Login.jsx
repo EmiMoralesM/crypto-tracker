@@ -34,12 +34,6 @@ export default function Login() {
     setLoading(false)
   }
 
-  // const setWrongInput = (id) => {
-  //   document.getElementById(id).classList.add('wrongData')
-  // }
-  // const resetWrong = (id) => {
-  //   document.getElementById(id).classList.remove('wrongData')
-  // }
 
   return (
     <main>
@@ -59,7 +53,7 @@ export default function Login() {
               <label htmlFor="password">Password</label>
               <input onClick={() => resetWrong('password')} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" required />
             </div>
-            {/* onClick={verifyData} */}
+            
             {!loading && <button type='submit' className='submitButton'>Login</button>}
             <div className='forgotPasswordDiv'>
               <Link to={'/forgot-password'} >Forgot Password?</Link>

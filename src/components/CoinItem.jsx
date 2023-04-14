@@ -1,5 +1,6 @@
 import React from 'react'
 import "../styles/Home.css"
+import { useNavigate } from 'react-router-dom';
 
 
 export default function CoinItem(props) {
@@ -20,9 +21,16 @@ export default function CoinItem(props) {
 		style: 'currency',
 		currency: props.currency.name == "CAD" ? "USD" : props.currency.name
 	});
-	
+	const navigate = useNavigate()
 	return (
-		<tr className='coinRow animate__animated animate__fadeIn' >
+		<tr onClick={() => {
+			        if (!props.coinsObjects.filter(coinOb => coinOb.id == props.coin.id ).length){
+			            props.setCoinsObjects(prevCoinsObjects => [...prevCoinsObjects, props.coin])
+			        }
+					navigate(`/coin/${props.coin.id}`)
+			      }} 
+				  className='coinRow animate__animated animate__fadeIn'
+		>
 			<td className='coinNumberDiv'>
 				<p>{props.coin.market_cap_rank}</p>
 			</td>

@@ -392,6 +392,7 @@ select:-webkit-autofill:focus {
     margin-bottom: 5px;
 }
 
+
 .emailP {
     font-weight: 500;
     color: var(--less-important-text);
@@ -423,7 +424,7 @@ select:-webkit-autofill:focus {
     border-radius: 50px;
     padding: 8px;
     margin-right: 5px;
-    color: white!important;
+    color: white !important;
     transition: all ease .3s;
 }
 
@@ -435,10 +436,29 @@ select:-webkit-autofill:focus {
 /* Loading */
 
 .imageSkeleton {
-    animation: skeleton-loading .7s linear infinite alternate;
+    animation: skeleton-loading-img .7s linear infinite alternate;
 }
 
-@keyframes skeleton-loading {
+@keyframes skeleton-loading-img {
+    0% {
+        background-color: var(--skeleton-loading-0);
+    }
+
+    100% {
+        background-color: var(--skeleton-loading-100);
+    }
+}
+
+.usernameLoading {
+    animation: skeleton-loading-username .7s linear infinite alternate;
+    font-weight: 600;
+    width: 200px;
+    height: 24px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+@keyframes skeleton-loading-username {
     0% {
         background-color: var(--skeleton-loading-0);
     }
@@ -449,29 +469,67 @@ select:-webkit-autofill:focus {
 }
 
 /* Errors */
-.bigFileError {
-    /* padding: 5px; */
-    font-size: 14px;
-    font-weight: 600;
-    height: 50px;
-    margin-top: 15px;
-    margin-bottom: -65px;
-    color: rgb(178, 16, 16);
+
+
+.errorAccountDiv::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0%;
+    height: 4px;
+    background-color: var(--cyan);
+    animation: time-bar 5s linear;
+    border-radius: 5px 0 0 20px;
+}
+
+@keyframes time-bar {
+    0% {
+        width: 98%;
+    }
+}
+
+.errorAccountDiv {
+    position: absolute;
+    top: 15vh;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 15px 35px 15px 22px;
+    background-color: rgba(61, 61, 61, 0.34);
+    border-radius: 15px 0 0 15px;
+    box-shadow: 0 0 20px -5px rgba(51, 51, 51, 0.68);
+}
+
+.errorAccountDiv i {
+    font-size: 22px;
+    color: rgb(205, 205, 205);
+
+}
+
+.errorAccount {
+    max-width: 12vw;
+    margin: 2px 0 2px 20px;
+    font-weight: 500;
+    color: rgb(205, 205, 205);
+
 }
 
 /* Settings */
 
-.settingDelete{
+.settingDelete {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
 }
-.settingDelete > p{
+
+.settingDelete>p {
     font-weight: 600;
     color: var(--signature-color);
 }
-.settingDelete > button{
+
+.settingDelete>button {
     font-size: 14px;
     color: var(--white);
     background-color: var(--active-currency-background);
@@ -484,11 +542,12 @@ select:-webkit-autofill:focus {
     transition: all ease .3s;
 }
 
-.settingDelete > button:hover{
+.settingDelete>button:hover {
     background-color: var(--language-div-background);
 }
 
-.deleteConfirmation, .requireResentLogin{
+.deleteConfirmation,
+.requireResentLogin {
     position: absolute;
     width: 100vw;
     top: 0;
@@ -502,7 +561,9 @@ select:-webkit-autofill:focus {
     height: 100vh;
 
 }
-.deleteConfirmation, .requireResentLogin{
+
+.deleteConfirmation,
+.requireResentLogin {
     position: absolute;
     width: 100vw;
     top: 0;
@@ -517,7 +578,7 @@ select:-webkit-autofill:focus {
 
 }
 
-.deleteConfirmation>div{
+.deleteConfirmation>div {
     background-color: var(--navBar-settings-background);
     text-align: center;
     align-items: center;
@@ -529,7 +590,8 @@ select:-webkit-autofill:focus {
     border-radius: 20px;
     padding: 15px;
 }
-.requireResentLogin> div {
+
+.requireResentLogin>div {
     background-color: var(--hover-coin);
     text-align: center;
     align-items: center;
@@ -542,7 +604,8 @@ select:-webkit-autofill:focus {
     padding: 15px;
 }
 
-.deleteConfirmation > div i, .requireResentLogin > div i{
+.deleteConfirmation>div i,
+.requireResentLogin>div i {
     font-size: 40px;
     margin-top: 5px;
 }
@@ -560,7 +623,9 @@ select:-webkit-autofill:focus {
     margin-top: 0px;
     margin-bottom: 5px;
 }
-.deleteConfirmation >div > div, .requireResentLogin > div > div {
+
+.deleteConfirmation>div>div,
+.requireResentLogin>div>div {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -568,7 +633,8 @@ select:-webkit-autofill:focus {
     margin-top: 10px;
     margin-bottom: 25px;
 }
-.cancelButton{
+
+.cancelButton {
     padding: 12px 22px;
     border-radius: 20px;
     font-size: 14px;
@@ -580,10 +646,13 @@ select:-webkit-autofill:focus {
     transition: all ease .3s;
     color: var(--white);
 }
-.cancelButton:hover{
+
+.cancelButton:hover {
     background-color: var(--light-cyan);
 }
-.deleteButton, .resentLoginButton{
+
+.deleteButton,
+.resentLoginButton {
     padding: 12px 22px;
     border-radius: 20px;
     font-size: 14px;
@@ -595,7 +664,8 @@ select:-webkit-autofill:focus {
     transition: all ease .3s;
 }
 
-.deleteButton:hover, .resentLoginButton:hover{
+.deleteButton:hover,
+.resentLoginButton:hover {
     background-color: var(--delete-button-hover);
     color: var(--white);
 }

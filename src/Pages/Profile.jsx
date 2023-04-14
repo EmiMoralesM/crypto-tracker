@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import '../styles/Register.css'
 import { UserAuth } from '../tools/AuthContext'
 import { Link, useParams } from 'react-router-dom'
-
+import 'animate.css';
 
 export default function Profile(props) {
-  const { user, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, bigFile, deleteAccount, setResentLogin, resentLogin } = UserAuth()
+  const { user, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, deleteAccount, setResentLogin, resentLogin, loadingUsername, accountError } = UserAuth()
 
   const [deleteConfirmation, setDeleteConfirmation] = useState(false)
   const params = useParams()
@@ -15,9 +15,20 @@ export default function Profile(props) {
     setActualPage(params.page ? params.page : 'user-info')
   }, [params.page])
 
+  // Animation for the error message to fade out when the tiem ends.
+  useEffect(() => {
+    if (accountError) {
+      setTimeout(() => {
+        document.getElementById('errorAccountDiv').classList.add('animate__fadeOutRight');
+        document.getElementById('errorAccountDiv').classList.remove('animate__fadeInRight')
+      }, 4850)
+    }
+  }, [accountError])
+
   const toggleDelete = () => {
     setDeleteConfirmation(prevDeleteConfirmation => !prevDeleteConfirmation)
   }
+
   return (
     <main>
       {user && <section className='profileSection'>
@@ -50,13 +61,12 @@ export default function Profile(props) {
                 </div>
 
                 <div>
-                  <p className='usernameP'>{user.displayName}</p>
+                  {loadingUsername && <div className='usernameP usernameLoading'></div>}
+                  {!loadingUsername && <p className='usernameP'>{user.displayName}</p>}
                   <p className='emailP'>{user.email}</p>
                 </div>
               </div>
-              {bigFile && <div>
-                <p className='bigFileError'>File too big! (max. 2MB) </p>
-              </div>}
+
               <div >
                 <form className='changeUsernameForm' onSubmit={handleChangeUsername} action="">
                   <div>
@@ -69,15 +79,6 @@ export default function Profile(props) {
               <div className='deletePictureDiv'>
                 <button onClick={deleteProfilePicture} ><i className="fa-solid fa-trash"></i> Delete Profile Picture</button>
               </div>
-              {/* <div>
-                <form className='changeEmailForm' action="">
-                  <div>
-                    <label htmlFor="email">Change Email</label>
-                    <input type="text" id='email' name='email' />
-                  </div>
-                  <button type='submit'>Save</button>
-                </form>
-              </div> */}
             </div>}
             {actualPage == 'settigns' && <div>
               <h2>Settings</h2>
@@ -100,7 +101,7 @@ export default function Profile(props) {
                 </div>}
                 {!resentLogin && <div className='requireResentLogin'>
                   <div>
-                    <p><i class="fa-solid fa-bell"></i></p>
+                    <p><i className="fa-solid fa-bell"></i></p>
                     <p className='titleDeleteConfirm'>You have been logged in for a while</p>
                     <p className='desctitleDeleteConfirm'>For security reasons, to delete your account you must have logged in recently.</p>
                     <p className='desctitleDeleteConfirm'>Please, login again.</p>
@@ -113,11 +114,18 @@ export default function Profile(props) {
                     </div>
                   </div>
                 </div>}
+
               </div>
             </div>}
           </div>
+          {accountError &&
+            <aside id='errorAccountDiv' className='errorAccountDiv animate__animated animate__fadeInRight animate__faster'>
+              <p><i className="fa-solid fa-triangle-exclamation"></i></p>
+              <div>
+                <p className='errorAccount'>{accountError} </p>
+              </div>
+            </aside>}
         </div>
-
       </section>}
     </main>
   )
