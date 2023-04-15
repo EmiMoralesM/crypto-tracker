@@ -38,7 +38,7 @@ export default function CoinItem(props) {
 				<img src={props.coin.image} alt='Coin Image' />
 				<p>{props.coin.id.charAt(0).toUpperCase() + props.coin.id.slice(1)} <span className='symbolCoin'> <i className='dot'></i> {props.coin.symbol.toUpperCase()}</span></p>
 			</td>
-			<td className='change1Div'>
+			<td className='change1Div hideMobile'>
 				<p
 					className={props.coin.price_change_percentage_1h_in_currency >= 0 ? "green" : 'red'}
 				>{props.coin.price_change_percentage_1h_in_currency != null ? props.coin.price_change_percentage_1h_in_currency.toFixed(2): "0"}%</p>
@@ -51,10 +51,10 @@ export default function CoinItem(props) {
 			<td className='priceDiv'>
 				<p>{props.currencyFormatter.format(props.coin.current_price)}</p>
 			</td>
-			<td className='marketCapDiv'>
+			<td className='marketCapDiv hideMobile'>
 				<p>{props.currency.symbol}{formatNumber(props.coin.market_cap)}</p>
 			</td>
-			<td className='volume24Div'>
+			<td className='volume24Div hideMobile'>
 				<p>{props.currency.symbol}{formatNumber(props.coin.total_volume)}</p>
 			</td>
 		</tr>

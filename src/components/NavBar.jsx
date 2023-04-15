@@ -41,8 +41,8 @@ export default function NavBar(props) {
 				</div>
 				<ul className='mainMenu'>
 					<li><Link to={"/"} className='navCryptocurrencies animate__animated animate__fadeIn' style={{ animationDelay: ".5s" }}>Cryptocurrencies</Link></li>
-					<li><Link to={"/"} className='normalHoverItems'>Home</Link></li>
-					<li><Link to={"/contact"} className='normalHoverItems animate__animated animate__fadeIn' style={{ animationDelay: ".7s" }}>Contact</Link></li>
+					{/* <li><Link to={"/"} className='normalHoverItems'>Home</Link></li>
+					<li><Link to={"/contact"} className='normalHoverItems animate__animated animate__fadeIn' style={{ animationDelay: ".7s" }}>Contact</Link></li> */}
 				</ul>
 			</div>
 			<div className='navRightSide '>

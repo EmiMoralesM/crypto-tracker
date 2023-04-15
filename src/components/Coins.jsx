@@ -55,7 +55,7 @@ export default function Coins(props) {
                         <th className='coinsNameDiv'>
                             <p onClick={() => sortCoins("id", stateName, setStateName)}><span></span> Coin</p>
                         </th>
-                        <th className='change1Div'>
+                        <th className='change1Div hideMobile'>
                             <p onClick={() => sortCoins("price_change_percentage_1h_in_currency", stateChange1, setStateChange1)}><span></span> Change (1h)</p>
                         </th>
                         <th className='change24Div'>
@@ -64,10 +64,10 @@ export default function Coins(props) {
                         <th className='priceDiv'>
                             <p onClick={() => sortCoins("current_price", statePrice, setStatePrice)}><span></span> Price</p>
                         </th>
-                        <th className='marketCapDiv' >
+                        <th className='marketCapDiv hideMobile' >
                             <p onClick={() => sortCoins("market_cap", stateMarkCap, setStateMarkCap)}><span></span> Market Cap</p>
                         </th>
-                        <th className='volume24Div'>
+                        <th className='volume24Div hideMobile'>
                             <p onClick={() => sortCoins("total_volume", stateVolume, setStateVolume)}><span></span> Volume (24h)</p>
                         </th>
                     </tr>

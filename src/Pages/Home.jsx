@@ -59,7 +59,7 @@ export default function Home(props) {
 						<p id='cryptocurrencies' onClick={() => props.setActiveWatchlist(false)} className='coinsMenuItem active'>Cryptocurrencies</p>
 						<p id='whatchlist' onClick={() => props.setActiveWatchlist(true)} className='coinsMenuItem'>Whatchlist</p>
 					</div>
-					<div className='searchDiv'>
+					<div className='searchDiv hideMobile'>
 						<form>
 							<input id="searchCoin" type="text" className={searchHidden ? 'searchHidden' : ''} onChange={handleSearch} />
 							<div className='searchDecoration'>

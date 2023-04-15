@@ -1,5 +1,4 @@
 import NavBar from './components/NavBar'
-import HomeTest from './Pages/HomeTest'
 import Home from './Pages/Home'
 import ShowCoin from './Pages/ShowCoin'
 import Signup from './Pages/Signup'
@@ -8,6 +7,7 @@ import ForgotPassword from './Pages/ForgotPassword'
 import Profile from './Pages/Profile'
 
 import Signature from './components/Signature'
+import Loader from './components/Loader'
 
 import ProtectedProfile from './tools/ProtectedProfile'
 import ProtectedRegister from './tools/ProtectedRegister'
@@ -88,6 +88,7 @@ function App() {
 					theme={theme}
 					showTheme={showTheme} toggleTheme={toggleTheme}
 				/>
+				<Loader theme={theme}/>
 				<Routes>
 					<Route index element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber}
 						activeWatchlist={activeWatchlist} setActiveWatchlist={setActiveWatchlist}
@@ -105,7 +106,6 @@ function App() {
 						objectsWatchlist={objectsWatchlist}
 					/>} />
 
-					<Route path='/home' element={<HomeTest />} />
 
 					<Route path='/coin/:id' element={<ShowCoin 
 						// key={}

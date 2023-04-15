@@ -9,7 +9,7 @@ export default function ChangePage(props) {
 	}
     return (
         <section className='changePageDiv'>
-            <div className='prevPageDiv'>
+            <div className='prevPageDiv hideMobile'>
                 <i className='arrow left'></i>
                 <Link to={`/page_${props.pageNumber - 1 < 2 ? 1 : props.pageNumber - 1}`} onClick={() => {
                     props.setPageNumber(props.pageNumber - 1 < 2 ? 1 : props.pageNumber - 1)
@@ -61,7 +61,7 @@ export default function ChangePage(props) {
                     10
                 </Link>}
             </div>
-            <div className='nextPageDiv'>
+            <div className='nextPageDiv hideMobile'>
                 <Link to={`/page_${props.pageNumber + 1 > 9 ? 10 : props.pageNumber + 1}`} onClick={() => {
                     props.setPageNumber(props.pageNumber + 1 > 9 ? 10 : props.pageNumber + 1)
                     sroll0()

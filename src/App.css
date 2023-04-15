@@ -2,9 +2,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    
-    width: 100vw;
-    overflow: hidden;
+
+    /* width: 100vw; */
+    /* overflow: hidden; */
 }
 main {
     background-color: var(--main-background);
@@ -41,8 +41,8 @@ main {
     --red-background-color: rgba(254, 38, 38, 0.216);
     --green-color: rgb(92, 228, 65);
     --green-background-color: rgba(52, 199, 89, 0.102);
-    --lightgreen-background-color: rgba(50, 215, 75, 0.218);
-    --grey-background-color: rgba(47, 47, 47, 0.405);
+    --lightgreen-background-color: rgba(50, 215, 75, 0.1);
+    --grey-background-color: rgba(47, 47, 47, 0.269);
     
     /* ShowCoin */
     --black: rgb(0, 0, 0);
@@ -72,6 +72,7 @@ main {
     --skeleton-loading-100: hsl(0, 5%, 35%);
     --delete-alert-background: rgba(0, 0, 0, 0.593);
     --delete-button-hover: rgb(40, 40, 40);
+    --error-message: rgba(61, 61, 61, 0.34);
 }
 
 [data-theme="light"] {
@@ -137,6 +138,7 @@ main {
     --skeleton-loading-100: hsl(0, 0%, 70%);
     --delete-alert-background: rgba(255, 255, 255, 0.593);
     --delete-button-hover: rgb(190, 190, 190);
+    --error-message: rgba(203, 203, 203, 0.34);
 
 
 }
@@ -203,4 +205,10 @@ main {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     transition: all ease .2s;
+}
+
+@media screen and (width <=740px) {
+    .hideMobile {
+        display: none;
+    }
 }

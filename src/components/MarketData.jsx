@@ -14,14 +14,14 @@ export default function MarketData(props) {
         async function fetchData() {
             // setLoadingMarketData(true)
             const response = await axios.get(urlGlobalData);
-                setMarketCap(props.currencyFormatter.format(response.data.data.total_market_cap[props.currency.name.toLowerCase()]))
-                setTotalVolume(props.currencyFormatter.format(response.data.data.total_volume[props.currency.name.toLowerCase()]))
+                setMarketCap(props.currencyFormatter.format(parseInt(response.data.data.total_market_cap[props.currency.name.toLowerCase()])).replace('.00', ''))
+                setTotalVolume(props.currencyFormatter.format(parseInt(response.data.data.total_volume[props.currency.name.toLowerCase()])).replace('.00', ''))
                 setTotalBtcDom(response.data.data.market_cap_percentage.btc.toFixed(1))
                 setMarketCapChange(response.data.data.market_cap_change_percentage_24h_usd.toFixed(1))
                 // setLoadingMarketData(false)   
         }
         fetchData();
-    }, [])
+    }, [props.currency])
 
     return (
         <section>

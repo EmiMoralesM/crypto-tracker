@@ -63,13 +63,15 @@
     font-size: 16px;
 }
 
-/* Lading market cap */
+/* 
+ Lading market cap
 .loadingMarketData>div {
     width: 21rem;
-    padding: 5px 20px;  
+    padding: 5px 20px;
     border-radius: 20px;
     animation: skeleton-loading-marketdata .7s linear infinite alternate;
 }
+
 .loadingMarketData>div p {
     visibility: hidden;
 }
@@ -78,11 +80,11 @@
     0% {
         background-color: hsl(0, 5%, 5%);
     }
-    
+
     100% {
         background-color: hsl(0, 5%, 15%);
     }
-}
+} */
 
 /* Coins Tabs Section */
 .coinsTabsSection {
@@ -515,4 +517,790 @@ tbody tr:hover {
 
 .treeDots {
     color: var(--labels-coins);
+}
+
+
+/* Resposive Desktop */
+
+/* 1700px */
+
+@media screen and (width <=1700px) and (width >740px) {
+    .mainTitle>h1 {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .marketData {
+        max-width: 70rem;
+        margin: 0px auto 10px auto;
+    }
+
+    .marketData>div {
+        width: 19.5rem;
+        padding: 0px 20px;
+    }
+
+    .dataMarketData {
+        font-size: 1.29rem;
+    }
+
+    .labelMaketData {
+        font-size: .9rem !important;
+    }
+
+    /* Coins Tabs Section */
+    .coinsTabsSection {
+        max-width: 70rem;
+    }
+
+    .searchIcon {
+        background-size: 29px;
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Coins */
+
+    .coinsContainer {
+        max-width: 72rem;
+        width: 100%;
+        margin: auto;
+        padding-bottom: 20px;
+    }
+
+    thead th p {
+        font-size: 13px;
+    }
+
+    thead th p:hover>span {
+        opacity: 0.5;
+    }
+
+    .symbolCoin {
+        font-size: 15px;
+    }
+
+    tbody tr {
+        font-size: 15px;
+    }
+
+    .noMatchesDiv {
+        margin: 7rem;
+        font-size: 19px;
+    }
+
+    /* Change Page */
+
+    .changePageDiv {
+        max-width: 65rem;
+    }
+
+    .changePageNumbers {
+        gap: 14px;
+    }
+
+    .actualPage {
+        padding: 9px;
+    }
+
+    .changePage {
+        font-size: 15px;
+    }
+
+    .nextPageDiv a,
+    .prevPageDiv a {
+        font-size: 15px;
+    }
+}
+
+/* 1500px */
+
+@media screen and (width <=1500px) and (width >740px) {
+
+    .mainTitle>h1 {
+        font-size: 40px;
+    }
+
+    .marketData {
+        max-width: 62rem;
+        margin: 0px auto 10px auto;
+    }
+
+    .marketData>div {
+        width: 17rem;
+    }
+
+    .dataMarketData {
+        font-size: 1.15rem;
+    }
+
+    .percentageMarketData {
+        font-size: .90rem;
+    }
+
+    .labelMaketData {
+        font-size: .8.5rem !important;
+    }
+
+    /* Coins Tabs Section */
+    .coinsTabsSection {
+        max-width: 62rem;
+    }
+
+    #searchCoin {
+        font-size: 15px;
+    }
+
+    .searchIcon {
+        background-size: 25px;
+    }
+
+    .searchCoinLabel {
+        font-size: 15px;
+    }
+
+    .coinsMenuItem {
+        font-size: 15px;
+    }
+
+    /* Coins */
+
+    .coinsContainer {
+        max-width: 67rem;
+        padding-bottom: 15px;
+    }
+
+    thead th p {
+        font-size: 12px;
+    }
+
+    .symbolCoin {
+        font-size: 14px;
+    }
+
+    tbody tr {
+        font-size: 14px;
+    }
+
+    .noMatchesDiv {
+        margin: 6rem;
+        font-size: 18px;
+    }
+
+    /* Change Page */
+
+    .changePageDiv {
+        max-width: 60rem;
+    }
+
+    .changePageNumbers {
+        gap: 11px;
+    }
+
+    .actualPage {
+        padding: 8px;
+    }
+
+    .changePage {
+        font-size: 13px;
+    }
+
+    .nextPageDiv a,
+    .prevPageDiv a {
+        font-size: 13px;
+    }
+}
+
+/* 1300px */
+
+@media screen and (width <=1300px) and (width >740px) {
+
+    .mainTitle>h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .marketData {
+        max-width: 52rem;
+        margin: 0px auto 4px auto;
+    }
+
+    .marketData>div {
+        width: 15rem;
+        padding: 3px 10px;
+    }
+
+    .dataMarketData {
+        font-size: 1rem;
+        margin: 13px 0;
+    }
+
+    .percentageMarketData {
+        font-size: .75rem;
+        margin-left: 10px;
+    }
+
+    .labelMaketData {
+        margin-top: 10px;
+        margin-left: 3px;
+        font-size: .8rem !important;
+    }
+
+    /* Coins Tabs Section */
+    .coinsTabsSection {
+        max-width: 52rem;
+    }
+
+    #searchCoin {
+        font-size: 14px;
+    }
+
+    .searchIcon {
+        background-size: 22px;
+    }
+
+    .searchCoinLabel {
+        font-size: 14px;
+    }
+
+    .coinsMenuItem {
+        font-size: 13px;
+        margin: 8px 15px;
+    }
+
+    .active {
+        margin: 0px;
+        padding: 8px 15px;
+    }
+
+    /* Coins */
+
+    .coinsContainer {
+        max-width: 58rem;
+        padding-bottom: 8px;
+    }
+
+    thead th p {
+        font-size: 11px;
+    }
+
+    .symbolCoin {
+        font-size: 12px;
+    }
+
+    tbody tr {
+        font-size: 12px;
+    }
+
+    .noMatchesDiv {
+        margin: 4rem;
+        font-size: 15px;
+    }
+
+    /* Change Page */
+
+    .changePageDiv {
+        max-width: 52rem;
+    }
+
+    .changePageNumbers {
+        gap: 14px;
+    }
+
+    .actualPage {
+        padding: 5px;
+        font-size: 12px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .changePage {
+        padding: 5px;
+        font-size: 12px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nextPageDiv a,
+    .prevPageDiv a {
+        font-size: 12px;
+    }
+}
+
+/* 1100px */
+
+@media screen and (width <=1100px) and (width >740px) {
+
+    .mainTitle>h1 {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .marketData {
+        max-width: 45rem;
+        margin: 0px auto;
+    }
+
+    .marketData>div {
+        width: 12.8rem;
+        padding: 3px 10px;
+    }
+
+    .dataMarketData {
+        font-size: .95rem;
+        margin: 8px 0;
+    }
+
+    .percentageMarketData {
+        font-size: .68rem;
+        padding: 5px;
+    }
+
+    .labelMaketData {
+        margin-top: 8px;
+        margin-left: 3px;
+        font-size: .7rem !important;
+    }
+
+    /* Coins Tabs Section */
+    .coinsTabsSection {
+        max-width: 48rem;
+    }
+
+    #searchCoin {
+        font-size: 13px;
+        width: 180px;
+    }
+
+    .searchIcon {
+        background-size: 19px;
+    }
+
+    .searchCoinLabel::before {
+        margin-bottom: -5px;
+    }
+
+    .searchCoinLabel {
+        width: 180px;
+        font-size: 13px;
+    }
+
+    .coinsMenuItem {
+        font-size: 13px;
+        margin: 6px 15px;
+    }
+
+    .coinsTabs {
+        margin-bottom: 5px;
+    }
+
+    .active {
+        margin: 0px;
+        padding: 6px 15px;
+    }
+
+    /* Coins */
+
+    .coinsDiv {
+        margin-top: 25px;
+    }
+
+    .coinsContainer {
+        max-width: 49rem;
+        padding-bottom: 8px;
+    }
+
+    thead th p {
+        font-size: 10px;
+    }
+
+    tr {
+        padding: 5px 0;
+    }
+
+    .coinNumberDiv {
+        padding-left: 0px;
+    }
+
+    .volume24Div {
+        padding-right: 25px;
+    }
+
+    .symbolCoin {
+        font-size: 11px;
+    }
+
+    .coinsNameDiv img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .change24Div p,
+    .change1Div p {
+        padding: 5px;
+    }
+
+    .dot {
+        margin-bottom: 2px;
+    }
+
+    tbody tr {
+        font-size: 11px;
+    }
+
+    .noMatchesDiv {
+        margin: 4rem;
+        font-size: 14px;
+    }
+
+    /* Change Page */
+
+    .changePageDiv {
+        max-width: 45rem;
+    }
+
+    .changePageNumbers {
+        gap: 12px;
+    }
+
+    .actualPage {
+        padding: 4px;
+        font-size: 11px;
+
+    }
+
+    .changePage {
+        padding: 4px;
+        font-size: 11px;
+    }
+
+    .nextPageDiv a,
+    .prevPageDiv a {
+        font-size: 11px;
+    }
+}
+
+/* 850 */
+
+@media screen and (width <=850px) and (width >740px) {
+
+    .mainTitle>h1 {
+        font-size: 21px;
+        margin-bottom: 0px;
+    }
+
+    .marketData {
+        max-width: 42rem;
+        margin: 0px auto;
+    }
+
+    .marketData>div {
+        width: 11.8rem;
+        padding: 0px 10px;
+    }
+
+    .dataMarketData {
+        font-size: .90rem;
+        margin: 8px 0;
+    }
+
+    .percentageMarketData {
+        font-size: .64rem;
+        padding: 5px;
+    }
+
+    .labelMaketData {
+        margin-top: 8px;
+        font-size: .62rem !important;
+    }
+
+    /* Coins Tabs Section */
+    .coinsTabsSection {
+        max-width: 44rem;
+    }
+
+    #searchCoin {
+        font-size: 11px;
+        width: 160px;
+    }
+
+    .searchCoinLabel::after {
+        margin-top: 3px;
+    }
+
+    .searchIcon {
+        background-size: 19px;
+    }
+
+    .searchCoinLabel::before {
+        margin-bottom: -5px;
+    }
+
+    .searchCoinLabel {
+        width: 160px;
+        font-size: 11px;
+    }
+
+    .coinsMenuItem {
+        font-size: 11px;
+        margin: 6px 15px;
+    }
+
+    .coinsTabs {
+        margin-bottom: 5px;
+    }
+
+    .active {
+        margin: 0px;
+        padding: 6px 15px;
+    }
+
+    /* Coins */
+
+    .coinsDiv {
+        margin-top: 18px;
+    }
+
+    .coinsContainer {
+        max-width: 44rem;
+        padding-bottom: 0px;
+    }
+
+    thead th p {
+        font-size: 8px;
+    }
+
+    tr {
+        padding: 2px 0;
+    }
+
+    .volume24Div {
+        padding-right: 20px;
+    }
+
+    .symbolCoin {
+        font-size: 9.2px;
+    }
+
+    .coinsNameDiv img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .change24Div p,
+    .change1Div p {
+        padding: 3px 5px;
+    }
+
+    .dot {
+        margin-bottom: 0px;
+    }
+
+    tbody tr {
+        font-size: 9.2px;
+    }
+
+    .noMatchesDiv {
+        margin: 3rem;
+        font-size: 11px;
+    }
+
+    /* Change Page */
+
+    .changePageDiv {
+        max-width: 40rem;
+        height: 3rem;
+    }
+
+    .changePageNumbers {
+        gap: 8px;
+    }
+
+    .actualPage {
+        padding: 3px;
+        font-size: 9px;
+
+    }
+
+    .changePage {
+        padding: 3px;
+        font-size: 9px;
+    }
+
+    .treeDots {
+        font-size: 9px;
+    }
+
+    .nextPageDiv a,
+    .prevPageDiv a {
+        font-size: 9px;
+    }
+
+    .nextPageDiv i,
+    .prevPageDiv i {
+        width: 3px;
+        height: 3px;
+    }
+}
+
+/* Resposive Tablet / Phone */
+
+/* 740 */
+
+@media screen and (width <=740px) {
+    .mainTitle {
+        text-align: center;
+    }
+
+    .mainTitle>h1 {
+        font-size: 35px;
+    }
+
+
+    /* Market Data */
+
+    .marketData {
+        display: flex;
+        flex-direction: column;
+        max-width: 95vw;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .marketData>div:nth-child(1) {
+        margin-left: 0%;
+    }
+
+    .marketData>div:nth-child(3) {
+        margin-right: 0%;
+    }
+
+    .marketData>div {
+        width: 90%;
+        padding: 5px 20px;
+        border-radius: 15px;
+    }
+
+    .dataMarketData {
+        font-size: 1.4rem;
+        margin: 12px 0;
+    }
+
+    .labelMaketData {
+        font-size: 1rem !important;
+        margin: 12px 0 0 0;
+    }
+
+    .percentageMarketData {
+        font-size: 16px;
+    }
+
+    /* Coins Tabs Section */
+    .coinsTabsSection {
+        max-width: 90vw;
+        width: 100%;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .coinsTabs {
+        justify-content: center;
+        margin-bottom: 0px;
+    }
+
+    .coinsMenu {
+        display: flex;
+        gap: 55px;
+    }
+
+    .coinsMenuItem {
+        margin: 10px 15px;
+        font-size: 15px;
+    }
+
+    .active {
+        margin: 0px;
+        padding: 10px 15px;
+    }
+
+
+    /* Coins */
+
+    .coinsContainer {
+        max-width: 95vw;
+        padding-bottom: 15px;
+    }
+
+    .coinsDiv {
+        min-height: 10rem;
+        padding: 5px 0px;
+    }
+
+    tr {
+        padding: 8px 0
+    }
+
+    thead th p {
+        font-size: 14px;
+        margin: 3px 0 0 0;
+    }
+
+    .coinNumberDiv {
+        width: 10%;
+        padding-left: 5px;
+    }
+
+ 
+    .coinsNameDiv {
+        width: 45%;
+    }
+
+    .coinsNameDiv img {
+        width: 33px;
+        height: 33px;
+    }
+
+    .change24Div{
+        justify-content: center;
+    }
+    .change24Div p,
+    .change1Div p {
+        padding: 5px 10px 5px 10px;
+        /* font-size: 16px; */
+    }
+
+
+    .priceDiv {
+        text-align: right;
+        width: 30%;
+        padding-right: 20px;
+    }
+
+    .noMatchesDiv {
+        margin: 8rem;
+        font-size: 20px;
+    }
+
+
+    /* Change Page */
+
+    .changePageDiv {
+        justify-content: center;
+        height: 4rem;
+        max-width: 90vw;
+    }
+
+    .actualPage {
+        padding: 10px;
+    }
+
+    .changePage {
+        padding: 10px;
+    }
+
+    .treeDots {
+        color: var(--labels-coins);
+    }
 }
