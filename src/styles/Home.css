@@ -5,7 +5,7 @@
 }
 
 .mainTitle>h1 {
-    font-size: 45px;
+    font-size: 2.813rem;
 }
 
 
@@ -60,7 +60,7 @@
     margin-left: 15px;
     border-radius: 10px;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 /* 
@@ -161,7 +161,7 @@
 #searchCoin {
     background-color: transparent;
     border: 0px;
-    font-size: 17px;
+    font-size: 1.063rem;
     color: var(--white);
     outline: 0px;
     margin-left: 2px;
@@ -175,7 +175,7 @@
     display: block;
     background-color: transparent;
     color: var(--menu-item);
-    font-size: 17px;
+    font-size: 1.063rem;
     transition: all ease .2s;
     font-weight: 600;
     width: 240px;
@@ -285,7 +285,7 @@ tr {
 thead th p {
     color: var(--labels-coins) !important;
     font-weight: normal !important;
-    font-size: 14px;
+    font-size: 0.875rem;
     margin: 5px 0 0 0;
     padding: 0 !important;
     cursor: pointer;
@@ -392,7 +392,7 @@ tbody tr:hover {
     margin: 0;
     border-radius: 10px;
     display: inline-block;
-    /* font-size: 16px; */
+    /* font-size: 1rem; */
 }
 
 
@@ -425,7 +425,7 @@ tbody tr:hover {
     margin: 8rem;
     display: flex;
     justify-content: center;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .noMatchesDiv:hover {
@@ -526,7 +526,7 @@ tbody tr:hover {
 
 @media screen and (width <=1700px) and (width >740px) {
     .mainTitle>h1 {
-        font-size: 40px;
+        font-size: 2.5rem;
         margin-bottom: 15px;
     }
 
@@ -569,7 +569,7 @@ tbody tr:hover {
     }
 
     thead th p {
-        font-size: 13px;
+        font-size: 0.813rem;
     }
 
     thead th p:hover>span {
@@ -577,16 +577,16 @@ tbody tr:hover {
     }
 
     .symbolCoin {
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 
     tbody tr {
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 
     .noMatchesDiv {
         margin: 7rem;
-        font-size: 19px;
+        font-size: 1.188rem;
     }
 
     /* Change Page */
@@ -604,12 +604,12 @@ tbody tr:hover {
     }
 
     .changePage {
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 
     .nextPageDiv a,
     .prevPageDiv a {
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 }
 
@@ -618,7 +618,7 @@ tbody tr:hover {
 @media screen and (width <=1500px) and (width >740px) {
 
     .mainTitle>h1 {
-        font-size: 40px;
+        font-size: 2.5rem;
     }
 
     .marketData {
@@ -648,7 +648,7 @@ tbody tr:hover {
     }
 
     #searchCoin {
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 
     .searchIcon {
@@ -656,11 +656,11 @@ tbody tr:hover {
     }
 
     .searchCoinLabel {
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 
     .coinsMenuItem {
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 
     /* Coins */
@@ -671,20 +671,20 @@ tbody tr:hover {
     }
 
     thead th p {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     .symbolCoin {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     tbody tr {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .noMatchesDiv {
         margin: 6rem;
-        font-size: 18px;
+        font-size: 1.125rem;
     }
 
     /* Change Page */
@@ -702,12 +702,12 @@ tbody tr:hover {
     }
 
     .changePage {
-        font-size: 13px;
+        font-size: 0.813rem;
     }
 
     .nextPageDiv a,
     .prevPageDiv a {
-        font-size: 13px;
+        font-size: 0.813rem;
     }
 }
 
@@ -716,7 +716,7 @@ tbody tr:hover {
 @media screen and (width <=1300px) and (width >740px) {
 
     .mainTitle>h1 {
-        font-size: 30px;
+        font-size: 1.875rem;
         margin-bottom: 15px;
     }
 
@@ -752,7 +752,7 @@ tbody tr:hover {
     }
 
     #searchCoin {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .searchIcon {
@@ -760,11 +760,11 @@ tbody tr:hover {
     }
 
     .searchCoinLabel {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .coinsMenuItem {
-        font-size: 13px;
+        font-size: 0.813rem;
         margin: 8px 15px;
     }
 
@@ -781,20 +781,20 @@ tbody tr:hover {
     }
 
     thead th p {
-        font-size: 11px;
+        font-size: 0.688rem;
     }
 
     .symbolCoin {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     tbody tr {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     .noMatchesDiv {
         margin: 4rem;
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 
     /* Change Page */
@@ -809,7 +809,7 @@ tbody tr:hover {
 
     .actualPage {
         padding: 5px;
-        font-size: 12px;
+        font-size: 0.75rem;
         align-items: center;
         display: flex;
         justify-content: center;
@@ -817,7 +817,7 @@ tbody tr:hover {
 
     .changePage {
         padding: 5px;
-        font-size: 12px;
+        font-size: 0.75rem;
         align-items: center;
         display: flex;
         justify-content: center;
@@ -825,7 +825,7 @@ tbody tr:hover {
 
     .nextPageDiv a,
     .prevPageDiv a {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 }
 
@@ -834,7 +834,7 @@ tbody tr:hover {
 @media screen and (width <=1100px) and (width >740px) {
 
     .mainTitle>h1 {
-        font-size: 22px;
+        font-size: 1.375rem;
         margin-bottom: 5px;
     }
 
@@ -870,7 +870,7 @@ tbody tr:hover {
     }
 
     #searchCoin {
-        font-size: 13px;
+        font-size: 0.813rem;
         width: 180px;
     }
 
@@ -884,11 +884,11 @@ tbody tr:hover {
 
     .searchCoinLabel {
         width: 180px;
-        font-size: 13px;
+        font-size: 0.813rem;
     }
 
     .coinsMenuItem {
-        font-size: 13px;
+        font-size: 0.813rem;
         margin: 6px 15px;
     }
 
@@ -913,7 +913,7 @@ tbody tr:hover {
     }
 
     thead th p {
-        font-size: 10px;
+        font-size: 0.625rem;
     }
 
     tr {
@@ -929,7 +929,7 @@ tbody tr:hover {
     }
 
     .symbolCoin {
-        font-size: 11px;
+        font-size: 0.688rem;
     }
 
     .coinsNameDiv img {
@@ -947,12 +947,12 @@ tbody tr:hover {
     }
 
     tbody tr {
-        font-size: 11px;
+        font-size: 0.688rem;
     }
 
     .noMatchesDiv {
         margin: 4rem;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     /* Change Page */
@@ -967,18 +967,18 @@ tbody tr:hover {
 
     .actualPage {
         padding: 4px;
-        font-size: 11px;
+        font-size: 0.688rem;
 
     }
 
     .changePage {
         padding: 4px;
-        font-size: 11px;
+        font-size: 0.688rem;
     }
 
     .nextPageDiv a,
     .prevPageDiv a {
-        font-size: 11px;
+        font-size: 0.688rem;
     }
 }
 
@@ -987,7 +987,7 @@ tbody tr:hover {
 @media screen and (width <=850px) and (width >740px) {
 
     .mainTitle>h1 {
-        font-size: 21px;
+        font-size: 1.313rem;
         margin-bottom: 0px;
     }
 
@@ -1022,7 +1022,7 @@ tbody tr:hover {
     }
 
     #searchCoin {
-        font-size: 11px;
+        font-size: 0.688rem;
         width: 160px;
     }
 
@@ -1040,11 +1040,11 @@ tbody tr:hover {
 
     .searchCoinLabel {
         width: 160px;
-        font-size: 11px;
+        font-size: 0.688rem;
     }
 
     .coinsMenuItem {
-        font-size: 11px;
+        font-size: 0.688rem;
         margin: 6px 15px;
     }
 
@@ -1069,7 +1069,7 @@ tbody tr:hover {
     }
 
     thead th p {
-        font-size: 8px;
+        font-size: 0.5rem;
     }
 
     tr {
@@ -1081,7 +1081,7 @@ tbody tr:hover {
     }
 
     .symbolCoin {
-        font-size: 9.2px;
+        font-size: 0.575rem;
     }
 
     .coinsNameDiv img {
@@ -1099,12 +1099,12 @@ tbody tr:hover {
     }
 
     tbody tr {
-        font-size: 9.2px;
+        font-size: 0.575rem;
     }
 
     .noMatchesDiv {
         margin: 3rem;
-        font-size: 11px;
+        font-size: 0.688rem;
     }
 
     /* Change Page */
@@ -1120,22 +1120,22 @@ tbody tr:hover {
 
     .actualPage {
         padding: 3px;
-        font-size: 9px;
+        font-size: 0.563rem;
 
     }
 
     .changePage {
         padding: 3px;
-        font-size: 9px;
+        font-size: 0.563rem;
     }
 
     .treeDots {
-        font-size: 9px;
+        font-size: 0.563rem;
     }
 
     .nextPageDiv a,
     .prevPageDiv a {
-        font-size: 9px;
+        font-size: 0.563rem;
     }
 
     .nextPageDiv i,
@@ -1155,7 +1155,7 @@ tbody tr:hover {
     }
 
     .mainTitle>h1 {
-        font-size: 35px;
+        font-size: 2.188rem ;
     }
 
 
@@ -1194,7 +1194,7 @@ tbody tr:hover {
     }
 
     .percentageMarketData {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     /* Coins Tabs Section */
@@ -1217,7 +1217,7 @@ tbody tr:hover {
 
     .coinsMenuItem {
         margin: 10px 15px;
-        font-size: 15px;
+        font-size: 0.938rem;
     }
 
     .active {
@@ -1242,17 +1242,25 @@ tbody tr:hover {
         padding: 8px 0
     }
 
+    tbody tr {
+        font-size: 0.875rem;
+    }
+
+    thead tr {
+        margin: 0 0 -2px 0;
+    }
+
     thead th p {
-        font-size: 14px;
+        font-size: 0.813rem;
         margin: 3px 0 0 0;
     }
 
     .coinNumberDiv {
-        width: 10%;
+        width: 8%;
         padding-left: 5px;
     }
 
- 
+
     .coinsNameDiv {
         width: 45%;
     }
@@ -1262,13 +1270,14 @@ tbody tr:hover {
         height: 33px;
     }
 
-    .change24Div{
+    .change24Div {
         justify-content: center;
     }
+
     .change24Div p,
     .change1Div p {
         padding: 5px 10px 5px 10px;
-        /* font-size: 16px; */
+        /* font-size: 1rem; */
     }
 
 
@@ -1279,8 +1288,313 @@ tbody tr:hover {
     }
 
     .noMatchesDiv {
-        margin: 8rem;
-        font-size: 20px;
+        margin: 6rem 0;
+        font-size:1rem;
+    }
+
+
+    /* Change Page */
+
+    .changePageDiv {
+        justify-content: center;
+        height: 4rem;
+        max-width: 90vw;
+    }
+
+
+    .actualPage {
+        padding: 8px;
+        font-size: 0.938rem;
+
+    }
+
+    .changePage {
+        padding: 8px;
+        font-size: 0.938rem;
+    }
+
+    .treeDots {
+        font-size: 0.75rem;
+    }
+
+    .changePageDiv {
+        max-width: 40rem;
+        height: 3rem;
+    }
+
+    .changePageNumbers {
+        gap: 12px;
+    }
+}
+
+/* 450 */
+
+@media screen and (width <=450px) {
+
+    .mainTitle>h1 {
+        font-size: 1.75rem;
+    }
+
+    /* Market Data */
+
+    .marketData {
+        display: flex;
+        flex-direction: column;
+        max-width: 95vw;
+        align-items: center;
+        gap: 12px;
+        padding-top: 5px;
+        padding-bottom: 20px;
+    }
+
+    .marketData>div:nth-child(1) {
+        margin-left: 0%;
+    }
+
+    .marketData>div:nth-child(3) {
+        margin-right: 0%;
+    }
+
+    .marketData>div {
+        width: 90%;
+        padding: 2px 20px;
+        border-radius: 15px;
+    }
+
+    .dataMarketData {
+        font-size: 1.2rem;
+        margin: 12px 0;
+    }
+
+    .labelMaketData {
+        font-size: .9rem !important;
+        margin: 12px 0 0 0;
+    }
+
+    .percentageMarketData {
+        font-size: .9rem;
+    }
+
+    /* Coins Tabs Section */
+
+    .coinsMenuItem {
+        margin: 7px 15px;
+        font-size: .9rem;
+    }
+
+    .active {
+        margin: 0px;
+        padding: 7px 15px;
+    }
+
+
+    /* Coins */
+
+    .coinsContainer {
+        max-width: 95vw;
+        padding-bottom: 15px;
+    }
+
+    .coinsDiv {
+        min-height: 10rem;
+        margin-top: 20px;
+        padding: 5px 0px;
+    }
+
+    tr {
+        padding: 8px 0
+    }
+
+    tbody tr {
+        font-size: .72rem;
+    }
+
+    thead tr {
+        margin: 0 0 -5px 0;
+    }
+
+    thead th p {
+        font-size: .68rem;
+        margin: 3px 0 0 0;
+    }
+
+    .coinNumberDiv {
+        width: 10%;
+        padding-left: 5px;
+    }
+
+
+    .coinsNameDiv {
+        width: 45%;
+        gap: 10px;
+    }
+
+    .coinsNameDiv img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .change24Div {
+        justify-content: center;
+        width: 25%;
+    }
+
+    .change24Div p,
+    .change1Div p {
+        padding: 4px 8px;
+        /* font-size: 1rem; */
+    }
+
+    .noMatchesDiv {
+        margin: 5rem 0;
+        font-size: 1rem;
+    }
+
+    /* Change Page */
+
+    .changePageDiv {
+        justify-content: center;
+        height: 4rem;
+        max-width: 90vw;
+    }
+
+    .actualPage {
+        padding: 5px;
+        font-size: .8rem;
+        align-items: center;
+        display:flex;
+        justify-content: center;
+    }
+    
+    .changePage {
+        padding: 8px;
+        font-size: .8rem;
+        align-items: center;
+        display:flex;
+        justify-content: center;
+    }
+
+    .treeDots {
+        font-size: .8rem;
+    }
+
+    .changePageDiv {
+        max-width: 40rem;
+        height: 3rem;
+    }
+
+    .changePageNumbers {
+        gap: 12px;
+    }
+}
+
+/* 350 */
+
+@media screen and (width <=350px) {
+
+    .mainTitle>h1 {
+        font-size: 1.563rem;
+    }
+
+    /* Market Data */
+
+    .marketData {
+        gap: 10px;
+        padding-top: 5px;
+        padding-bottom: 20px;
+        max-width: 90vw;
+    }
+
+
+    .dataMarketData {
+        font-size: 1.15rem;
+        margin: 12px 0;
+    }
+
+    .labelMaketData {
+        font-size: .8rem !important;
+        margin: 12px 0 0 0;
+    }
+
+    .percentageMarketData {
+        font-size: .78rem;
+    }
+
+    /* Coins Tabs Section */
+
+    .coinsMenu{
+        gap: 40px;
+    }
+    .coinsMenuItem {
+        margin: 5px 15px;
+        font-size: .75rem;
+    }
+
+    .active {
+        margin: 0px;
+        padding: 5px 15px;
+    }
+
+
+    /* Coins */
+
+    .coinsContainer {
+        max-width: 95vw;
+        padding-bottom: 10px;
+    }
+
+    .coinsDiv {
+        min-height: 10rem;
+        margin-top: 20px;
+        padding: 0px 0px;
+    }
+
+    tr {
+        padding: 6px 0
+    }
+
+    tbody tr {
+        font-size: .68rem;
+    }
+
+    thead tr {
+        margin: 0 0 -5px 0;
+    }
+
+    thead th p {
+        font-size: .65rem;
+        margin: 3px 0 0 0;
+    }
+
+    .coinNumberDiv {
+        width: 10%;
+        padding-left: 5px;
+    }
+
+
+    .coinsNameDiv {
+        width: 45%;
+        gap: 10px;
+    }
+
+    .coinsNameDiv img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .change24Div {
+        justify-content: center;
+        width: 30%;
+    }
+
+    .change24Div p,
+    .change1Div p {
+        padding: 4px 5px;
+    }
+
+    .noMatchesDiv {
+        margin: 5rem 0rem;
+        font-size: .95rem;
     }
 
 
@@ -1293,14 +1607,31 @@ tbody tr:hover {
     }
 
     .actualPage {
-        padding: 10px;
+        padding: 4px;
+        font-size: .75rem;
+        align-items: center;
+        display:flex;
+        justify-content: center;
     }
-
+    
     .changePage {
-        padding: 10px;
+        padding: 4px;
+        font-size: .75rem;
+        align-items: center;
+        display:flex;
+        justify-content: center;
     }
 
     .treeDots {
-        color: var(--labels-coins);
+        font-size: .75rem;
+    }
+
+    .changePageDiv {
+        max-width: 40rem;
+        height: 3rem;
+    }
+
+    .changePageNumbers {
+        gap: 12px;
     }
 }

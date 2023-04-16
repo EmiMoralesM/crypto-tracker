@@ -558,3 +558,59 @@
     height: 100%;
     object-fit: cover;
 }
+
+
+/* Resposive Desktop */
+
+/* 1700px */
+
+@media screen and (width <=1700px) and (width >740px) {
+    
+}
+
+/* 1500px */
+
+@media screen and (width <=1500px) and (width >740px) {
+
+}
+
+/* 1300px */
+
+@media screen and (width <=1300px) and (width >740px) {
+
+    
+}
+
+/* 1100px */
+
+@media screen and (width <=1100px) and (width >740px) {
+   
+}
+
+/* 850 */
+
+@media screen and (width <=850px) and (width >740px) {
+
+}
+
+/* Resposive Tablet / Phone */
+
+/* 740 */
+
+@media screen and (width <=740px) {
+  
+}
+
+/* 450 */
+
+@media screen and (width <=450px) {
+
+}
+
+/* 350 */
+
+@media screen and (width <=350px) {
+
+}
+
+

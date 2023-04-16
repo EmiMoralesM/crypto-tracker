@@ -1,4 +1,4 @@
-.signatureDiv{
+.signatureDiv {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,23 +8,63 @@
     width: 100%;
 
 }
-.signatureDiv p{
+
+.signatureDiv p {
     color: var(--signature-color);
     font-size: 14px;
     font-weight: 600;
     margin: 0;
     padding: 7px;
 }
-.signatureDiv a{
+
+.signatureDiv a {
     color: var(--labels-coins);
     text-decoration: none;
     transition: all ease .3s;
-    
+
 }
 
-.signatureDiv a:hover{
+.signatureDiv a:hover {
     color: var(--cyan);
 }
-.signatureDiv i{
+
+.signatureDiv i {
     margin: 0 2px;
+}
+
+/* 1500px */
+@media screen and (width <=1500px) and (width >740px) {
+    .signatureDiv p {
+        font-size: 12px;
+    }
+}
+
+/* 1100px */
+@media screen and (width <=1100px) and (width >740px) {
+    .signatureDiv p {
+        font-size: 11px;
+    }
+}
+
+/* 850 */
+@media screen and (width <=850px) and (width >740px) {
+    .signatureDiv p {
+        font-size: 10px;
+    }
+}
+
+/* Resposive Tablet / Phone */
+
+/* 450 */
+@media screen and (width <=450px) {
+    .signatureDiv p {
+        font-size: 12px;
+    }
+}
+
+/* 350 */
+@media screen and (width <=350px) {
+    .signatureDiv p {
+        font-size: 11px;
+    }
 }

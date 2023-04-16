@@ -1,5 +1,3 @@
-
-
 /* Loader */
 
 .div-loader {
@@ -23,16 +21,18 @@
 }
 
 @keyframes loadingPage {
-    0%{
+    0% {
         opacity: 0;
     }
-    50%{
+
+    50% {
         opacity: 1;
     }
-    100%{
+
+    100% {
         opacity: 0;
     }
-} 
+}
 
 .loader:before {
     content: "";
@@ -55,7 +55,7 @@
 .section-load {
     position: fixed;
     top: 0;
-    background: var(--black);
+    background: var(--chart-background);
     width: 100%;
     height: 100%;
     z-index: 1000;
