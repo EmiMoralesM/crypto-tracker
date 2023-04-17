@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/Register.css'
+import '../styles/Profile.css'
 import { UserAuth } from '../tools/AuthContext'
 import { Link, useParams } from 'react-router-dom'
 import 'animate.css';
@@ -36,10 +36,10 @@ export default function Profile(props) {
           <div className='leftSide'>
             <h1>Profile Page</h1>
             <Link className={actualPage == 'user-info' ? "activePageProfile" : ""} to={'/profile/user-info'}><i className="fa-solid fa-user"></i> User Info</Link>
+            <Link className={actualPage == 'settigns' ? "activePageProfile" : ""} to={'/profile/settigns'}><i className="fa-solid fa-wrench"></i> Settigns</Link>
             <Link to={'/'} onClick={() => {
               props.setActiveWatchlist(true)
             }}><i className="fa-solid fa-star"></i> Watchlist</Link>
-            <Link className={actualPage == 'settigns' ? "activePageProfile" : ""} to={'/profile/settigns'}><i className="fa-solid fa-wrench"></i> Settigns</Link>
             <Link to={'/'} onClick={() => {
               handleLogout()
             }}><i className="fa-solid fa-right-from-bracket"></i> Log out</Link>

@@ -2,8 +2,9 @@ main {
     background-color: var(--main-background);
     color: var(--white);
 }
+
 /* Main Info Section */
-.mainInfoSection{
+.mainInfoSection {
     padding-top: 100px;
     display: flex;
     max-width: 76rem;
@@ -11,7 +12,8 @@ main {
     width: 100%;
     justify-content: space-between;
 }
-.rank{
+
+.rank {
     background-color: var(--rank-background);
     box-shadow: 0 0 20px 2px var(--chart-boxshadow);
     display: inline-block;
@@ -22,70 +24,84 @@ main {
     border-radius: 5px;
 }
 
-.coinInfoDiv{
+.coinInfoDiv {
     display: flex;
     flex-direction: column;
 }
-.coinNameDiv{
+
+.coinNameDiv {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-.coinNameDiv img{
+
+.coinNameDiv img {
     width: 50px;
     height: 50px;
 }
-.coinPriceDiv{
+
+.coinPriceDiv {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-.price{ 
+
+.price {
     font-size: 33px;
     margin: 0;
     font-weight: bold;
 }
-.coinBtcPriceDiv{
+
+.coinBtcPriceDiv {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.priceBTC{
+
+.priceBTC {
     color: var(--less-important-text);
 }
-.pricePercentage{ 
+
+.pricePercentage {
     display: inline-block;
     padding: 4px 8px;
     border-radius: 10px;
 }
-.coinNameDiv .dot{
-    margin: 0 12px 4px 10px ;
+
+.coinNameDiv .dot {
+    margin: 0 12px 4px 10px;
 }
-.coinNameDiv .symbol{
+
+.coinNameDiv .symbol {
     font-size: 20px;
     font-weight: 500;
     color: var(--less-important-text);
 }
 
 
-.fa-regular{
+.fa-regular {
     color: var(--watchlist-text);
 }
-.fa-solid{
+
+.fa-solid {
     color: var(--cyan);
 }
-.coinActionsDiv div{
+
+.coinActionsDiv div {
     display: flex;
     align-items: baseline;
     gap: 10px;
 }
-.watchlistCheckDiv{
+
+.watchlistCheckDiv {
     margin-top: 55px;
 }
-.watchlistCheckDiv>input:checked+label{
+
+.watchlistCheckDiv>input:checked+label {
     color: var(--watchlist-text);
 }
-.watchlistCheckDiv label{
+
+.watchlistCheckDiv label {
     padding: 12px;
     border-radius: 25px;
     font-weight: 600;
@@ -94,14 +110,16 @@ main {
     transition: all ease .6s;
     background-color: var(--watchlist-background);
 }
-.watchlistCheckDiv label:hover{
+
+.watchlistCheckDiv label:hover {
     background-color: var(--active-currency-background);
 }
 
-#starInput{
+#starInput {
     visibility: hidden;
 }
-#watchlistStar{
+
+#watchlistStar {
     margin-right: 5px;
     font-size: 20px;
 }
@@ -120,17 +138,20 @@ main {
     border-radius: 20px;
     padding: 20px 0px;
 }
+
 /* Chart options */
-.chartOptionsDiv{
+.chartOptionsDiv {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
 }
-.formatChartDiv{
+
+.formatChartDiv {
     display: flex;
     align-items: center;
 }
+
 .formatChartItem {
     color: var(--menu-item);
     text-decoration: none;
@@ -143,10 +164,12 @@ main {
     padding: 10px 15px;
     border-radius: 15px;
 }
+
 .activeFormat {
     background-color: var(--chart-format-background);
     color: var(--white);
 }
+
 .formatChartDiv :not(.activeFormat)::before {
     content: '';
     position: absolute;
@@ -171,15 +194,17 @@ main {
 }
 
 
-.chartOptionsDiv h2{
+.chartOptionsDiv h2 {
     font-size: 30px;
 }
-.chartOptionsDiv h2 span{
+
+.chartOptionsDiv h2 span {
     font-size: 28px;
     font-weight: 500;
     color: var(--less-important-text);
 }
-.chartOptionsDiv h2 span .dot{
+
+.chartOptionsDiv h2 span .dot {
     background-color: var(--menu-item);
     margin-bottom: 6px;
     width: 7px;
@@ -189,17 +214,19 @@ main {
 
 /* Chart */
 
-.chartDiv{
-    box-shadow: 0px 0px 20px 0px var(--chart-boxshadow) ;
+.chartDiv {
+    box-shadow: 0px 0px 20px 0px var(--chart-boxshadow);
     border-radius: 20px;
     min-height: 30rem;
     background-color: var(--chart-background);
     margin-top: 35px;
     width: 100%;
 }
-.chartDiv canvas{
+
+.chartDiv canvas {
     width: 100%;
 }
+
 .chart {
     width: 90%;
 }
@@ -207,14 +234,15 @@ main {
 
 /* Chart days */
 
-.daysButtonsDiv{
+.daysButtonsDiv {
     border-radius: 0 0 20px 20px;
     margin: 10px auto;
     /* background-color: rgb(10, 10, 10); */
     width: 100%;
     /* text-align: center; */
 }
-.daysButtonsDiv button{
+
+.daysButtonsDiv button {
     background-color: transparent;
     outline: none;
     border: 0px;
@@ -225,85 +253,479 @@ main {
     margin: 8px 10px;
     transition: all ease .4s;
     border-radius: 15px;
-    
+
 }
-.daysButtonsDiv button:hover{
+
+.daysButtonsDiv button:hover {
     background-color: transparent;
     outline: none;
     border: 0px;
     color: var(--white);
     font-weight: bold;
 }
-.dayActive{
-    background-color: var(--items-background)!important;
-    color: var(--white)!important;
+
+.dayActive {
+    background-color: var(--items-background) !important;
+    color: var(--white) !important;
 }
 
 
 /* Loading page */
 
 
-.loadingPageDiv{
+.loadingPageDiv {
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
 }
-.loadingPage{
+
+.loadingPage {
     margin: 0;
 }
 
 /* Extra Info Section */
-
-.extraInfoSection{
+.extraInfoSection {
     display: flex;
     max-width: 76rem;
     width: 100%;
     margin: 0px auto;
-    justify-content: center;
-    border-radius: 20px;
+    justify-content: space-between;
     padding: 20px 0px;
-    gap: 25px;
-}
-.extraInfoSection div{
-    display: flex;
-    width: 100%;
-    background-color: var(--chart-background);
-    box-shadow: 0px 0px 20px 0px var(--info-boxshadow) ;
-    padding: 5px 20px;
-    font-weight: 600;
-    border-radius: 20px;
-    align-items: center;
-    justify-content: space-around;
-    gap: 20px;
+    /* gap: 15px; */
+    flex-wrap: wrap;
 }
 
-.aboutSection{
+.extraInfoSection > div {
+    display: inline;
+    width: 100%;
+    flex-basis: 16%;
+}
+.extraInfoSection > div > div {
+    border-radius: 20px;
+    background-color: var(--chart-background);
+    box-shadow: 0px 0px 20px 0px var(--info-boxshadow);
+    padding: 5px 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.aboutSection {
     padding-bottom: 80px;
     max-width: 76rem;
     width: 100%;
     margin: 40px auto 0 auto;
 }
-.aboutDiv{
+
+.aboutDiv {
     border-radius: 20px;
     gap: 25px;
     background-color: var(--chart-background);
-    box-shadow: 0px 0px 20px 0px var(--info-boxshadow) ;
+    box-shadow: 0px 0px 20px 0px var(--info-boxshadow);
     border-radius: 20px;
     padding: 40px 40px 10px 40px;
 }
-.aboutSection h3{
+
+.aboutSection h3 {
     font-size: 23px;
     margin: 0 0 35px 0;
 }
-.aboutDiv div{
+
+.aboutDiv div {
     padding-bottom: 30px;
     line-height: 30px;
     font-size: 18px;
     color: var(--day-text-not-active);
 }
-.aboutDiv div a{
+
+.aboutDiv div a {
     text-decoration: none;
     color: var(--day-text-not-active);
 }
+
+/* Resposive Desktop */
+
+/* 1500px */
+
+@media all and (max-width: 1500px) and (min-width: 740px) {
+
+    .mainInfoSection {
+        max-width: 68rem;
+    }
+
+    /* Chart Section */
+
+    .chartSection {
+        max-width: 68rem;
+    }
+
+    /* Chart options */
+
+    /* Chart */
+
+    .chartDiv {
+        margin-top: 30px;
+    }
+
+
+    /* Extra Info Section */
+
+    .extraInfoSection {
+        max-width: 68rem;
+    }
+    /* .extraInfoSection {
+        max-width: 68rem;
+        gap: 12px;
+    }
+    
+    .extraInfoSection > div > div {
+        justify-content: space-between;
+    } */
+
+    .aboutSection {
+        max-width: 68rem;
+    }
+
+}
+
+/* 1300px */
+
+@media all and (max-width: 1300px) and (min-width: 740px) {
+
+    .mainInfoSection {
+        max-width: 63rem;
+    }
+
+    /* Chart Section */
+
+    .chartSection {
+        max-width: 63rem;
+    }
+
+    /* Extra Info Section */
+
+     .extraInfoSection {
+        max-width: 63rem;
+    }
+    .extraInfoSection > div> div {
+        padding: 5px 12px;
+    }
+    .aboutSection {
+        max-width: 63rem;
+    } 
+
+}
+
+/* 1100px */
+
+@media all and (max-width: 1100px) and (min-width: 740px) {
+    .mainInfoSection {
+        max-width: 50rem;
+    }
+
+    /* Chart Section */
+
+    .chartSection {
+        max-width: 50rem;
+    }
+
+    /* Chart */
+    .chartOptionsDiv h2 {
+        font-size: 26px;
+    }
+
+    .chartOptionsDiv h2 span {
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--less-important-text);
+    }
+
+    .chartDiv {
+        margin-top: 30px;
+        width: 100%;
+        min-height: fit-content;
+    }
+
+    /* Chart days */
+
+    .daysButtonsDiv button {
+        font-size: 17px;
+        padding: 8px 10px;
+        margin: 8px 10px;
+    }
+
+    /* Extra Info Section */
+
+    .extraInfoSection {
+        max-width: 50rem;
+    }
+    
+    .extraInfoSection > div > div{
+        padding: 5px 10px;
+    }
+    .extraInfoSection > div > div {
+        font-size: 14px;
+    } 
+    .pricePercentage {
+        display: inline-block;
+        padding: 4px 4px;
+        border-radius: 10px;
+    }
+    .aboutSection {
+        max-width: 50rem;
+    }
+
+    .aboutSection h3 {
+        font-size: 20px;
+        margin: 0 0 35px 0;
+    }
+
+    .aboutDiv div {
+        font-size: 16px;
+        color: var(--day-text-not-active);
+    }
+}
+
+/* 850 */
+
+@media all and (max-width: 850px) and (min-width: 740px) {
+    .mainInfoSection {
+        max-width: 42rem;
+    }
+
+    /* Chart Section */
+
+    .chartSection {
+        max-width: 42rem;
+    }
+
+    /* Chart */
+    .chartOptionsDiv h2 {
+        font-size: 26px;
+    }
+
+    .chartOptionsDiv h2 span {
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--less-important-text);
+    }
+
+    .chartDiv {
+        margin-top: 30px;
+        width: 100%;
+        min-height: fit-content;
+    }
+
+    /* Chart days */
+
+    .daysButtonsDiv button {
+        font-size: 17px;
+        padding: 8px 10px;
+        margin: 8px 10px;
+    }
+
+    /* Extra Info Section */
+
+    .extraInfoSection {
+        max-width: 42rem;
+        padding: 2px 0;
+    }
+
+    .extraInfoSection > div > div {
+        font-size: 12px;
+    }
+
+    .aboutSection {
+        max-width: 42rem;
+    }
+
+    .aboutSection h3 {
+        font-size: 18px;
+        margin: 0 0 35px 0;
+    }
+
+    .aboutDiv div {
+        font-size: 14px;
+        color: var(--day-text-not-active);
+    }
+}
+
+/* Resposive Tablet / Phone */
+
+/* 740 */
+
+@media all and (max-width: 740px) {
+
+    /* Main Info Section */
+    .mainInfoSection {
+        padding-top: 80px;
+        max-width: 95vw;
+    }
+
+    .rank {
+        font-size: 12px;
+    }
+
+    .coinNameDiv {
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .coinNameDiv img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .coinPriceDiv {
+        gap: 14px;
+    }
+
+    .price {
+        font-size: 30px;
+    }
+
+    .coinBtcPriceDiv {
+        gap: 10px;
+    }
+
+    .priceBTC {
+        font-size: 16px;
+    }
+
+    .pricePercentage {
+        font-size: 14px;
+    }
+
+    .coinNameDiv .dot {
+        margin: 0 8px 4px 6px;
+    }
+
+    .coinNameDiv .symbol {
+        font-size: 18px;
+    }
+
+    #watchlistStar {
+        margin-right: 0px;
+        font-size: 18px;
+    }
+
+
+    /* Chart Section */
+
+    .chartSection {
+        max-width: 95vw;
+        padding: 10px 0px;
+    }
+
+    /* Chart options */
+    .chartOptionsDiv {
+        display: block;
+    }
+
+    .formatChartDiv {
+        display: flex;
+        align-items: center;
+    }
+
+    .formatChartItem {
+        margin: 5px 15px;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .chartOptionsDiv h2 {
+        font-size: 26px;
+    }
+
+    .chartOptionsDiv h2 span {
+        font-size: 24px;
+    }
+
+    .chartOptionsDiv h2 span .dot {
+        width: 6px;
+        height: 6px;
+        margin-right: 10px;
+    }
+
+    /* Chart */
+
+    .chartDiv {
+        box-shadow: 0px 0px 20px 10px var(--chart-boxshadow);
+        min-height: fit-content;
+        margin-top: 25px;
+    }
+
+    /* Chart days */
+
+    .daysButtonsDiv {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .daysButtonsDiv button {
+        font-size: 14px;
+        padding: 6px 10px;
+        margin: 8px;
+    }
+
+    /* Extra Info Section */
+
+    .extraInfoSection {
+        max-width: 95vw;
+        justify-content: center;
+        padding: 0px;
+    }
+    
+    .extraInfoSection > div {
+        padding: 6px;
+        display: inline;
+        width: 45%;
+        flex-basis: 45%;
+    }
+    .extraInfoSection > div > div {
+        padding: 3px 15px;
+        font-size: 14px;
+    }
+
+    .aboutSection {
+        max-width: 95vw;
+        width: 100%;
+        margin: 30px auto 0 auto;
+    }
+
+    .aboutSection h3 {
+        font-size: 20px;
+        margin: 0 0 35px 0;
+    }
+    .aboutDiv {
+        padding: 40px 20px 10px 20px;
+    }
+    .aboutDiv div {
+        padding-bottom: 24px;
+        line-height: 28px;
+        font-size: 15px;
+    }
+
+}
+
+/* 450 */
+
+@media all and (max-width: 450px) {
+    .daysButtonsDiv {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .daysButtonsDiv button {
+        font-size: 14px;
+        padding: 6px 10px;
+        margin: 8px 2px;
+    }
+}
+
+/* 350 */
+
+@media all and (max-width: 350px) {}

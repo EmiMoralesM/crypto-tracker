@@ -524,7 +524,7 @@ tbody tr:hover {
 
 /* 1700px */
 
-@media all and (width <=1700px) and (width >740px) {
+@media all and (max-width: 1700px) and (min-width: 740px) {
     .mainTitle>h1 {
         font-size: 2.5rem;
         margin-bottom: 15px;
@@ -615,7 +615,7 @@ tbody tr:hover {
 
 /* 1500px */
 
-@media all and (width <=1500px) and (width >740px) {
+@media all and (max-width: 1500px) and (min-width: 740px) {
 
     .mainTitle>h1 {
         font-size: 2.5rem;
@@ -713,7 +713,7 @@ tbody tr:hover {
 
 /* 1300px */
 
-@media all and (width <=1300px) and (width >740px) {
+@media all and (max-width: 1300px) and (min-width: 740px) {
 
     .mainTitle>h1 {
         font-size: 1.875rem;
@@ -831,7 +831,7 @@ tbody tr:hover {
 
 /* 1100px */
 
-@media all and (width <=1100px) and (width >740px) {
+@media all and (max-width: 1100px) and (min-width: 740px) {
 
     .mainTitle>h1 {
         font-size: 1.375rem;
@@ -984,7 +984,7 @@ tbody tr:hover {
 
 /* 850 */
 
-@media all and (width <=850px) and (width >740px) {
+@media all and (max-width: 850px) and (min-width: 740px) {
 
     .mainTitle>h1 {
         font-size: 1.313rem;
@@ -1152,7 +1152,6 @@ tbody tr:hover {
 @media all and (max-width: 740px) {
     .mainTitle {
         text-align: center;
-        background-color: red;
     }
 
     .mainTitle>h1 {
@@ -1230,13 +1229,14 @@ tbody tr:hover {
     /* Coins */
 
     .coinsContainer {
-        max-width: 95vw;
+        max-width: 98vw;
         padding-bottom: 15px;
     }
 
     .coinsDiv {
         min-height: 10rem;
         padding: 5px 0px;
+        box-shadow: 0px 0px 30px 10px var(--box-shadow-coins);
     }
 
     tr {
@@ -1392,7 +1392,7 @@ tbody tr:hover {
     /* Coins */
 
     .coinsContainer {
-        max-width: 95vw;
+        max-width: 98vw;
         padding-bottom: 15px;
     }
 
@@ -1540,7 +1540,7 @@ tbody tr:hover {
     /* Coins */
 
     .coinsContainer {
-        max-width: 95vw;
+        max-width: 98vw;
         padding-bottom: 10px;
     }
 

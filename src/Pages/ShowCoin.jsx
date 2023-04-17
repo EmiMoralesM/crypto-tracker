@@ -54,15 +54,15 @@ export default function ShowCoin(props) {
          const newObjectWatchlist = props.objectsWatchlist.filter((coin) => coin.id != params.id.toLowerCase())
          props.setObjectsWatchlist(newObjectWatchlist)
          localStorage.setItem('objectsWatchlist', JSON.stringify(newObjectWatchlist));
-         
+
       } else {
          setOnWatchlist(true)
-         
+
          // Add the coin object to the watchlist.
          props.setObjectsWatchlist(prevWatchlist => [...prevWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())])
          localStorage.setItem('objectsWatchlist', JSON.stringify([...props.objectsWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())]));
       }
-      
+
    }
 
    // Chage format style of the chart (market_caps -- prices)
@@ -93,9 +93,8 @@ export default function ShowCoin(props) {
       gradientSegment.addColorStop(1, colors.gradientEnd)
       return gradientSegment
    }
-
    return (
-      <main key={coin.id}>
+      <main>
          {!coinData ? (
             <div className='loadingPageDiv'>
                {/* <h1 className='loadingPage'>Loading...</h1> */}
@@ -122,7 +121,8 @@ export default function ShowCoin(props) {
                <div className='coinActionsDiv'>
                   <div className='watchlistCheckDiv'>
                      <input id='starInput' type='checkbox'></input>
-                     <label htmlFor='starInput' onClick={toggleStar}><i id='watchlistStar' className={onWatchlist ? 'fa-solid fa-star' : 'fa-regular fa-star'}></i> WatchList</label>
+                     <label htmlFor='starInput' className='hideMobile' onClick={toggleStar}><i id='watchlistStar' className={onWatchlist ? 'fa-solid fa-star' : 'fa-regular fa-star'}></i> WatchList</label>
+                     <label htmlFor='starInput' className='hideDesktop' onClick={toggleStar}><i id='watchlistStar' className={onWatchlist ? 'fa-solid fa-star' : 'fa-regular fa-star'}></i></label>
                   </div>
 
                </div>
@@ -222,35 +222,47 @@ export default function ShowCoin(props) {
 
          {coinData && <section className='extraInfoSection'>
             {coinData.market_data.price_change_percentage_1h_in_currency[props.currency.name.toLowerCase()] &&
-            <div>
-               <p>1H</p>
-               <p className={coinData.market_data.price_change_percentage_1h_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_1h_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>}
+               <div>
+                  <div>
+                     <p>1H</p>
+                     <p className={coinData.market_data.price_change_percentage_1h_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_1h_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
+                  </div>
+               </div>}
             {coinData.market_data.price_change_percentage_24h_in_currency[props.currency.name.toLowerCase()] &&
-            <div>
-               <p>24H</p>
-               <p className={coinData.market_data.price_change_percentage_24h_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_24h_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>}
+               <div>
+                  <div>
+                     <p>24H</p>
+                     <p className={coinData.market_data.price_change_percentage_24h_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_24h_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
+                  </div>
+               </div>}
             {coinData.market_data.price_change_percentage_7d_in_currency[props.currency.name.toLowerCase()] &&
-            <div>
-               <p>7D</p>
-               <p className={coinData.market_data.price_change_percentage_7d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_7d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>}
+               <div>
+                  <div>
+                     <p>7D</p>
+                     <p className={coinData.market_data.price_change_percentage_7d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_7d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
+                  </div>
+               </div>}
             {coinData.market_data.price_change_percentage_14d_in_currency[props.currency.name.toLowerCase()] &&
-            <div>
-               <p>14D</p>
-               <p className={coinData.market_data.price_change_percentage_14d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_14d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>}
+               <div>
+                  <div>
+                     <p>14D</p>
+                     <p className={coinData.market_data.price_change_percentage_14d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_14d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
+                  </div>
+               </div>}
             {coinData.market_data.price_change_percentage_30d_in_currency[props.currency.name.toLowerCase()] &&
-            <div>
-               <p>30D</p>
-               <p className={coinData.market_data.price_change_percentage_30d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_30d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>}
+               <div>
+                  <div>
+                     <p>30D</p>
+                     <p className={coinData.market_data.price_change_percentage_30d_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_30d_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
+                  </div>
+               </div>}
             {coinData.market_data.price_change_percentage_1y_in_currency[props.currency.name.toLowerCase()] &&
-             <div>
-               <p>1Y</p>
-               <p className={coinData.market_data.price_change_percentage_1y_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_1y_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
-            </div>}
+               <div>
+                  <div>
+                     <p>1Y</p>
+                     <p className={coinData.market_data.price_change_percentage_1y_in_currency[props.currency.name.toLowerCase()] >= 0.0 ? 'pricePercentage green' : 'pricePercentage red'}>{coinData.market_data.price_change_percentage_1y_in_currency[props.currency.name.toLowerCase()].toFixed(4)}%</p>
+                  </div>
+               </div>}
          </section>}
          {coinData && <section className='aboutSection'>
             {coinData.description.en.split(". ")[0] && <div className='aboutDiv'>
@@ -258,7 +270,7 @@ export default function ShowCoin(props) {
 
                {coinData.description.en.split(". ")[0] && <div dangerouslySetInnerHTML={{ __html: coinData.description.en.split(". ")[0] + ". " + coinData.description.en.split(". ")[1] + "." }}></div>}
                {coinData.description.en.split(". ")[3] && <div dangerouslySetInnerHTML={{ __html: coinData.description.en.split(". ")[2] + ". " + coinData.description.en.split(". ")[3] + "." }}></div>}
-            </div>}  
+            </div>}
          </section>}
       </main>
    )

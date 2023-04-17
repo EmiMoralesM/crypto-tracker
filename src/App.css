@@ -206,9 +206,13 @@ main {
     -webkit-transform: rotate(135deg);
     transition: all ease .2s;
 }
-
-@media screen and (width <=740px) {
-    .hideMobile {
+@media all and (min-width: 740px) {
+    .hideDesktop{
         display: none;
     }
+}
+@media all and (max-width: 740px) {
+    .hideMobile {
+        display: none;
+    }   
 }

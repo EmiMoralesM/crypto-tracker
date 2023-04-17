@@ -1,0 +1,646 @@
+.profileSection {
+    width: 100%;
+    display: flex;
+    max-width: 70rem;
+    padding-top: 10vh;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.profilePageDiv {
+    display: flex;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding-right: 50px;
+}
+
+.leftSide h1 {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.leftSide a {
+    color: var(--signature-color);
+    text-decoration: none;
+    padding: 15px 20px;
+    margin: 8px 0;
+    font-size: 18px;
+    border-radius: 15px;
+    transition: all ease .3s;
+    font-weight: 600;
+}
+
+.leftSide a:hover {
+    background-color: var(--menu-profile-background-hover);
+
+}
+
+.leftSide a i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    height: 20px;
+}
+
+.leftSide .activePageProfile {
+    background-color: var(--menu-profile-background);
+    color: var(--white);
+}
+
+.leftSide .activePageProfile:hover {
+    background-color: var(--menu-profile-background);
+    color: var(--white);
+}
+
+
+
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.profileInfoDiv {
+    display: flex;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+.profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.changePic {
+    position: absolute;
+    margin-left: 71px;
+    margin-top: -38px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: var(--cyan);
+    color: var(--white);
+    border: 3px solid var(--main-background);
+}
+
+#changePic {
+    visibility: hidden;
+    display: none;
+}
+
+.photoProfileDiv {
+    overflow: hidden;
+    border: 3px solid var(--cyan);
+    color: var(--cyan);
+    cursor: pointer;
+    font-size: 34px;
+    background-color: var(--items-background);
+    margin-right: 8px;
+    border-radius: 50%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.changeUsernameForm {
+    display: flex;
+    margin-top: 50px;
+    align-items: flex-end;
+}
+
+.changeEmailForm {
+    display: flex;
+    margin-top: 40px;
+    align-items: flex-end;
+}
+
+.changeUsernameForm div,
+.changeEmailForm div {
+    width: 70%;
+}
+
+.changeUsernameForm input,
+.changeEmailForm input {
+    display: block;
+    background-color: var(--input-background);
+    border: 2px solid var(--input-background);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    color: var(--signature-color);
+    width: 100%;
+    transition: all ease .3s;
+}
+
+.changeUsernameForm label,
+.changeEmailForm label {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 5px;
+    margin-bottom: 5px;
+
+}
+
+.changeUsernameForm button,
+.changeEmailForm button {
+    height: max-content;
+    padding: 14px 20px;
+    margin-left: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.518);
+    border: 0px;
+    transition: all ease .2s;
+    border-radius: 12px;
+}
+
+.changeUsernameForm button:hover,
+.changeEmailForm button:hover {
+    background-color: rgba(191, 191, 191, 0.518);
+
+}
+
+.usernameP {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+
+.emailP {
+    font-weight: 500;
+    color: var(--less-important-text);
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+/* Delete profile pic */
+.deletePictureDiv {
+    margin-top: 50px;
+}
+
+.deletePictureDiv button {
+    border: 0px;
+    font-weight: 600;
+    background-color: transparent;
+    font-size: 14px;
+    color: var(--white) !important;
+    opacity: 0.6;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.deletePictureDiv i {
+    font-size: 12px;
+    background-color: rgba(222, 0, 0, 0.88);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 8px;
+    margin-right: 5px;
+    color: white !important;
+    transition: all ease .3s;
+}
+
+.deletePictureDiv button:hover {
+    opacity: 1;
+}
+
+
+/* Loading */
+
+.imageSkeleton {
+    animation: skeleton-loading-img .7s linear infinite alternate;
+}
+
+@keyframes skeleton-loading-img {
+    0% {
+        background-color: var(--skeleton-loading-0);
+    }
+
+    100% {
+        background-color: var(--skeleton-loading-100);
+    }
+}
+
+.usernameLoading {
+    animation: skeleton-loading-username .7s linear infinite alternate;
+    font-weight: 600;
+    width: 200px;
+    height: 24px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+@keyframes skeleton-loading-username {
+    0% {
+        background-color: var(--skeleton-loading-0);
+    }
+
+    100% {
+        background-color: var(--skeleton-loading-100);
+    }
+}
+
+/* Errors */
+
+
+.errorAccountDiv::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0%;
+    height: 4px;
+    background-color: var(--cyan);
+    animation: time-bar 5s linear;
+    border-radius: 5px 0 0 20px;
+}
+
+@keyframes time-bar {
+    0% {
+        width: 98%;
+    }
+}
+
+.errorAccountDiv {
+    position: absolute;
+    top: 15vh;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 15px 35px 15px 22px;
+    background-color: rgba(61, 61, 61, 0.34);
+    border-radius: 15px 0 0 15px;
+    box-shadow: 0 0 20px -5px rgba(51, 51, 51, 0.68);
+}
+
+.errorAccountDiv i {
+    font-size: 22px;
+    color: rgb(205, 205, 205);
+
+}
+
+.errorAccount {
+    max-width: 12vw;
+    margin: 2px 0 2px 20px;
+    font-weight: 500;
+    color: rgb(205, 205, 205);
+
+}
+
+/* Settings */
+
+.settingDelete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.settingDelete>p {
+    font-weight: 600;
+    color: var(--signature-color);
+}
+
+.settingDelete>button {
+    font-size: 14px;
+    color: var(--white);
+    background-color: var(--active-currency-background);
+    border-radius: 15px;
+    height: max-content;
+    padding: 12px 20px;
+    font-weight: bold;
+    border: 0px;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.settingDelete>button:hover {
+    background-color: var(--language-div-background);
+}
+
+.deleteConfirmation,
+.requireResentLogin {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    background-color: var(--delete-alert-background);
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    height: 100vh;
+
+}
+
+.deleteConfirmation,
+.requireResentLogin {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    background-color: var(--delete-alert-background);
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    height: 100vh;
+
+}
+
+.deleteConfirmation>div {
+    background-color: var(--navBar-settings-background);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: -2vh;
+    /* height: 30vh; */
+    width: 15vw;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.requireResentLogin>div {
+    background-color: var(--hover-coin);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: -2vh;
+    /* height: 30vh; */
+    width: 15vw;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.deleteConfirmation>div i,
+.requireResentLogin>div i {
+    font-size: 40px;
+    margin-top: 5px;
+}
+
+.desctitleDeleteConfirm {
+    font-size: 16px;
+    margin-top: 5px;
+    color: var(--signature-color);
+}
+
+.titleDeleteConfirm {
+    color: var(--white);
+    font-size: 20px !important;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.deleteConfirmation>div>div,
+.requireResentLogin>div>div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.cancelButton {
+    padding: 12px 22px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 0px;
+    background-color: var(--cyan);
+    font-weight: bold;
+    box-shadow: 0 0 10px -5px var(--cyan);
+    cursor: pointer;
+    transition: all ease .3s;
+    color: var(--white);
+}
+
+.cancelButton:hover {
+    background-color: var(--light-cyan);
+}
+
+.deleteButton,
+.resentLoginButton {
+    padding: 12px 22px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 0px;
+    background-color: var(--language-div-background);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.deleteButton:hover,
+.resentLoginButton:hover {
+    background-color: var(--delete-button-hover);
+    color: var(--white);
+}
+
+@media all and (max-width: 1700px) and (min-width: 740px) {
+    .profilePageDiv {
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 1500px) and (min-width: 740px) {
+    .leftSide {
+        padding-left: 80px;
+        width: 40%;
+    }
+}
+
+@media all and (max-width: 1300px) and (min-width: 740px) {
+    .leftSide {
+        padding-left: 60px;
+        width: 35%;
+    }
+
+    .rightSide {
+        width: 55%;
+    }
+}
+
+@media all and (max-width: 1100px) and (min-width: 740px) {
+    .leftSide {
+        padding-left: 60px;
+        width: 25%;
+    }
+}
+
+@media all and (max-width: 850px) and (min-width: 740px) {
+    .leftSide h1 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+/* Resposive Tablet / Phone */
+
+/* 740 */
+
+@media all and (max-width: 740px) {
+    .profileSection {
+        max-width: 95vw;
+        padding-top: 8vh;
+    }
+
+    .profilePageDiv {
+        flex-direction: column;
+    }
+
+    .leftSide {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        margin: auto;
+        padding-right: 0px;
+    }
+
+    .leftSide a {
+        margin: 6px 0;
+        padding: 12px 20px;
+    }
+    .leftSide h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .profileInfoDiv {
+        display: flex;
+        margin-top: 20px;
+        gap: 30px;
+    }
+    .rightSide {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: 10px auto 0 auto;
+    }
+    .rightSide h2{
+        margin-bottom: 2px;
+
+    }
+
+    .changeUsernameForm {
+        margin-top: 30px;
+        justify-content: space-between;
+    }
+
+    .changeEmailForm {
+        display: flex;
+        margin-top: 40px;
+        align-items: flex-end;
+    }
+
+    .changeUsernameForm div,
+    .changeEmailForm div {
+        width: 100%;
+    }
+
+    /* Delete profile pic */
+    .deletePictureDiv {
+        margin-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    /* Errors */
+
+    .errorAccountDiv {
+        padding: 10px 35px 10px 22px;
+        background-color: rgb(80, 80, 80);
+        box-shadow: 0 0 20px -5px rgba(51, 51, 51, 0.68);
+    }
+
+    .errorAccount {
+        max-width: fit-content;
+    }
+
+    /* Settings */
+
+    .settingDelete {
+        width: 100%;
+    }
+
+    .deleteConfirmation>div {
+        width: 75vw;
+    }
+
+    .requireResentLogin>div {
+        width: 75vw;
+    }
+}
+
+/* 450 */
+
+@media all and (max-width: 450px) {
+    .photoProfileDiv {
+        width: 90px;
+        height: 90px;
+    }
+
+    .changePic {
+        margin-left: 64px;
+        margin-top: -38px;
+    }
+
+    .usernameP {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .emailP {
+        font-size: 16px;
+    }
+
+    .profileInfoDiv {
+        gap: 12px;
+    }
+}
+
+/* 350 */
+
+@media all and (max-width: 350px) {
+    .photoProfileDiv {
+        width: 80px;
+        height: 80px;
+    }
+
+    .changePic {
+        margin-left: 49px;
+        margin-top: -27px;
+    }
+
+    .usernameP {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .emailP {
+        font-size: 16px;
+    }
+
+    .profileInfoDiv {
+        gap: 10px;
+    }
+}

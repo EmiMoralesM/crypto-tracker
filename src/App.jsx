@@ -31,10 +31,9 @@ function App() {
 	
 	const [coinsObjects, setCoinsObjects] = useState([])
 	const [objectsWatchlist, setObjectsWatchlist] = useState(localObjectsWatchlist)
-	console.log('Coins objects: ', coinsObjects)
-	console.log('Watchlist coins objects: ', objectsWatchlist)
 	
 	const [pageNumber, setPageNumber] = useState(1)
+
 
 	const urlCoins = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}&order=market_cap_desc&per_page=100&page=${pageNumber}&sparkline=false&price_change_percentage=1h%2C7d&locale=en`
 
@@ -77,7 +76,6 @@ function App() {
 		currency: currency.name == "CAD" ? "USD" : currency.name
 	});
 
-	console.log("rendering...")
 
 	return (
 		<div className='App'>
@@ -108,7 +106,6 @@ function App() {
 
 
 					<Route path='/coin/:id' element={<ShowCoin 
-						// key={}
 						currency={currency} currencyFormatter={currencyFormatter}
 						theme={theme}
 						coins={coins}
