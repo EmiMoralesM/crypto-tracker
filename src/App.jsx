@@ -88,15 +88,15 @@ function App() {
 				/>
 				<Loader theme={theme}/>
 				<Routes>
-					<Route index element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber}
+					{/* <Route index element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber}
 						activeWatchlist={activeWatchlist} setActiveWatchlist={setActiveWatchlist}
 						currencyFormatter={currencyFormatter} currency={currency}
 						coins={coins} setCoins={setCoins}
 						coinsObjects={coinsObjects} setCoinsObjects={setCoinsObjects}
 						objectsWatchlist={objectsWatchlist}
-					/>} />
+					/>} /> */}
 
-					<Route path=':page' element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber}
+					<Route path='*' element={<Home pageNumber={pageNumber} setPageNumber={setPageNumber}
 						activeWatchlist={activeWatchlist} setActiveWatchlist={setActiveWatchlist}
 						currencyFormatter={currencyFormatter} currency={currency}
 						coins={coins} setCoins={setCoins}
@@ -119,8 +119,8 @@ function App() {
 					<Route path='/login' element={<ProtectedRegister><Login /></ProtectedRegister>} />
 					<Route path='/forgot-password' element={<ProtectedRegister><ForgotPassword /></ProtectedRegister>} />
 
-					<Route path='/profile' element={<ProtectedProfile ><Profile setActiveWatchlist={setActiveWatchlist} /></ProtectedProfile>} />
-					<Route path='/profile/:page/*' element={<ProtectedProfile ><Profile setActiveWatchlist={setActiveWatchlist} /></ProtectedProfile>} />
+					<Route path='/profile' element={<ProtectedProfile ><Profile setObjectsWatchlist={setObjectsWatchlist} /></ProtectedProfile>} />
+					<Route path='/profile/:page/*' element={<ProtectedProfile ><Profile setObjectsWatchlist={setObjectsWatchlist} /></ProtectedProfile>} />
 
 					{/* <Route path='/profile' element={<Profile />} /> */}
 

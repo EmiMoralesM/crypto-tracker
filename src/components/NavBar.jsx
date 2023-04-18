@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "../styles/NavBar.css"
 import { Routes, Route, Link } from 'react-router-dom'
-import 'animate.css';
+// import 'animate.css';
 import { UserAuth } from '../tools/AuthContext'
 
 export default function NavBar(props) {

@@ -41,29 +41,29 @@ export default function ChangePage(props) {
 
                 <p className='actualPage'>{props.pageNumber}</p>
 
-                {props.pageNumber < 9 && <Link className='changePage' to={`/page_${props.pageNumber + 1}`} onClick={() => {
+                {props.pageNumber < 19 && <Link className='changePage' to={`/page_${props.pageNumber + 1}`} onClick={() => {
                     props.setPageNumber(props.pageNumber + 1)
                     sroll0()
                 }} >
                     {props.pageNumber + 1}
                 </Link>}
-                {props.pageNumber < 8 && <Link className='changePage' to={`/page_${props.pageNumber + 2}`} onClick={() => {
+                {props.pageNumber < 18 && <Link className='changePage' to={`/page_${props.pageNumber + 2}`} onClick={() => {
                     props.setPageNumber(props.pageNumber + 2)
                     sroll0()
                 }} >
                     {props.pageNumber + 2}
                 </Link>}
-                {props.pageNumber < 7 && <p className='treeDots'>...</p>}
-                {props.pageNumber != 10 && <Link className='changePage' to={`/page_10`} onClick={() => {
-                    props.setPageNumber(10)
+                {props.pageNumber < 17 && <p className='treeDots'>...</p>}
+                {props.pageNumber != 20 && <Link className='changePage' to={`/page_20`} onClick={() => {
+                    props.setPageNumber(20)
                     sroll0()
                 }} >
-                    10
+                    20
                 </Link>}
             </div>
             <div className='nextPageDiv hideMobile'>
-                <Link to={`/page_${props.pageNumber + 1 > 9 ? 10 : props.pageNumber + 1}`} onClick={() => {
-                    props.setPageNumber(props.pageNumber + 1 > 9 ? 10 : props.pageNumber + 1)
+                <Link to={`/page_${props.pageNumber + 1 > 19 ? 20 : props.pageNumber + 1}`} onClick={() => {
+                    props.setPageNumber(props.pageNumber + 1 > 19 ? 20 : props.pageNumber + 1)
                     sroll0()
                 }} >
                     Next

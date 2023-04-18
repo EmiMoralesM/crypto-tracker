@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/Home.css"
 import CoinItem from './CoinItem'
-import 'animate.css';
+// import 'animate.css';
 import { Link, json } from 'react-router-dom';
 import ShowCoin from '../Pages/ShowCoin';
 

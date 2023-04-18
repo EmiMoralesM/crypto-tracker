@@ -8,9 +8,12 @@ import {
     updateProfile,
     deleteUser,
 } from 'firebase/auth'
-import { auth } from './firebase'
+import "firebase/firestore";
+import app, { auth, db } from './firebase'
 import { useNavigate } from 'react-router-dom'
 import { ref, uploadBytes, getDownloadURL, getStorage, deleteObject } from 'firebase/storage'
+
+import { doc, setDoc,  getDoc, deleteDoc } from "firebase/firestore";
 
 const UserContext = createContext()
 
@@ -33,7 +36,6 @@ export const AuthContextProvider = (props) => {
         }
 
     }, [])
-
     // If there is no username, set a default one (the email). 
     useEffect(() => {
         if (user) {
@@ -50,6 +52,25 @@ export const AuthContextProvider = (props) => {
             }
         }
     }, [user])
+
+    const handleUsersWatchlist = async (objectsWatchlist) => {
+        // Add or modify a user (watchlist) in collection "users"
+        await setDoc(doc(db, "users", user.email), {
+            watchlist: objectsWatchlist,
+        });
+    }
+    const getUserWatchlist = async () => {
+        const docRef = doc(db, "users", user.email);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data().watchlist);
+            return docSnap.data().watchlist
+        } else {
+            // docSnap.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }
 
     const setWrongInput = (id) => {
         document.getElementById(id).classList.add('wrongData')
@@ -86,20 +107,22 @@ export const AuthContextProvider = (props) => {
         }
     }
 
-    const deleteAccount = () => {
+    const deleteAccount = async () => {
         const user = auth.currentUser;
         deleteUser(user).then(() => {
+            // Delete the user's watchlist
+            deleteDoc(doc(db, "users", user.email));
+
             console.log('User Deleted!')
             forceUpdate()
         }).catch((error) => {
-            if(error.message == 'Firebase: Error (auth/requires-recent-login).'){
+            if (error.message == 'Firebase: Error (auth/requires-recent-login).') {
                 console.log(error.message)
                 setResentLogin(false)
-            } else{
+            } else {
                 setAccountError("Couldn't delete the account Please, try again later")
                 setTimeout(() => setAccountError(''), 5000)
             }
-
         });
     }
 
@@ -119,7 +142,8 @@ export const AuthContextProvider = (props) => {
                 getDownloadURL(imageRef).then((url) => {
                     // We set the profile to have that image
                     updateProfile(auth.currentUser, {
-                        photoURL: url
+                        photoURL: url,
+                        providerData: "url"
                     }).then(() => {
                         console.log('Profile picture updated')
                         forceUpdate()
@@ -129,7 +153,6 @@ export const AuthContextProvider = (props) => {
                         setLoadingImage(false)
                         setAccountError("Couldn't change the profile picture.");
                         setTimeout(() => setAccountError(''), 5000)
-
                     });
                 })
             })
@@ -179,7 +202,7 @@ export const AuthContextProvider = (props) => {
 
 
     return (
-        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, deleteAccount, setResentLogin, resentLogin, loadingUsername, accountError }}>
+        <UserContext.Provider value={{ user, createUser, login, resetPassword, setWrongInput, resetWrong, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, deleteAccount, setResentLogin, resentLogin, loadingUsername, accountError, handleUsersWatchlist, getUserWatchlist }}>
             {props.children}
         </UserContext.Provider>
     )

@@ -60,7 +60,14 @@
     height: 100%;
     z-index: 1000;
 }
-
+.loaderLogo{
+    background: var(--loader-logo);
+    background-size: 15vw;
+    width: 15vw;
+    height: 15vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .load .div-loader .section-load {
     transform: translateY(-100%);
     transition: all 1s 0.2s cubic-bezier(0.645, 0.045, 0.355, 1.000);

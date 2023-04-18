@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "../styles/Footer.css"
-import 'animate.css'
+// import 'animate.css'
 
 export default function Signature() {
     return (

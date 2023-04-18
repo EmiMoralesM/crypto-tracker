@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../tools/AuthContext'
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-  const { login, setWrongInput, resetWrong } = UserAuth()
+  const { login, setWrongInput, resetWrong, getUserWatchlist} = UserAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -17,6 +17,9 @@ export default function Login() {
       setLoading(true)
       await login(email, password)
       navigate('/profile')
+      const usersWatchlist = await getUserWatchlist()
+      props.setObjectsWatchlist(usersWatchlist)
+      
     } catch (e) {
       if (e.message == 'Firebase: Error (auth/user-not-found).') {
         setError('User not found')

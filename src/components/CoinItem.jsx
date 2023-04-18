@@ -1,7 +1,7 @@
 import React from 'react'
 import "../styles/Home.css"
 import { useNavigate } from 'react-router-dom';
-
+// import 'animate.css';
 
 export default function CoinItem(props) {
 	function formatNumber(number) {

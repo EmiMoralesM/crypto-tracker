@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import '../styles/Profile.css'
 import { UserAuth } from '../tools/AuthContext'
 import { Link, useParams } from 'react-router-dom'
-import 'animate.css';
+// import 'animate.css';
 
 export default function Profile(props) {
-  const { user, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, deleteAccount, setResentLogin, resentLogin, loadingUsername, accountError } = UserAuth()
+  const { user, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, deleteAccount, setResentLogin, resentLogin, loadingUsername, accountError, getUserWatchlist } = UserAuth()
 
   const [deleteConfirmation, setDeleteConfirmation] = useState(false)
   const params = useParams()
@@ -14,6 +14,18 @@ export default function Profile(props) {
   useEffect(() => {
     setActualPage(params.page ? params.page : 'user-info')
   }, [params.page])
+
+
+  useEffect(() => {
+    async function getWatchlist() {
+      const usersWatchlist = await getUserWatchlist()
+      if (usersWatchlist){
+        props.setObjectsWatchlist(usersWatchlist)
+      }
+    }
+    getWatchlist();
+  }, []);
+
 
   // Animation for the error message to fade out when the tiem ends.
   useEffect(() => {

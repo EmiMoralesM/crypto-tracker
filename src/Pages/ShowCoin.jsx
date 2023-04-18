@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import "../styles/ShowCoin.css"
-import 'animate.css';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, layouts, plugins } from 'chart.js/auto'
 import { chartDays } from '../tools/chartDays';
+import { UserAuth } from '../tools/AuthContext'
 
 // Page for the individual coins.
 export default function ShowCoin(props) {
@@ -18,7 +17,8 @@ export default function ShowCoin(props) {
    const [chartFormat, setChartFormat] = useState("prices")
    const [onWatchlist, setOnWatchlist] = useState()
 
-
+   const { user, handleUsersWatchlist, getUserWatchlist } = UserAuth()
+   
    const urlCoinInfo = `https://api.coingecko.com/api/v3/coins/${coin}?tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
    const urlCoinChart = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=${props.currency.name.toLowerCase()}&days=${days}`
 
@@ -46,21 +46,44 @@ export default function ShowCoin(props) {
       fetchData();
    }, [props.currency, days])
 
-   const toggleStar = () => {
+   const toggleStar = async() => {
       if (onWatchlist) {
          setOnWatchlist(false)
-
          // Delete the coin object from the watchlist.
          const newObjectWatchlist = props.objectsWatchlist.filter((coin) => coin.id != params.id.toLowerCase())
-         props.setObjectsWatchlist(newObjectWatchlist)
-         localStorage.setItem('objectsWatchlist', JSON.stringify(newObjectWatchlist));
 
+         if (user){
+            // If there is a user we update the users watchlist
+            await handleUsersWatchlist(newObjectWatchlist)
+            // And then we get the data and set the watchlist with that data
+            const usersWatchlist = await getUserWatchlist()
+            console.log(usersWatchlist)
+            props.setObjectsWatchlist(usersWatchlist)
+            
+         } else{
+            // If there is no user we set the watchlist normally
+            props.setObjectsWatchlist(newObjectWatchlist)
+         }
+         localStorage.setItem('objectsWatchlist', JSON.stringify(newObjectWatchlist));
       } else {
          setOnWatchlist(true)
+         // Here we add the coin object to the watchlist.
 
-         // Add the coin object to the watchlist.
-         props.setObjectsWatchlist(prevWatchlist => [...prevWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())])
+         // Set the localstorage
          localStorage.setItem('objectsWatchlist', JSON.stringify([...props.objectsWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())]));
+
+         if (user){
+            // If there is a user we update the users watchlist
+            await handleUsersWatchlist([...props.objectsWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())])
+            // And then we get the data and set the watchlist with that data.
+            const usersWatchlist = await getUserWatchlist()
+            console.log(usersWatchlist)
+            props.setObjectsWatchlist(usersWatchlist)
+         } else{
+            // If there is no user we set the watchlist normally.
+            props.setObjectsWatchlist(prevWatchlist => [...prevWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())])
+         }
+
       }
 
    }
