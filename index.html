@@ -15,7 +15,19 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <!-- <script>new WOW().init();</script> -->
-  <script type="module" crossorigin src="/crypto-tracker/assets/index-8f25d063.js"></script>
+  <script type="text/javascript">
+    (function (l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+  <script type="module" crossorigin src="/crypto-tracker/assets/index-e855d3c8.js"></script>
   <link rel="stylesheet" href="/crypto-tracker/assets/index-186c6865.css">
 </head>
 
