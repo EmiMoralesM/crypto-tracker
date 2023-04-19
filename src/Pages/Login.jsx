@@ -32,7 +32,6 @@ export default function Login(props) {
       } else {
         setError('Failed to login')
       }
-      console.log(e.message)
     }
     setLoading(false)
   }

@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 // import 'animate.css';
 
 export default function Profile(props) {
-  const { user, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, deleteAccount, setResentLogin, resentLogin, loadingUsername, accountError, getUserWatchlist } = UserAuth()
+  const { user, handleLogout, handleChangeImage, handleChangeUsername, deleteProfilePicture, loadingImage, deleteAccount, setResentLogin, resentLogin, loadingUsername, accountError, getUserWatchlist, handleUsersWatchlist } = UserAuth()
 
   const [deleteConfirmation, setDeleteConfirmation] = useState(false)
   const params = useParams()
@@ -21,6 +21,8 @@ export default function Profile(props) {
       const usersWatchlist = await getUserWatchlist()
       if (usersWatchlist){
         props.setObjectsWatchlist(usersWatchlist)
+      } else{
+        handleUsersWatchlist(props.objectsWatchlist)
       }
     }
     getWatchlist();

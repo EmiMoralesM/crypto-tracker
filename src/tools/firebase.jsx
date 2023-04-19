@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBVemW4ae1rlgLLmzRWk3TkCxNaYizq4b8",
-  authDomain: "cryptocurrency-tracker-a320a.firebaseapp.com",
-  projectId: "cryptocurrency-tracker-a320a",
-  storageBucket: "cryptocurrency-tracker-a320a.appspot.com",
-  messagingSenderId: "468026540673",
-  appId: "1:468026540673:web:026b3187f524608ae28380"
+  apiKey: "AIzaSyB-eB4a39si8NSV9LbvBWvdjnUUts2u-8U",
+  authDomain: "cryptocurrencytracker-prod.firebaseapp.com",
+  projectId: "cryptocurrencytracker-prod",
+  storageBucket: "cryptocurrencytracker-prod.appspot.com",
+  messagingSenderId: "846616768947",
+  appId: "1:846616768947:web:9f03e849aad8da7ac3dbc6"
 };
 
 // Initialize Firebase

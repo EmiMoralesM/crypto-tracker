@@ -46,7 +46,6 @@ export const AuthContextProvider = (props) => {
                     }).then(() => {
                         forceUpdate()
                     }).catch((error) => {
-                        console.log(error.message)
                     });
                 }
             }
@@ -64,12 +63,9 @@ export const AuthContextProvider = (props) => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data().watchlist);
+            // console.log("Document data:", docSnap.data().watchlist);
             return docSnap.data().watchlist
-        } else {
-            // docSnap.data() will be undefined in this case
-            console.log("No such document!");
-        }
+        } 
     }
 
     const setWrongInput = (id) => {
@@ -90,16 +86,16 @@ export const AuthContextProvider = (props) => {
                 updateProfile(auth.currentUser, {
                     photoURL: ''
                 }).then(() => {
-                    console.log('Picture deleted')
+                    // console.log('Picture deleted')
                     forceUpdate()
                     setLoadingImage(false)
                 }).catch((error) => {
-                    console.log(error.message)
+                    // console.log(error.message)
                     setAccountError("Couldn't delete the profile picture.");
                     setTimeout(() => setAccountError(''), 5000)
                 });
             }).catch((error) => {
-                console.log(error.message)
+                // console.log(error.message)
                 setAccountError("Couldn't delete the profile picture.");
                 setTimeout(() => setAccountError(''), 5000)
             });
@@ -113,11 +109,11 @@ export const AuthContextProvider = (props) => {
             // Delete the user's watchlist
             deleteDoc(doc(db, "users", user.email));
 
-            console.log('User Deleted!')
+            // console.log('User Deleted!')
             forceUpdate()
         }).catch((error) => {
             if (error.message == 'Firebase: Error (auth/requires-recent-login).') {
-                console.log(error.message)
+                // console.log(error.message)
                 setResentLogin(false)
             } else {
                 setAccountError("Couldn't delete the account Please, try again later")
@@ -128,7 +124,7 @@ export const AuthContextProvider = (props) => {
 
     const handleChangeImage = (e) => {
         if (e.target.files[0].size > 2097152) {
-            console.log('File too big')
+            // console.log('File too big')
             setAccountError('File too big! (max. 2MB)');
             setTimeout(() => setAccountError(''), 5000)
         } else {
@@ -145,11 +141,11 @@ export const AuthContextProvider = (props) => {
                         photoURL: url,
                         providerData: "url"
                     }).then(() => {
-                        console.log('Profile picture updated')
+                        // console.log('Profile picture updated')
                         forceUpdate()
                         setLoadingImage(false)
                     }).catch((error) => {
-                        console.log(error.message)
+                        // console.log(error.message)
                         setLoadingImage(false)
                         setAccountError("Couldn't change the profile picture.");
                         setTimeout(() => setAccountError(''), 5000)
@@ -166,10 +162,10 @@ export const AuthContextProvider = (props) => {
         await updateProfile(auth.currentUser, {
             displayName: newUsername
         }).then(() => {
-            console.log('Username updated')
+            // console.log('Username updated')
             forceUpdate()
         }).catch((error) => {
-            console.log(error.message)
+            // console.log(error.message)
             setAccountError("Couldn't change the username.");
             setTimeout(() => setAccountError(''), 5000)
         });
@@ -181,10 +177,9 @@ export const AuthContextProvider = (props) => {
         try {
             await signOut(auth)
             navigate('/login')
-            console.log('You are logged out!')
+            // console.log('You are logged out!')
         } catch (error) {
-            console.log(error.message)
-
+            // console.log(error.message)
         }
     }
 

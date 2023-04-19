@@ -119,8 +119,8 @@ function App() {
 					<Route path='/login' element={<ProtectedRegister><Login /></ProtectedRegister>} />
 					<Route path='/forgot-password' element={<ProtectedRegister><ForgotPassword /></ProtectedRegister>} />
 
-					<Route path='/profile' element={<ProtectedProfile ><Profile setObjectsWatchlist={setObjectsWatchlist} /></ProtectedProfile>} />
-					<Route path='/profile/:page/*' element={<ProtectedProfile ><Profile setObjectsWatchlist={setObjectsWatchlist} /></ProtectedProfile>} />
+					<Route path='/profile' element={<ProtectedProfile ><Profile objectsWatchlist={objectsWatchlist} setObjectsWatchlist={setObjectsWatchlist} setActiveWatchlist={setActiveWatchlist} /></ProtectedProfile>} />
+					<Route path='/profile/:page/*' element={<ProtectedProfile ><Profile objectsWatchlist={objectsWatchlist} setObjectsWatchlist={setObjectsWatchlist} setActiveWatchlist={setActiveWatchlist} /></ProtectedProfile>} />
 
 					{/* <Route path='/profile' element={<Profile />} /> */}
 

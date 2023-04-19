@@ -57,7 +57,6 @@ export default function ShowCoin(props) {
             await handleUsersWatchlist(newObjectWatchlist)
             // And then we get the data and set the watchlist with that data
             const usersWatchlist = await getUserWatchlist()
-            console.log(usersWatchlist)
             props.setObjectsWatchlist(usersWatchlist)
             
          } else{
@@ -77,7 +76,6 @@ export default function ShowCoin(props) {
             await handleUsersWatchlist([...props.objectsWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())])
             // And then we get the data and set the watchlist with that data.
             const usersWatchlist = await getUserWatchlist()
-            console.log(usersWatchlist)
             props.setObjectsWatchlist(usersWatchlist)
          } else{
             // If there is no user we set the watchlist normally.
