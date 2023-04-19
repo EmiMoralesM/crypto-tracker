@@ -2,8 +2,8 @@
 
 Crypto Tracker is a personal project that I created to showcase my skills in web development. As a cryptocurrency enthusiast, I wanted to build a web application that allows users to easily track the prices of their favorite cryptocurrencies in real-time.
 
-<p align='center'> <img width='370' src="https://user-images.githubusercontent.com/111534564/232962140-650c7386-4fbc-4ef4-ad88-24d27034ef7f.png" alt="">
-<img width='370' src="https://user-images.githubusercontent.com/111534564/232962251-d98250f4-aa7c-48ec-bbff-f03571338259.png" alt="">  </p>
+<p align='center'> <img width='410' src="https://user-images.githubusercontent.com/111534564/232962140-650c7386-4fbc-4ef4-ad88-24d27034ef7f.png" alt="">
+<img width='410' src="https://user-images.githubusercontent.com/111534564/232962251-d98250f4-aa7c-48ec-bbff-f03571338259.png" alt="">  </p>
 
 ## 🔥 Features
 Crypto Tracker comes with a range of features that demonstrate my technical abilities:
