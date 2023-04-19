@@ -23,7 +23,7 @@ Crypto Tracker comes with a range of features that demonstrate my technical abil
 ## 🔑 Getting Started
 To get started with Crypto Tracker, simply visit the website and start exploring. You can view the current price of popular cryptocurrencies such as Bitcoin, Ethereum, and Dogecoin, and you can create a watchlist of your favorite currencies to keep track of their price movements.
 
-[Take a look at the project!](https://emimoralesm.github.io/crypto-tracker/login)
+[Take a look at the project!](https://emimoralesm.github.io/crypto-tracker)
 
 ## 🤝 Contributing
 While Crypto Tracker is primarily intended to showcase my skills, I welcome contributions from other developers who are interested in improving the application. If you would like to contribute, please fork the repository and submit a pull request.
