@@ -29,6 +29,9 @@ To get started with Crypto Tracker, simply visit the website and start exploring
 While Crypto Tracker is primarily intended to showcase my skills, I welcome contributions from other developers who are interested in improving the application. If you would like to contribute, please fork the repository and submit a pull request.
 
 
-https://user-images.githubusercontent.com/111534564/232963266-14e83266-1531-4a05-8f80-6498c4285c27.mp4
+
+https://user-images.githubusercontent.com/111534564/232978274-dc6cad58-8294-45bf-b5af-d28fc36bc357.mp4
+
+
 
 
