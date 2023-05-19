@@ -280,7 +280,7 @@
 
 .themeDiv,
 .languageDiv,
-.whatchlistDiv,
+.watchlistDiv,
 .signoutDiv,
 .loginDiv,
 .profileDiv {
@@ -300,7 +300,7 @@
 
 .themeDiv,
 .languageDiv,
-.whatchlistDiv {
+.watchlistDiv {
     margin: 20px 0;
 
 }
@@ -309,7 +309,7 @@
 .settingsTitleDiv,
 .themeDiv,
 .profileDiv,
-.whatchlistDiv {
+.watchlistDiv {
     margin-left: 30px;
 }
 
@@ -462,7 +462,7 @@
 
 /* Watchlist div */
 
-.whatchlistDiv>i,
+.watchlistDiv>i,
 .profileDiv i {
     color: var(--white);
     width: 8px;
@@ -470,7 +470,7 @@
     margin-left: 15px;
 }
 
-.whatchlistDiv {
+.watchlistDiv {
     justify-content: space-between;
     opacity: .6;
     transition: all ease .2s;
@@ -479,22 +479,22 @@
     color: var(--white)
 }
 
-.whatchlistDiv:hover {
+.watchlistDiv:hover {
     opacity: 1;
 }
 
-.whatchlistDiv div {
+.watchlistDiv div {
     display: flex;
     align-items: center;
     margin-left: -10px;
 }
 
-.whatchlistDiv a {
+.watchlistDiv a {
     text-decoration: none;
     color: var(--white);
 }
 
-.whatchlistDiv>div>i {
+.watchlistDiv>div>i {
     width: 25px;
     margin: 0 12px 0 10px;
     color: var(--white);
@@ -609,7 +609,7 @@
     }
     .themeDiv,
     .languageDiv,
-    .whatchlistDiv,
+    .watchlistDiv,
     .profileDiv,
     .currenciesDiv {
         display: flex;
@@ -644,7 +644,7 @@
         justify-content: center;
         background-color: var(--currency-item-background-hover);
     }
-    .whatchlistDiv, .profileDiv {
+    .watchlistDiv, .profileDiv {
         opacity: 1;
     }
     .selectedCurrency {

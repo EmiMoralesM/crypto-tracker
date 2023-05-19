@@ -200,11 +200,11 @@ export default function NavBar(props) {
 						<Link to={'/'} onClick={() => {
 							props.setActiveWatchlist(true)
 							toggleSettings()
-						}} className='whatchlistDiv'>
+						}} className='watchlistDiv'>
 							<div>
 								{/* <img src="src/resourses/star.svg" alt="" /> */}
 								<i className="fa-regular fa-star"></i>
-								<p>Whatchlist</p>
+								<p>Watchlist</p>
 							</div>
 							<i className={'arrow right'}></i>
 

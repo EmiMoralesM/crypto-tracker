@@ -22,19 +22,19 @@ export default function Home(props) {
 
 	// If the watchlist is active, it calls the toggleActive function with the watchlist format.
 	useEffect(() => {
-		props.activeWatchlist ? toggleActive("whatchlist"): toggleActive("cryptocurrencies")
+		props.activeWatchlist ? toggleActive("watchlist"): toggleActive("cryptocurrencies")
 	}, [props.activeWatchlist])
 
 	// Function to change from the main coins to the watchlist and bice (buttons styles)
 	const toggleActive = (format) => {
 		let cryptocurrencies = document.getElementById("cryptocurrencies")
-		let whatchlist = document.getElementById("whatchlist")
+		let watchlist = document.getElementById("watchlist")
 		if (format == "cryptocurrencies") {
 			cryptocurrencies.classList.add("active")
-			whatchlist.classList.remove("active")
+			watchlist.classList.remove("active")
 			props.setActiveWatchlist(false)
 		} else {
-			whatchlist.classList.add("active")
+			watchlist.classList.add("active")
 			cryptocurrencies.classList.remove("active")
 			props.setActiveWatchlist(true)
 		}
@@ -57,7 +57,7 @@ export default function Home(props) {
 				<div className='coinsTabs'>
 					<div className='coinsMenu'>
 						<p id='cryptocurrencies' onClick={() => props.setActiveWatchlist(false)} className='coinsMenuItem active'>Cryptocurrencies</p>
-						<p id='whatchlist' onClick={() => props.setActiveWatchlist(true)} className='coinsMenuItem'>Whatchlist</p>
+						<p id='watchlist' onClick={() => props.setActiveWatchlist(true)} className='coinsMenuItem'>Watchlist</p>
 					</div>
 					<div className='searchDiv hideMobile'>
 						<form>
