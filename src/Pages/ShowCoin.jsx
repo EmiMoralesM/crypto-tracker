@@ -18,7 +18,7 @@ export default function ShowCoin(props) {
    const [onWatchlist, setOnWatchlist] = useState()
 
    const { user, handleUsersWatchlist, getUserWatchlist } = UserAuth()
-   
+
    const urlCoinInfo = `https://api.coingecko.com/api/v3/coins/${coin}?tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
    const urlCoinChart = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=${props.currency.name.toLowerCase()}&days=${days}`
 
@@ -46,20 +46,20 @@ export default function ShowCoin(props) {
       fetchData();
    }, [props.currency, days])
 
-   const toggleStar = async() => {
+   const toggleStar = async () => {
       if (onWatchlist) {
          setOnWatchlist(false)
          // Delete the coin object from the watchlist.
          const newObjectWatchlist = props.objectsWatchlist.filter((coin) => coin.id != params.id.toLowerCase())
 
-         if (user){
+         if (user) {
             // If there is a user we update the users watchlist
             await handleUsersWatchlist(newObjectWatchlist)
             // And then we get the data and set the watchlist with that data
             const usersWatchlist = await getUserWatchlist()
             props.setObjectsWatchlist(usersWatchlist)
-            
-         } else{
+
+         } else {
             // If there is no user we set the watchlist normally
             props.setObjectsWatchlist(newObjectWatchlist)
          }
@@ -71,13 +71,13 @@ export default function ShowCoin(props) {
          // Set the localstorage
          localStorage.setItem('objectsWatchlist', JSON.stringify([...props.objectsWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())]));
 
-         if (user){
+         if (user) {
             // If there is a user we update the users watchlist
             await handleUsersWatchlist([...props.objectsWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())])
             // And then we get the data and set the watchlist with that data.
             const usersWatchlist = await getUserWatchlist()
             props.setObjectsWatchlist(usersWatchlist)
-         } else{
+         } else {
             // If there is no user we set the watchlist normally.
             props.setObjectsWatchlist(prevWatchlist => [...prevWatchlist, ...props.coinsObjects.filter((coin) => coin.id.toLowerCase() == params.id.toLowerCase())])
          }
@@ -180,6 +180,7 @@ export default function ShowCoin(props) {
                         label: [chartFormat] == "prices" ? "Price: " : "Market Cap: ",
                         data: historicData[chartFormat].map(data => data[1]),
                         borderColor: [colors.cyan],
+                        borderWidth: 1.5,
                         fill: true,
                         backgroundColor: (context) => {
                            const ctx = context.chart.ctx
@@ -187,7 +188,13 @@ export default function ShowCoin(props) {
                         }
                      }]
                   }}
+                     style={{
+                        height: '400px'
+                     }}
                      options={{
+                        responsive: true,
+                        maintainAspectRatio: false,
+
                         scales: {
                            x: {
                               ticks: {
@@ -206,14 +213,15 @@ export default function ShowCoin(props) {
                                  display: false,
                               },
                               ticks: {
-                                 padding: 10,
+                                 // padding: 10,
+                                 padding: 5,
 
                               }
                            }
                         },
                         elements: {
                            point: {
-                              radius: 1
+                              radius: 0
                            }
                         },
                         layout: {

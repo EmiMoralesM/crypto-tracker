@@ -719,6 +719,18 @@ main {
         flex-wrap: wrap;
         justify-content: center;
     }
+    /* .chartOptionsDiv h2{
+        display: none;
+    }
+    .formatChartDiv{
+        justify-content: center;
+    } */
+    .chartSection{
+        padding: 5px 0;
+    }
+    .daysButtonsDiv{
+        margin-top: 20px;
+    }
     .daysButtonsDiv button {
         font-size: 14px;
         padding: 6px 10px;
