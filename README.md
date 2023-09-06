@@ -4,8 +4,9 @@ Crypto Tracker is a personal project that I created to showcase my skills in web
 
 [Take a look at the project!](https://crypto.emilianomorales.com/) 💻
 
-<p align='center'> <img width='410' src="https://user-images.githubusercontent.com/111534564/232962140-650c7386-4fbc-4ef4-ad88-24d27034ef7f.png" alt="">
+<p align='center'> <img width='410' src="![Housely_ Real Estate App](https://github.com/EmiMoralesM/crypto-tracker/assets/111534564/c43d4ae4-a978-4760-a428-baf9b8602d63)" alt="">
 <img width='410' src="https://user-images.githubusercontent.com/111534564/232962251-d98250f4-aa7c-48ec-bbff-f03571338259.png" alt="">  </p>
+
 
 ## 🔥 Features
 Crypto Tracker comes with a range of features that demonstrate my technical abilities:
